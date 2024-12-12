@@ -270,7 +270,7 @@ export class Exchange extends API {
       cancelAction,
       this.vaultAddress ?? null,
       timestamp,
-      this.getBaseUrl() === 'MAINNET_API_URL',
+      this.getBaseUrl() === MAINNET_API_URL,
     )
 
     return this.postAction(cancelAction, signature, timestamp)
@@ -335,7 +335,7 @@ export class Exchange extends API {
       updateLeverageAction,
       this.vaultAddress ?? null,
       timestamp,
-      this.getBaseUrl() === 'MAINNET_API_URL',
+      this.getBaseUrl() === MAINNET_API_URL,
     )
 
     return this.postAction(updateLeverageAction, signature, timestamp)
@@ -538,7 +538,7 @@ export class Exchange extends API {
     const agentKey = `0x ${randomBytes(32).toString('hex')}`
     const wallet = Wallet.fromPrivateKey(Buffer.from(agentKey.slice(2), 'hex'))
     const timestamp = getTimestampMs()
-    const isMainnet = this.getBaseUrl() === 'MAINNET_API_URL'
+    const isMainnet = this.getBaseUrl() === MAINNET_API_URL
 
     const action: any = {
       type: 'approveAgent',
@@ -615,7 +615,7 @@ export class Exchange extends API {
       },
     }
 
-    const isMainnet = this.getBaseUrl() === 'MAINNET_API_URL'
+    const isMainnet = this.getBaseUrl() === MAINNET_API_URL
 
     const signature = signMultiSigAction(this.wallet, multiSigAction, isMainnet, vaultAddress ?? null, nonce)
 

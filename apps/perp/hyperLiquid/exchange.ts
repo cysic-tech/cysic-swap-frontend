@@ -621,4 +621,12 @@ export class Exchange extends API {
 
     return this.postAction(multiSigAction, signature, nonce)
   }
+
+  public getAccountAddress() {
+    return this.accountAddress
+  }
+
+  public getWallet() {
+    return this.wallet
+  }
 }

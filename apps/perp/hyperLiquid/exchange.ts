@@ -1,24 +1,8 @@
+import { randomBytes } from 'crypto'
+import Wallet from 'ethereumjs-wallet'
 import { API } from './api'
 import { MAINNET_API_URL } from './constants'
 import { Info } from './info'
-// import {
-//   OrderType,
-//   OrderRequest,
-//   // CancelByCloidRequest,
-//   // CancelRequest,
-//   // ModifyRequest,
-//   // ScheduleCancelAction,
-//   // getTimestampMs,
-//   // orderRequestToOrderWire,
-//   // signAgent,
-//   // signApproveBuilderFee,
-//   // signConvertToMultiSigUserAction,
-//   // signMultiSigAction,
-//   // signSpotTransferAction,
-//   // signUsdClassTransferAction,
-//   // signUsdTransferAction,
-//   // signWithdrawFromBridgeAction,
-// } from './utils/signing'
 import {
   CancelByCloidRequest,
   CancelRequest,
@@ -31,7 +15,15 @@ import {
   OrderWire,
   orderWiresToOrderAction,
   ScheduleCancelAction,
+  signAgent,
+  signApproveBuilderFee,
+  signConvertToMultiSigUserAction,
   signL1Action,
+  signMultiSigAction,
+  signSpotTransferAction,
+  signUsdClassTransferAction,
+  signUsdTransferAction,
+  signWithdrawFromBridgeAction,
 } from './utils/signing'
 import { BuilderInfo, Cloid, Meta, SpotMeta } from './utils/types'
 
@@ -407,5 +399,226 @@ export class Exchange extends API {
     )
 
     return this.postAction(createSubAccountAction, signature, timestamp)
+  }
+
+  public async usdClassTransfer(amount: number, toPerp: boolean): Promise<any> {
+    const timestamp = getTimestampMs()
+    let strAmount = amount.toString()
+
+    if (this.vaultAddress) {
+      strAmount += ` subaccount:${this.vaultAddress}`
+    }
+
+    const action = {
+      type: 'usdClassTransfer',
+      amount: strAmount,
+      toPerp,
+      nonce: timestamp,
+    }
+
+    const signature = signUsdClassTransferAction(this.wallet, action, this.getBaseUrl() === MAINNET_API_URL)
+
+    return this.postAction(action, signature, timestamp)
+  }
+
+  public async userSpotTransfer(usdc: number, toPerp: boolean): Promise<any> {
+    const usdcInt = Math.round(usdc * 1e6)
+    const timestamp = getTimestampMs()
+
+    const spotUserAction = {
+      type: 'spotUser',
+      classTransfer: {
+        usdc: usdcInt,
+        toPerp,
+      },
+    }
+
+    const signature = signL1Action(
+      this.wallet,
+      spotUserAction,
+      this.vaultAddress ?? null,
+      timestamp,
+      this.getBaseUrl() === MAINNET_API_URL,
+    )
+
+    return this.postAction(spotUserAction, signature, timestamp)
+  }
+
+  public async subAccountTransfer(subAccountUser: string, isDeposit: boolean, usd: number): Promise<any> {
+    const timestamp = getTimestampMs()
+
+    const subAccountTransferAction = {
+      type: 'subAccountTransfer',
+      subAccountUser,
+      isDeposit,
+      usd,
+    }
+
+    const signature = signL1Action(
+      this.wallet,
+      subAccountTransferAction,
+      null,
+      timestamp,
+      this.getBaseUrl() === MAINNET_API_URL,
+    )
+
+    return this.postAction(subAccountTransferAction, signature, timestamp)
+  }
+
+  public async vaultUsdTransfer(vaultAddress: string, isDeposit: boolean, usd: number): Promise<any> {
+    const timestamp = getTimestampMs()
+
+    const vaultTransferAction = {
+      type: 'vaultTransfer',
+      vaultAddress,
+      isDeposit,
+      usd,
+    }
+
+    const isMainnet = this.getBaseUrl() === MAINNET_API_URL
+
+    const signature = signL1Action(this.wallet, vaultTransferAction, null, timestamp, isMainnet)
+
+    return this.postAction(vaultTransferAction, signature, timestamp)
+  }
+
+  public async usdTransfer(amount: number, destination: string): Promise<any> {
+    const timestamp = getTimestampMs()
+
+    const action = {
+      type: 'usdSend',
+      destination,
+      amount: amount.toString(),
+      time: timestamp,
+    }
+
+    const isMainnet = this.getBaseUrl() === MAINNET_API_URL
+
+    const signature = signUsdTransferAction(this.wallet, action, isMainnet)
+
+    return this.postAction(action, signature, timestamp)
+  }
+
+  public async spotTransfer(amount: number, destination: string, token: string): Promise<any> {
+    const timestamp = getTimestampMs()
+
+    const action = {
+      type: 'spotSend',
+      destination,
+      amount: amount.toString(),
+      token,
+      time: timestamp,
+    }
+
+    const isMainnet = this.getBaseUrl() === MAINNET_API_URL
+
+    const signature = signSpotTransferAction(this.wallet, action, isMainnet)
+
+    return this.postAction(action, signature, timestamp)
+  }
+
+  public async withdrawFromBridge(amount: number, destination: string): Promise<any> {
+    const timestamp = getTimestampMs()
+
+    const action = {
+      type: 'withdraw3',
+      destination,
+      amount: amount.toString(),
+      time: timestamp,
+    }
+
+    const isMainnet = this.getBaseUrl() === MAINNET_API_URL
+
+    const signature = signWithdrawFromBridgeAction(this.wallet, action, isMainnet)
+
+    return this.postAction(action, signature, timestamp)
+  }
+
+  public async approveAgent(name?: string): Promise<[any, string]> {
+    const agentKey = `0x ${randomBytes(32).toString('hex')}`
+    const wallet = Wallet.fromPrivateKey(Buffer.from(agentKey.slice(2), 'hex'))
+    const timestamp = getTimestampMs()
+    const isMainnet = this.getBaseUrl() === 'MAINNET_API_URL'
+
+    const action: any = {
+      type: 'approveAgent',
+      agentAddress: wallet.getAddressString(),
+      agentName: name || '',
+      nonce: timestamp,
+    }
+
+    const signature = signAgent(this.wallet, action, isMainnet)
+
+    if (!name) {
+      delete action.agentName
+    }
+
+    return [this.postAction(action, signature, timestamp), agentKey]
+  }
+
+  public async approveBuilderFee(builder: string, maxFeeRate: string): Promise<any> {
+    const timestamp = getTimestampMs()
+
+    const action = {
+      type: 'approveBuilderFee',
+      maxFeeRate,
+      builder,
+      nonce: timestamp,
+    }
+
+    const isMainnet = this.getBaseUrl() === MAINNET_API_URL
+
+    const signature = signApproveBuilderFee(this.wallet, action, isMainnet)
+
+    return this.postAction(action, signature, timestamp)
+  }
+
+  public async convertToMultiSigUser(authorizedUsers: string[], threshold: number): Promise<any> {
+    const timestamp = getTimestampMs()
+    const sortedUsers = [...authorizedUsers].sort()
+
+    const signers = {
+      authorizedUsers: sortedUsers,
+      threshold,
+    }
+
+    const action = {
+      type: 'convertToMultiSigUser',
+      signers: JSON.stringify(signers),
+      nonce: timestamp,
+    }
+
+    const isMainnet = this.getBaseUrl() === MAINNET_API_URL
+
+    const signature = signConvertToMultiSigUserAction(this.wallet, action, isMainnet)
+
+    return this.postAction(action, signature, timestamp)
+  }
+
+  public async multiSig(
+    multiSigUser: string,
+    innerAction: any,
+    signatures: string[],
+    nonce: number,
+    vaultAddress?: string,
+  ): Promise<any> {
+    const lowerCaseUser = multiSigUser.toLowerCase()
+
+    const multiSigAction = {
+      type: 'multiSig',
+      signatureChainId: '0x66eee',
+      signatures,
+      payload: {
+        multiSigUser: lowerCaseUser,
+        outerSigner: this.wallet.address.toLowerCase(),
+        action: innerAction,
+      },
+    }
+
+    const isMainnet = this.getBaseUrl() === 'MAINNET_API_URL'
+
+    const signature = signMultiSigAction(this.wallet, multiSigAction, isMainnet, vaultAddress ?? null, nonce)
+
+    return this.postAction(multiSigAction, signature, nonce)
   }
 }

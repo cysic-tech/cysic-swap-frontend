@@ -58,19 +58,23 @@ export class Info extends API {
   }
 
   async userState(address: string): Promise<Any> {
-    return this.post('/info', { type: 'clearinghouseState', user: address })
+    const response = await this.post('/info', { type: 'clearinghouseState', user: address })
+    return response
   }
 
   async spotUserState(address: string): Promise<Any> {
-    return this.post('/info', { type: 'spotClearinghouseState', user: address })
+    const response = await this.post('/info', { type: 'spotClearinghouseState', user: address })
+    return response
   }
 
   async openOrders(address: string): Promise<Any> {
-    return this.post('/info', { type: 'openOrders', user: address })
+    const response = await this.post('/info', { type: 'openOrders', user: address })
+    return response
   }
 
   async allMids(): Promise<Record<string, string>> {
-    return this.post('/info', { type: 'allMids' })
+    const response = await this.post('/info', { type: 'allMids' })
+    return response
   }
 
   subscribe(subscription: Subscription, callback: (data: Any) => void): number {

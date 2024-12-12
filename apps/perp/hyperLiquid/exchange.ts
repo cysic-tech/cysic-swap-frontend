@@ -22,13 +22,15 @@ import { Info } from './info'
 import {
   CancelByCloidRequest,
   CancelRequest,
+  floatToUsdInt,
+  getTimestampMs,
   ModifyRequest,
   OrderRequest,
+  orderRequestToOrderWire,
   OrderType,
   OrderWire,
-  getTimestampMs,
-  orderRequestToOrderWire,
   orderWiresToOrderAction,
+  ScheduleCancelAction,
   signL1Action,
 } from './utils/signing'
 import { BuilderInfo, Cloid, Meta, SpotMeta } from './utils/types'
@@ -302,5 +304,108 @@ export class Exchange extends API {
     )
 
     return this.postAction(cancelAction, signature, timestamp)
+  }
+
+  public async scheduleCancel(time?: number): Promise<any> {
+    const timestamp = getTimestampMs()
+
+    const scheduleCancelAction: ScheduleCancelAction = {
+      type: 'scheduleCancel',
+    }
+
+    if (time !== undefined) {
+      scheduleCancelAction.time = time
+    }
+
+    const signature = await signL1Action(
+      this.wallet,
+      scheduleCancelAction,
+      this.vaultAddress ?? null,
+      timestamp,
+      this.getBaseUrl() === MAINNET_API_URL,
+    )
+
+    return this.postAction(scheduleCancelAction, signature, timestamp)
+  }
+
+  public async updateLeverage(leverage: number, name: string, isCross: boolean = true): Promise<any> {
+    const timestamp = getTimestampMs()
+
+    const updateLeverageAction = {
+      type: 'updateLeverage',
+      asset: this.info.nameToAsset(name),
+      isCross,
+      leverage,
+    }
+
+    const signature = await signL1Action(
+      this.wallet,
+      updateLeverageAction,
+      this.vaultAddress ?? null,
+      timestamp,
+      this.getBaseUrl() === 'MAINNET_API_URL',
+    )
+
+    return this.postAction(updateLeverageAction, signature, timestamp)
+  }
+
+  public async updateIsolatedMargin(amount: number, name: string): Promise<any> {
+    const timestamp = getTimestampMs()
+    const ntli = floatToUsdInt(amount)
+
+    const updateIsolatedMarginAction = {
+      type: 'updateIsolatedMargin',
+      asset: this.info.nameToAsset(name),
+      isBuy: true,
+      ntli,
+    }
+
+    const signature = await signL1Action(
+      this.wallet,
+      updateIsolatedMarginAction,
+      this.vaultAddress ?? null,
+      timestamp,
+      this.getBaseUrl() === MAINNET_API_URL,
+    )
+
+    return this.postAction(updateIsolatedMarginAction, signature, timestamp)
+  }
+
+  public async setReferrer(code: string): Promise<any> {
+    const timestamp = getTimestampMs()
+
+    const setReferrerAction = {
+      type: 'setReferrer',
+      code,
+    }
+
+    const signature = await signL1Action(
+      this.wallet,
+      setReferrerAction,
+      null,
+      timestamp,
+      this.getBaseUrl() === MAINNET_API_URL,
+    )
+
+    return this.postAction(setReferrerAction, signature, timestamp)
+  }
+
+  public async createSubAccount(name: string): Promise<any> {
+    const timestamp = getTimestampMs()
+
+    const createSubAccountAction = {
+      type: 'createSubAccount',
+      name,
+    }
+
+    const signature = await signL1Action(
+      this.wallet,
+      createSubAccountAction,
+      null,
+      timestamp,
+      this.getBaseUrl() === MAINNET_API_URL,
+    )
+
+    return this.postAction(createSubAccountAction, signature, timestamp)
   }
 }

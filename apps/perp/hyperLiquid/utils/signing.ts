@@ -16,6 +16,10 @@ export interface TriggerOrderTypeWire {
   isMarket: boolean
   tpsl: Tpsl
 }
+export interface ScheduleCancelAction {
+  type: 'scheduleCancel'
+  time?: number // Optional time in UTC milliseconds
+}
 
 export interface OrderType {
   limit?: LimitOrderType

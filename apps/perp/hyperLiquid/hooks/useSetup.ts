@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+import { Wallet } from 'ethers'
 import { zeroAddress } from 'viem'
 import { useAccount } from 'wagmi'
 import { MAINNET_API_URL, TESTNET_API_URL } from '../constants'
@@ -32,7 +33,8 @@ export function useSetup(isMainnet: boolean = true, skipWs: boolean = false) {
           throw new Error('Secret key not provided in environment variables.')
         }
 
-        const actualAddress = accountAddress || walletAddress
+        const account = new Wallet(secretKey)
+        const actualAddress = account.address || accountAddress || walletAddress
 
         if (!actualAddress) {
           throw new Error('No wallet address found.')
@@ -50,7 +52,7 @@ export function useSetup(isMainnet: boolean = true, skipWs: boolean = false) {
           throw new Error(errorString)
         }
 
-        const exchange = new Exchange(secretKey, baseUrl, undefined, actualAddress)
+        const exchange = new Exchange(account, baseUrl, undefined, undefined, actualAddress)
 
         return {
           address: actualAddress,
@@ -63,6 +65,10 @@ export function useSetup(isMainnet: boolean = true, skipWs: boolean = false) {
       }
     },
     enabled: Boolean(walletAddress),
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    // refetchInterval: 10000,
   })
 
   if (!query.isFetched && !walletAddress) {

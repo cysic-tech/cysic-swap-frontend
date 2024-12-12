@@ -5,9 +5,9 @@ import { WebsocketManager } from './websocketManager'
 export class Info extends API {
   private wsManager?: WebsocketManager
 
-  private coinToAsset: Record<string, number> = {}
+  public coinToAsset: { [coin: string]: number } = {}
 
-  private nameToCoin: Record<string, string> = {}
+  public nameToCoin: { [name: string]: string } = {}
 
   constructor(baseUrl?: string, skipWs: boolean = false, meta?: Meta, spotMeta?: SpotMeta) {
     super(baseUrl)

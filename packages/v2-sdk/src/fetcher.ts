@@ -9,7 +9,7 @@ import { pancakePairV2ABI } from './abis/IPancakePair'
 import { Pair } from './entities/pair'
 
 let TOKEN_DECIMALS_CACHE: { [chainId: number]: { [address: string]: number } } = {
-  [ChainId.BSC]: {},
+  [ChainId.CYSIC]: {},
 }
 
 const ethClient = createPublicClient({ chain: mainnet, transport: http() })

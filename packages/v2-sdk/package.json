@@ -23,6 +23,7 @@
     "dist"
   ],
   "dependencies": {
+    "@pancakeswap/ca-config": "workspace:*",
     "@pancakeswap/chains": "workspace:*",
     "@pancakeswap/swap-sdk-core": "workspace:*",
     "@pancakeswap/swap-sdk-evm": "workspace:*",

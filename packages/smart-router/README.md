@@ -158,7 +158,7 @@ import { ChainId } from '@pancakeswap/chains'
 import { SmartRouter, SMART_ROUTER_ADDRESSES, SwapRouter } from '@pancakeswap/smart-router'
 import { hexToBigInt } from 'viem'
 
-const routerAddress = SMART_ROUTER_ADDRESSES[ChainId.BSC]
+const routerAddress = SMART_ROUTER_ADDRESSES[ChainId.CYSIC]
 // Swap recipient address
 const address = '0x'
 

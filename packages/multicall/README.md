@@ -32,7 +32,7 @@ const calls: MulticallRequestWithGas[] = [
 ]
 
 const { results, blockNumber } = await multicallByGasLimit(calls, {
-  chainId: ChainId.BSC,
+  chainId: ChainId.CYSIC,
 
   // Rpc client. Please refer to `PublicClient` from viem
   client,
@@ -52,7 +52,7 @@ The rpc call gas limit can be overriden if provided. Once provided, the multical
 
 ```typescript
 const { results, blockNumber } = await multicallByGasLimit(calls, {
-  chainId: ChainId.BSC,
+  chainId: ChainId.CYSIC,
   client,
   gasLimit: 150_000_000,
 })
@@ -67,7 +67,7 @@ import { ChainId } from '@pancakeswap/chains'
 import { getGasLimitOnChain } from '@pancakeswap/multicall'
 
 // Get the rpc call gas limit of the specified chain
-const gasLimit = await getGasLimitOnChain(ChainId.BSC)
+const gasLimit = await getGasLimitOnChain(ChainId.CYSIC)
 ```
 
 ## Supported chains

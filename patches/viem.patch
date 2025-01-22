@@ -1,0 +1,81 @@
+diff --git a/chains/definitions/cysic.ts b/chains/definitions/cysic.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..84931551f2dfcc01920e470e76ec30fd5c31e179
+--- /dev/null
++++ b/chains/definitions/cysic.ts
+@@ -0,0 +1,27 @@
++import { defineChain } from '../../utils/chain/defineChain.js'
++
++export const cysic = /*#__PURE__*/ defineChain({
++  id: 9_001,
++  name: 'Cysic',
++  nativeCurrency: {
++    decimals: 18,
++    name: 'CYS',
++    symbol: 'CYS',
++  },
++  rpcUrls: {
++    default: { http: ['https://evm-dev.prover.xyz'] },
++  },
++  blockExplorers: {
++    default: {
++      name: 'Cysic Devnet Scan',
++      url: 'https://cys-dev.prover.xyz/',
++    },
++  },
++  testnet: false,
++  contracts: {
++    multicall3: {
++      address: '0x2c92F7945ecba1bB3179F7486187FDaCcF7a05B5',
++      blockCreated: 457614,
++    },
++  },
++})
+diff --git a/chains/definitions/cysicTestnet.ts b/chains/definitions/cysicTestnet.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..b571086c07e6855d6bf176b6093a49f6ee9a4129
+--- /dev/null
++++ b/chains/definitions/cysicTestnet.ts
+@@ -0,0 +1,27 @@
++import { defineChain } from '../../utils/chain/defineChain.js'
++
++export const cysicTestnet = /*#__PURE__*/ defineChain({
++  id: 9_000,
++  name: 'Cysic Testnet',
++  nativeCurrency: {
++    decimals: 18,
++    name: 'CYS',
++    symbol: 'CYS',
++  },
++  rpcUrls: {
++    default: { http: ['https://evm-dev.prover.xyz'] },
++  },
++  blockExplorers: {
++    default: {
++      name: 'Cysic Devnet Scan',
++      url: 'https://cys-dev.prover.xyz/',
++    },
++  },
++  testnet: true,
++  contracts: {
++    multicall3: {
++      address: '0x2c92F7945ecba1bB3179F7486187FDaCcF7a05B5',
++      blockCreated: 457614,
++    },
++  },
++})
+diff --git a/chains/index.ts b/chains/index.ts
+old mode 100644
+new mode 100755
+index 7525d086448fd4e58739573fa3debf764651af00..335a03869f0efcd0386fc9e5302cb47475b185be
+--- a/chains/index.ts
++++ b/chains/index.ts
+@@ -105,6 +105,8 @@ export { crossbell } from './definitions/crossbell.js'
+ export { curtis } from './definitions/curtis.js'
+ export { cyber } from './definitions/cyber.js'
+ export { cyberTestnet } from './definitions/cyberTestnet.js'
++export { cysic } from './definitions/cysic.js'
++export { cysicTestnet } from './definitions/cysicTestnet.js'
+ export { dailyNetwork } from './definitions/dailyNetwork.js'
+ export { dailyNetworkTestnet } from './definitions/dailyNetworkTestnet.js'
+ export { darwinia } from './definitions/darwinia.js'

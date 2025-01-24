@@ -1,21 +1,19 @@
-import { useAccount } from 'wagmi'
-import BigNumber from 'bignumber.js'
-import { useQuery } from '@tanstack/react-query'
-import { useIfoCreditAddressContract } from 'hooks/useContract'
 import { ChainId } from '@pancakeswap/chains'
-import { getBalanceNumber } from '@pancakeswap/utils/formatBalance'
 import { useTranslation } from '@pancakeswap/localization'
-import { useChainCurrentBlock } from 'state/block/hooks'
-import { getVaultPosition, VaultPosition } from 'utils/cakePool'
-import { getCakeVaultAddress } from 'utils/addressHelpers'
-import { getActivePools } from 'utils/calls'
 import { cakeVaultV2ABI } from '@pancakeswap/pools'
 import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
-import { convertSharesToCake } from 'views/Pools/helpers'
-import { getScores } from 'views/Voting/getScores'
-import { PANCAKE_SPACE } from 'views/Voting/config'
-import { cakePoolBalanceStrategy, createTotalStrategy } from 'views/Voting/strategies'
+import { useQuery } from '@tanstack/react-query'
+import BigNumber from 'bignumber.js'
+import { useChainCurrentBlock } from 'state/block/hooks'
+import { getCakeVaultAddress } from 'utils/addressHelpers'
+import { getVaultPosition, VaultPosition } from 'utils/cakePool'
+import { getActivePools } from 'utils/calls'
 import { publicClient } from 'utils/wagmi'
+import { convertSharesToCake } from 'views/Pools/helpers'
+import { PANCAKE_SPACE } from 'views/Voting/config'
+import { getScores } from 'views/Voting/getScores'
+import { cakePoolBalanceStrategy, createTotalStrategy } from 'views/Voting/strategies'
+import { useAccount } from 'wagmi'
 
 const bscClient = publicClient({ chainId: ChainId.BSC })
 
@@ -24,9 +22,9 @@ const useCakeBenefits = () => {
   const {
     currentLanguage: { locale },
   } = useTranslation()
-  const ifoCreditAddressContract = useIfoCreditAddressContract()
+
   const cakeVaultAddress = getCakeVaultAddress()
-  const currentBscBlock = useChainCurrentBlock(ChainId.BSC)
+  const currentBscBlock = useChainCurrentBlock(ChainId.CYSIC)
 
   const { data, status } = useQuery({
     queryKey: ['cakeBenefits', account],
@@ -93,21 +91,18 @@ const useCakeBenefits = () => {
             currentOverdueFeeAsBigNumber.plus(currentPerformanceFeeAsBigNumber).plus(userBoostedSharesAsBignumber),
           ).cakeAsNumberBalance.toLocaleString('en', { maximumFractionDigits: 3 })
 
-      let iCake = ''
+      const iCake = ''
       let vCake = { vaultScore: '0', totalScore: '0' }
       if (lockPosition === VaultPosition.Locked) {
-        // @ts-ignore
-        // TODO: Fix viem
-        const credit = await ifoCreditAddressContract.read.getUserCredit([account])
-        iCake = getBalanceNumber(new BigNumber(credit.toString())).toLocaleString('en', { maximumFractionDigits: 3 })
+        // iCake = getBalanceNumber(new BigNumber(credit.toString())).toLocaleString('en', { maximumFractionDigits: 3 })
 
-        const eligiblePools: any = await getActivePools(ChainId.BSC, currentBscBlock)
+        const eligiblePools: any = await getActivePools(ChainId.CYSIC, currentBscBlock)
         const poolAddresses = eligiblePools.map(({ contractAddress }) => contractAddress)
 
         const [cakeVaultBalance, total] = await getScores(
           PANCAKE_SPACE,
           [cakePoolBalanceStrategy('v1'), createTotalStrategy(poolAddresses, 'v1')],
-          ChainId.BSC.toString(),
+          ChainId.CYSIC.toString(),
           [account],
           Number(currentBscBlock),
         )

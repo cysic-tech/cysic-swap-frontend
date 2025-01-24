@@ -1,3 +1,4 @@
+import { defineChain } from 'viem'
 import { chainMetadata } from './interface'
 
 const cysicMetadata: chainMetadata = {
@@ -39,7 +40,7 @@ const cysicMetadata: chainMetadata = {
   PancakeZapV1: '0x6Bd19C2499bBacdA3D141bDc75045CB0ca76aAe8',
 
   // WETH
-  WETH: '',
+  WETH: '0x',
 
   // zero
   zeroAddress: '0x0000000000000000000000000000000000000000',
@@ -87,7 +88,7 @@ const cysicTestnetMetadata: chainMetadata = {
   PancakeZapV1: '0x6Bd19C2499bBacdA3D141bDc75045CB0ca76aAe8',
 
   // WETH
-  WETH: '',
+  WETH: '0x',
 
   // zero
   zeroAddress: '0x0000000000000000000000000000000000000000',
@@ -97,30 +98,56 @@ const cysicTestnetMetadata: chainMetadata = {
 const cysicTestnetRpc: string = 'https://evm-dev.prover.xyz'
 const cysicRpc: string = 'https://evm-dev.prover.xyz'
 
-// export const cysicTestnet = defineChain({
-//   id: 9000,
-//   name: "Cysic Devnet",
-//   nativeCurrency: {
-//     decimals: 18,
-//     name: "CYS",
-//     symbol: "CYS",
-//   },
-//   rpcUrls: {
-//     default: { http: [cysicTestnetRpc] },
-//   },
-//   blockExplorers: {
-//     default: {
-//       name: "Cysic Devnet Scan",
-//       url: "https://cys-dev.prover.xyz/",
-//     },
-//   },
-//   testnet: true,
-//   contracts: {
-//     multicall3: {
-//       address: "0x2c92F7945ecba1bB3179F7486187FDaCcF7a05B5",
-//       blockCreated: 457614,
-//     },
-//   },
-// });
+const cysicTestnet = defineChain({
+  id: 9_000,
+  name: 'Cysic Testnet',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'CYS',
+    symbol: 'CYS',
+  },
+  rpcUrls: {
+    default: { http: [cysicTestnetRpc] },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Cysic Testnet Scan',
+      url: 'https://cys-dev.prover.xyz/',
+    },
+  },
+  testnet: true,
+  contracts: {
+    multicall3: {
+      address: '0x2c92F7945ecba1bB3179F7486187FDaCcF7a05B5',
+      blockCreated: 457614,
+    },
+  },
+})
 
-export { cysicMetadata, cysicRpc, cysicTestnetMetadata, cysicTestnetRpc }
+const cysic = defineChain({
+  id: 9_001,
+  name: 'Cysic',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'CYS',
+    symbol: 'CYS',
+  },
+  rpcUrls: {
+    default: { http: [cysicRpc] },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Cysic Scan',
+      url: 'https://cys-dev.prover.xyz/',
+    },
+  },
+  testnet: false,
+  contracts: {
+    multicall3: {
+      address: '0x2c92F7945ecba1bB3179F7486187FDaCcF7a05B5',
+      blockCreated: 457614,
+    },
+  },
+})
+
+export { cysic, cysicMetadata, cysicRpc, cysicTestnet, cysicTestnetMetadata, cysicTestnetRpc }

@@ -28,7 +28,6 @@ import {
   getFarmAuctionContract,
   getFixedStakingContract,
   getGaugesVotingContract,
-  getIfoCreditAddressContract,
   getLotteryV2Contract,
   getMasterChefContract,
   getMasterChefV3Contract,
@@ -67,15 +66,11 @@ import {
 } from 'utils/contractHelpers'
 
 import { ChainId } from '@pancakeswap/chains'
-import { ifoV7ABI, ifoV8ABI } from '@pancakeswap/ifos'
 import { WNATIVE, pancakePairV2ABI } from '@pancakeswap/sdk'
 import { CAKE } from '@pancakeswap/tokens'
 import { nonfungiblePositionManagerABI } from '@pancakeswap/v3-sdk'
 import { multicallABI } from 'config/abi/Multicall'
 import { erc20Bytes32ABI } from 'config/abi/erc20_bytes32'
-import { ifoV1ABI } from 'config/abi/ifoV1'
-import { ifoV2ABI } from 'config/abi/ifoV2'
-import { ifoV3ABI } from 'config/abi/ifoV3'
 import { wbethBscABI } from 'config/abi/wbethBSC'
 import { wbethEthABI } from 'config/abi/wbethETH'
 import { zapABI } from 'config/abi/zap'
@@ -88,27 +83,6 @@ import { wethABI } from 'config/abi/weth'
 /**
  * Helper hooks to get specific contracts (by ABI)
  */
-
-export const useIfoV1Contract = (address: Address) => {
-  return useContract(address, ifoV1ABI)
-}
-
-export const useIfoV2Contract = (address: Address) => {
-  return useContract(address, ifoV2ABI)
-}
-
-export const useIfoV3Contract = (address: Address) => {
-  return useContract(address, ifoV3ABI)
-}
-
-export const useIfoV7Contract = (address: Address, options?: UseContractOptions) => {
-  return useContract(address, ifoV7ABI, options)
-}
-
-export const useIfoV8Contract = (address: Address, options?: UseContractOptions) => {
-  return useContract(address, ifoV8ABI, options)
-}
-
 export const useERC20 = (address?: Address, options?: UseContractOptions) => {
   return useContract(address, erc20Abi, options)
 }
@@ -217,10 +191,6 @@ export const useCakeVaultContract = (targetChain?: ChainId) => {
     () => getCakeVaultV2Contract(signer ?? undefined, targetChain ?? chainId),
     [signer, chainId, targetChain],
   )
-}
-
-export const useIfoCreditAddressContract = () => {
-  return useMemo(() => getIfoCreditAddressContract(), [])
 }
 
 export const usePredictionsContract = (address: Address, isNativeToken: boolean) => {

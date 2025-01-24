@@ -1,6 +1,3 @@
-import { PoolIds } from '@pancakeswap/ifos'
-import { BetPosition } from '@pancakeswap/prediction'
-
 export enum GTMEvent {
   EventTracking = 'eventTracking',
   Swap = 'swap',
@@ -300,51 +297,5 @@ export const logGTMFiatOnRampModalEvent = (provider: string | undefined) => {
     action: GTMAction.ClickFiatOnRampModalButton,
     category: GTMCategory.FiatOnRamp,
     label: `Provider: ${provider || 'Unknown'}`,
-  })
-}
-
-export const logGTMPredictionBetEvent = (position: BetPosition) => {
-  console.info(`---PredictionBet${position}---`)
-  window?.dataLayer?.push({
-    event: GTMEvent.PredictionBet,
-    action: position === BetPosition.BULL ? GTMAction.ClickBetUpButton : GTMAction.ClickBetDownButton,
-    category: GTMCategory.Prediction,
-  })
-}
-
-export const logGTMPredictionBetPlacedEvent = (position: string) => {
-  console.info('---PredictionBetPlaced---')
-  window?.dataLayer?.push({
-    event: GTMEvent.PredictionBetPlaced,
-    action: GTMAction.PredictionBetPlaced,
-    category: GTMCategory.Prediction,
-    label: `Position: ${position}`,
-  })
-}
-
-export const logGTMIfoGoToCakeStakingEvent = () => {
-  console.info('---IFOGoToCakeStaking---')
-  window?.dataLayer?.push({
-    event: GTMEvent.IFOGoToCakeStaking,
-    action: GTMAction.ClickGoToCakeStakingButton,
-    category: GTMCategory.IFO,
-  })
-}
-
-export const logGTMIfoCommitEvent = (poolId: PoolIds) => {
-  console.info('---IFOCommit---')
-  window?.dataLayer?.push({
-    event: GTMEvent.IFOCommit,
-    action: poolId === PoolIds.poolUnlimited ? GTMAction.ClickCommitPublicSale : GTMAction.ClickCommitBasicSale,
-    category: GTMCategory.IFO,
-  })
-}
-
-export const logGTMIfoCommitTxnSentEvent = (poolId: PoolIds) => {
-  console.info('---IFOCommitTxnSent---')
-  window?.dataLayer?.push({
-    event: GTMEvent.IFOCommitTxnSent,
-    action: poolId === PoolIds.poolUnlimited ? GTMAction.CommitTxnSentPublicSale : GTMAction.CommitTxnSentBasicSale,
-    category: GTMCategory.IFO,
   })
 }

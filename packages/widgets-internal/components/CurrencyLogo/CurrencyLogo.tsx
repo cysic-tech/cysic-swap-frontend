@@ -48,7 +48,7 @@ export function CurrencyLogo({
   }, [currency, uriLocations, useTrustWalletUrl]);
 
   if (currency?.isNative) {
-    if (currency.chainId === ChainId.BSC) {
+    if (currency.chainId === ChainId.CYSIC) {
       return <BinanceIcon style={style} imageRef={imageRef} width={size} height={size} {...props} />;
     }
     return (

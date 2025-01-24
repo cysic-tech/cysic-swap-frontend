@@ -5,11 +5,9 @@ import { useUserSlippage } from '@pancakeswap/utils/user'
 import { SwapUIV2 } from '@pancakeswap/widgets-internal'
 import { useTokenRisk } from 'components/AccessRisk'
 import { RiskDetailsPanel, useShouldRiskPanelDisplay } from 'components/AccessRisk/SwapRevampRiskDisplay'
-import { GasTokenSelector } from 'components/Paymaster/GasTokenSelector'
 import { useCurrency } from 'hooks/Tokens'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import { useCurrencyUsdPrice } from 'hooks/useCurrencyUsdPrice'
-import { usePaymaster } from 'hooks/usePaymaster'
 import { useMemo } from 'react'
 import { Field } from 'state/swap/actions'
 import { useSwapState } from 'state/swap/hooks'
@@ -123,8 +121,6 @@ export function V4SwapForm() {
   const token0Risk = useTokenRisk(inputCurrency?.wrapped)
   const token1Risk = useTokenRisk(outputCurrency?.wrapped)
 
-  const { isPaymasterAvailable } = usePaymaster()
-
   return (
     <SwapUIV2.SwapFormWrapper>
       <SwapUIV2.SwapTabAndInputPanelWrapper>
@@ -187,9 +183,6 @@ export function V4SwapForm() {
         tradeDetails={<TradeDetails loaded={tradeLoaded} order={bestOrder} />}
         shouldRenderDetails={Boolean(executionPrice) && Boolean(bestOrder) && !isWrapping && !tradeError}
         mevSlot={<MevToggle />}
-        gasTokenSelector={
-          isPaymasterAvailable && <GasTokenSelector mt="8px" inputCurrency={inputCurrency || undefined} />
-        }
       />
     </SwapUIV2.SwapFormWrapper>
   )

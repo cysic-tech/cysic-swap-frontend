@@ -32,7 +32,6 @@ import { V4CakeIcon } from 'views/Home/components/V4CakeIcon'
 import { AdPanel } from 'components/AdPanel'
 import { layoutDesktopAdIgnoredPages, layoutMobileAdIgnoredPages } from 'components/AdPanel/config'
 import { shouldRenderOnPages } from 'components/AdPanel/renderConditions'
-import { ZKSyncAirdropModalWithAutoPopup } from 'components/ClaimZksyncAirdropModal'
 import { useDataDogRUM } from 'hooks/useDataDogRUM'
 import { useLoadExperimentalFeatures } from 'hooks/useExperimentalFeatureEnabled'
 import useInitNotificationsClient from 'hooks/useInitNotificationsClient'
@@ -196,7 +195,6 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
       {isShowScrollToTopButton && <ScrollToTopButtonV2 />}
       {shouldScreenWallet && <Blocklist />}
       {isShowV4IconButton && <V4CakeIcon />}
-      <ZKSyncAirdropModalWithAutoPopup />
       <AffiliateExpiredModal />
       <AffiliateSunsetModal />
       <SimpleStakingSunsetModal />

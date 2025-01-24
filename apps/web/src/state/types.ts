@@ -1,17 +1,8 @@
 import { SerializedFarmsState } from '@pancakeswap/farms'
 import { SerializedPoolWithInfo } from '@pancakeswap/pools'
-import { BetPosition, PredictionStatus, PredictionsChartView } from '@pancakeswap/prediction'
 import BigNumber from 'bignumber.js'
-import {
-  CampaignType,
-  LotteryStatus,
-  LotteryTicket,
-  TFetchStatus,
-  Team,
-  TranslatableText,
-} from 'config/constants/types'
+import { CampaignType, LotteryStatus, LotteryTicket, Team, TranslatableText } from 'config/constants/types'
 import { Address, parseEther } from 'viem'
-import { NftToken } from './nftMarket/types'
 
 export enum GAS_PRICE {
   default = '5',
@@ -54,7 +45,6 @@ export interface Profile {
   tokenId: number
   isActive: boolean
   username: string
-  nft?: NftToken
   team?: Team
   hasRegistered: boolean
 }
@@ -178,7 +168,6 @@ export interface Achievement {
 export interface Round {
   id: string
   epoch: number
-  position: BetPosition
   failed: boolean
   startAt: number
   startBlock: number
@@ -209,42 +198,6 @@ export interface Market {
   epoch: number
 }
 
-export interface Bet {
-  id?: string
-  hash?: string
-  amount: number
-  position: BetPosition
-  claimed: boolean
-  claimedAt: number
-  claimedBlock: number
-  claimedHash: string
-  claimedBNB: number
-  claimedNetBNB: number
-  createdAt: number
-  updatedAt: number
-  user?: PredictionUser
-  round?: Round
-}
-
-export interface PredictionUser {
-  id: string
-  createdAt: number
-  updatedAt: number
-  block: number
-  totalBets: number
-  totalBetsBull: number
-  totalBetsBear: number
-  totalBNB: number
-  totalBNBBull: number
-  totalBNBBear: number
-  totalBetsClaimed: number
-  totalBNBClaimed: number
-  winRate: number
-  averageBNB: number
-  netBNB: number
-  bets?: Bet[]
-}
-
 export enum HistoryFilter {
   ALL = 'all',
   COLLECTED = 'collected',
@@ -262,13 +215,11 @@ export interface RoundData {
 }
 
 export interface ReduxNodeLedger {
-  position: BetPosition
   amount: string
   claimed: boolean
 }
 
 export interface NodeLedger {
-  position: BetPosition
   amount: bigint
   claimed: boolean
 }
@@ -323,40 +274,6 @@ export interface LeaderboardFilter {
   address?: null | string
   orderBy?: string
   timePeriod?: LeaderboardFilterTimePeriod
-}
-
-export interface PredictionsState {
-  status: PredictionStatus
-  isLoading: boolean
-  isHistoryPaneOpen: boolean
-  chartView: PredictionsChartView
-  isChartPaneOpen: boolean
-  isFetchingHistory: boolean
-  historyFilter: HistoryFilter
-  currentEpoch: number
-  intervalSeconds: number
-  minBetAmount: string
-  bufferSeconds: number
-  history: Bet[]
-  totalHistory: number
-  currentHistoryPage: number
-  hasHistoryLoaded: boolean
-  rounds?: RoundData
-  ledgers?: LedgerData
-  claimableStatuses: {
-    [key: string]: boolean
-  }
-  leaderboard: {
-    selectedAddress: null | string
-    loadingState: TFetchStatus
-    filters: LeaderboardFilter
-    skip: number
-    hasMoreResults: boolean
-    addressResults: {
-      [key: string]: null | PredictionUser
-    }
-    results: PredictionUser[]
-  }
 }
 
 // Voting

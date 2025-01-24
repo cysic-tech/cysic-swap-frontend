@@ -805,7 +805,11 @@ importers:
         specifier: ^6.7.0
         version: 6.7.0(postcss@8.4.33)(ts-node@10.9.1(@types/node@22.7.5)(typescript@5.2.2))(typescript@5.2.2)
 
-  packages/ca-config: {}
+  packages/ca-config:
+    dependencies:
+      viem:
+        specifier: 'catalog:'
+        version: 2.22.11(patch_hash=b6q7q4nvi4x72hk3cdynytadu4)(bufferutil@4.0.8)(typescript@5.2.2)(utf-8-validate@6.0.3)(zod@3.22.4)
 
   packages/canonical-bridge:
     dependencies:
@@ -5674,9 +5678,6 @@ packages:
   '@safe-global/safe-gateway-typescript-sdk@3.13.2':
     resolution: {integrity: sha512-kGlJecJHBzGrGTq/yhLANh56t+Zur6Ubpt+/w03ARX1poDb4TM8vKU3iV8tuYpk359PPWp+Qvjnqb9oW2YQcYw==}
     engines: {node: '>=16'}
-
-  '@scure/base@1.1.7':
-    resolution: {integrity: sha512-PPNYBslrLNNUQ/Yad37MHYsNQtK67EhWb6WtSvNLLPo7SdVZgkUjD6Dg+5On7zNwmskf8OX7I7Nx5oN+MIWE0g==}
 
   '@scure/base@1.1.9':
     resolution: {integrity: sha512-8YKhl8GHiNI/pU2VMaofa2Tor7PJRAjwQLBBuilkJ9L5+13yVbC7JO/wS7piioAvPSwR3JKM1IJ/u4xQzbcXKg==}
@@ -18209,8 +18210,8 @@ snapshots:
   '@metamask/utils@8.4.0':
     dependencies:
       '@ethereumjs/tx': 4.2.0
-      '@noble/hashes': 1.5.0
-      '@scure/base': 1.1.9
+      '@noble/hashes': 1.6.1
+      '@scure/base': 1.2.4
       '@types/debug': 4.1.12
       debug: 4.3.4(supports-color@8.1.1)
       pony-cause: 2.1.10
@@ -19874,8 +19875,6 @@ snapshots:
 
   '@safe-global/safe-gateway-typescript-sdk@3.13.2': {}
 
-  '@scure/base@1.1.7': {}
-
   '@scure/base@1.1.9': {}
 
   '@scure/base@1.2.4': {}
@@ -19926,7 +19925,7 @@ snapshots:
   '@scure/bip39@1.2.1':
     dependencies:
       '@noble/hashes': 1.3.3
-      '@scure/base': 1.1.7
+      '@scure/base': 1.1.9
 
   '@scure/bip39@1.3.0':
     dependencies:
@@ -20467,7 +20466,7 @@ snapshots:
 
   '@solana/wallet-standard-util@1.1.1':
     dependencies:
-      '@noble/curves': 1.6.0
+      '@noble/curves': 1.7.0
       '@solana/wallet-standard-chains': 1.1.0
       '@solana/wallet-standard-features': 1.2.0
 

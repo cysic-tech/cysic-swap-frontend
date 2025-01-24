@@ -1,19 +1,12 @@
 import { ChainId } from "@pancakeswap/chains";
 import { Currency, NATIVE, Token } from "@pancakeswap/sdk";
-import { bscTokens, ethereumTokens } from "@pancakeswap/tokens";
 import memoize from "lodash/memoize";
 import { getAddress } from "viem";
 import { CurrencyInfo } from "./types";
 
 const mapping: { [key: number]: string } = {
-  [ChainId.BSC]: "smartchain",
-  [ChainId.ETHEREUM]: "ethereum",
-  [ChainId.POLYGON_ZKEVM]: "polygonzkevm",
-  [ChainId.ARBITRUM_ONE]: "arbitrum",
-  [ChainId.ZKSYNC]: "zksync",
-  [ChainId.BASE]: "base",
-  [ChainId.LINEA]: "linea",
-  [ChainId.OPBNB]: "opbnb",
+  [ChainId.CYSIC]: "cysic",
+  [ChainId.CYSIC_TESTNET]: "cysic",
 };
 
 export const getTokenLogoURL = memoize(
@@ -41,14 +34,8 @@ export const getTokenLogoURLByAddress = memoize(
 );
 
 export const chainName: { [key: number]: string } = {
-  [ChainId.BSC]: "",
-  [ChainId.ETHEREUM]: "eth",
-  [ChainId.POLYGON_ZKEVM]: "polygon-zkevm",
-  [ChainId.ARBITRUM_ONE]: "arbitrum",
-  [ChainId.ZKSYNC]: "zksync",
-  [ChainId.LINEA]: "linea",
-  [ChainId.BASE]: "base",
-  [ChainId.OPBNB]: "opbnb",
+  [ChainId.CYSIC]: "",
+  [ChainId.CYSIC_TESTNET]: "",
 };
 
 // TODO: move to utils or token-list
@@ -58,21 +45,11 @@ export const getTokenListBaseURL = (chainId: number) =>
 export const getTokenListTokenUrl = (token: Pick<Token, "chainId" | "address">) =>
   Object.keys(chainName).includes(String(token.chainId))
     ? `https://tokens.pancakeswap.finance/images/${
-        token.chainId === ChainId.BSC ? "" : `${chainName[token.chainId]}/`
+        token.chainId === ChainId.CYSIC ? "" : `${chainName[token.chainId]}/`
       }${token.address}.png`
     : null;
 
-const commonCurrencySymbols = [
-  ethereumTokens.usdt,
-  ethereumTokens.usdc,
-  bscTokens.cake,
-  bscTokens.usdv,
-  ethereumTokens.wbtc,
-  ethereumTokens.weth,
-  NATIVE[ChainId.BSC],
-  bscTokens.busd,
-  ethereumTokens.dai,
-].map(({ symbol }) => symbol);
+const commonCurrencySymbols = [NATIVE[ChainId.CYSIC]].map(({ symbol }) => symbol);
 
 export const getCommonCurrencyUrl = memoize(
   (currency?: Currency): string | undefined => getCommonCurrencyUrlBySymbol(currency?.symbol),

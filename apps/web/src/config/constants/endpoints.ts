@@ -1,13 +1,10 @@
-import { BLOCKS_SUBGRAPHS, ChainId, STABLESWAP_SUBGRAPHS, V2_SUBGRAPHS, V3_SUBGRAPHS } from '@pancakeswap/chains'
+import { BLOCKS_SUBGRAPHS, STABLESWAP_SUBGRAPHS, V2_SUBGRAPHS, V3_SUBGRAPHS } from '@pancakeswap/chains'
 
 export const THE_GRAPH_PROXY_API = 'https://thegraph.pancakeswap.com'
 
 export const GRAPH_API_PROFILE = `${THE_GRAPH_PROXY_API}/profile`
 
-export const GRAPH_API_LOTTERY = `${THE_GRAPH_PROXY_API}/lottery-bsc`
 export const SNAPSHOT_BASE_URL = process.env.NEXT_PUBLIC_SNAPSHOT_BASE_URL
-export const API_PROFILE = 'https://profile.pancakeswap.com'
-export const API_NFT = 'https://nft.pancakeswap.com/api/v1'
 export const SNAPSHOT_API = `${SNAPSHOT_BASE_URL}/graphql`
 export const SNAPSHOT_HUB_API = `${SNAPSHOT_BASE_URL}/api/message`
 export const GRAPH_API_POTTERY = `${THE_GRAPH_PROXY_API}/pottery`
@@ -27,7 +24,6 @@ export const V3_BSC_INFO_CLIENT = `https://open-platform.nodereal.io/${
 
 const BLOCKS_SUBGRAPH_URLS = {
   ...BLOCKS_SUBGRAPHS,
-  [ChainId.OPBNB]: `${THE_GRAPH_PROXY_API}/blocks-opbnb`,
 }
 
 export const GRAPH_API_NFTMARKET = `${THE_GRAPH_PROXY_API}/nft-marketplace-bsc`
@@ -44,16 +40,7 @@ export const CELER_API = 'https://api.celerscan.com/scan'
 
 export const V2_SUBGRAPH_URLS = {
   ...V2_SUBGRAPHS,
-  [ChainId.POLYGON_ZKEVM]: `${THE_GRAPH_PROXY_API}/exchange-v2-polygon-zkevm`,
-  [ChainId.BASE]: `${THE_GRAPH_PROXY_API}/exchange-v2-base`,
-  [ChainId.ETHEREUM]: `${THE_GRAPH_PROXY_API}/exchange-v2-eth`,
-  [ChainId.BSC]: `${THE_GRAPH_PROXY_API}/exchange-v2-bsc`,
-  [ChainId.ARBITRUM_ONE]: `${THE_GRAPH_PROXY_API}/exchange-v2-arb`,
-  [ChainId.ZKSYNC]: `${THE_GRAPH_PROXY_API}/exchange-v2-zksync`,
-  [ChainId.LINEA]: `${THE_GRAPH_PROXY_API}/exchange-v2-linea`,
-  [ChainId.OPBNB]: `${THE_GRAPH_PROXY_API}/exchange-v2-opbnb`,
 }
-export const INFO_CLIENT_ETH = V2_SUBGRAPH_URLS[ChainId.ETHEREUM]
 
 export const BLOCKS_CLIENT_WITH_CHAIN = BLOCKS_SUBGRAPH_URLS
 
@@ -61,21 +48,10 @@ export const ASSET_CDN = 'https://assets.pancakeswap.finance'
 
 export const V3_SUBGRAPH_URLS = {
   ...V3_SUBGRAPHS,
-  [ChainId.POLYGON_ZKEVM]: `${THE_GRAPH_PROXY_API}/exchange-v3-polygon-zkevm`,
-  [ChainId.BASE]: `${THE_GRAPH_PROXY_API}/exchange-v3-base`,
-  [ChainId.ETHEREUM]: `${THE_GRAPH_PROXY_API}/exchange-v3-eth`,
-  [ChainId.BSC]: `${THE_GRAPH_PROXY_API}/exchange-v3-bsc`,
-  [ChainId.ARBITRUM_ONE]: `${THE_GRAPH_PROXY_API}/exchange-v3-arb`,
-  [ChainId.ZKSYNC]: `${THE_GRAPH_PROXY_API}/exchange-v3-zksync`,
-  [ChainId.LINEA]: `${THE_GRAPH_PROXY_API}/exchange-v3-linea`,
-  [ChainId.OPBNB]: `${THE_GRAPH_PROXY_API}/exchange-v3-opbnb`,
 }
 
 export const STABLESWAP_SUBGRAPHS_URLS = {
   ...STABLESWAP_SUBGRAPHS,
-  [ChainId.BSC]: `${THE_GRAPH_PROXY_API}/exchange-stableswap-bsc`,
-  [ChainId.ARBITRUM_ONE]: `${THE_GRAPH_PROXY_API}/exchange-stableswap-arb`,
-  [ChainId.ETHEREUM]: `${THE_GRAPH_PROXY_API}/exchange-stableswap-eth`,
 }
 
 export const TRADING_REWARD_API = 'https://trading-reward.pancakeswap.com/api/v1'
@@ -98,5 +74,3 @@ export const TRANSAK_API_KEY = process.env.NEXT_PUBLIC_TRANSAK_LIVE_KEY || 'bf96
 export const WALLET_API = 'https://wallet-api.pancakeswap.com'
 
 export const BINANCE_DATA_API = 'https://data-api.binance.vision/api'
-
-export const PREDICTION_PRICE_API = '/api/prediction/price'

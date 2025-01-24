@@ -3,19 +3,8 @@ import set from 'lodash/set'
 import { fetchUniversalFarms } from '../fetchUniversalFarms'
 import { UniversalFarmConfig } from '../types'
 import { bscTestnetFarmConfig } from './bscTestnet'
-import { polygonZkEVMTestnetFarmConfig } from './polygonZkEVMTestnet'
-import { zkSyncTestnetFarmConfig } from './zkSyncTestnet'
 
-const chainIds: ChainId[] = [
-  ChainId.BSC,
-  ChainId.ETHEREUM,
-  ChainId.POLYGON_ZKEVM,
-  ChainId.ZKSYNC,
-  ChainId.ARBITRUM_ONE,
-  ChainId.LINEA,
-  ChainId.BASE,
-  ChainId.OPBNB,
-]
+const chainIds: ChainId[] = [ChainId.CYSIC, ChainId.CYSIC_TESTNET]
 
 export const fetchAllUniversalFarms = async (): Promise<UniversalFarmConfig[]> => {
   try {
@@ -44,8 +33,4 @@ export const fetchAllUniversalFarmsMap = async (): Promise<Record<string, Univer
   }
 }
 
-export const UNIVERSAL_FARMS_WITH_TESTNET: UniversalFarmConfig[] = [
-  ...bscTestnetFarmConfig,
-  ...polygonZkEVMTestnetFarmConfig,
-  ...zkSyncTestnetFarmConfig,
-]
+export const UNIVERSAL_FARMS_WITH_TESTNET: UniversalFarmConfig[] = [...bscTestnetFarmConfig]

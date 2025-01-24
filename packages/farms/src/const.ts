@@ -21,8 +21,8 @@ export type FarmV3SupportedChainId = (typeof supportedChainIdV3)[number]
 export type FarmV4SupportedChainId = (typeof supportedChainIdV4)[number]
 
 export const masterChefAddresses = {
-  [ChainId.CYSIC_TESTNET]: '',
-  [ChainId.CYSIC]: '',
+  [ChainId.CYSIC_TESTNET]: '0x',
+  [ChainId.CYSIC]: '0x',
 } as const
 
 export const masterChefV3Addresses = {
@@ -31,6 +31,6 @@ export const masterChefV3Addresses = {
 } as const satisfies Record<FarmV3SupportedChainId, string>
 
 export const crossFarmingVaultAddresses = {
-  [ChainId.CYSIC]: '',
-  [ChainId.CYSIC_TESTNET]: '',
+  [ChainId.CYSIC]: '0x',
+  [ChainId.CYSIC_TESTNET]: '0x',
 } as const

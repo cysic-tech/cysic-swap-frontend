@@ -1,7 +1,7 @@
+import { Currency, NativeCurrency, Token } from '@pancakeswap/swap-sdk-core'
 import invariant from 'tiny-invariant'
-import { Currency, Token, NativeCurrency } from '@pancakeswap/swap-sdk-core'
 
-import { WNATIVE, NATIVE } from '../constants'
+import { NATIVE, WNATIVE } from '../constants'
 
 /**
  *
@@ -23,6 +23,8 @@ export class Native extends NativeCurrency {
   }
 
   public get wrapped(): Token {
+    console.error('this.chainId', this.chainId)
+
     const wnative = WNATIVE[this.chainId as keyof typeof WNATIVE]
     invariant(!!wnative, 'WRAPPED')
     return wnative

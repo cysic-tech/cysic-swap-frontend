@@ -16,6 +16,7 @@ import {
   getCalcGaugesVotingAddress,
   getCrossFarmingReceiverAddress,
   getCrossFarmingSenderAddress,
+  getCrossFarmingVaultAddress,
   getFarmAuctionAddress,
   getFixedStakingAddress,
   getGaugesVotingAddress,
@@ -24,13 +25,11 @@ import {
   getMasterChefV3Address,
   getNftMarketAddress,
   getNftSaleAddress,
-  getCrossFarmingVaultAddress,
   getPancakeProfileAddress,
   getPancakeSquadAddress,
   getPancakeVeSenderV2Address,
   getPointCenterIfoAddress,
   getPotteryDrawAddress,
-  getPredictionsV1Address,
   getRevenueSharingCakePoolAddress,
   getRevenueSharingPoolAddress,
   getRevenueSharingPoolGatewayAddress,
@@ -50,11 +49,10 @@ import {
 } from 'utils/addressHelpers'
 
 // ABI
-import { predictionsV1ABI, predictionsV2ABI, predictionsV3ABI } from '@pancakeswap/prediction'
 import { crossFarmingProxyABI } from 'config/abi/crossFarmingProxy'
 import { crossFarmingSenderABI } from 'config/abi/crossFarmingSender'
-import { nftSaleABI } from 'config/abi/nftSale'
 import { crossFarmingVaultABI } from 'config/abi/crossFarmingVault'
+import { nftSaleABI } from 'config/abi/nftSale'
 import { pointCenterIfoABI } from 'config/abi/pointCenterIfo'
 import { stableSwapNativeHelperABI } from 'config/abi/stableSwapNativeHelper'
 
@@ -62,7 +60,7 @@ import { bCakeFarmBoosterV3ABI } from '@pancakeswap/farms/constants/v3/abi/bCake
 import { bCakeFarmBoosterVeCakeABI } from '@pancakeswap/farms/constants/v3/abi/bCakeFarmBoosterVeCake'
 import { bCakeFarmWrapperBoosterVeCakeABI } from '@pancakeswap/farms/constants/v3/abi/bCakeFarmWrapperBoosterVeCake'
 import { calcGaugesVotingABI, gaugesVotingABI } from '@pancakeswap/gauges'
-import { getIfoCreditAddressContract as getIfoCreditAddressContract_ } from '@pancakeswap/ifos'
+
 import { cakeFlexibleSideVaultV2ABI, cakeVaultV2ABI } from '@pancakeswap/pools'
 import {
   positionManagerAdapterABI,
@@ -105,7 +103,7 @@ import { v3MigratorABI } from 'config/abi/v3Migrator'
 import { vCakeABI } from 'config/abi/vCake'
 import { veCakeABI } from 'config/abi/veCake'
 import { zkSyncAirDropABI } from 'config/abi/zksyncAirdrop'
-import { getViemClients, viemClients } from 'utils/viem'
+import { viemClients } from 'utils/viem'
 import {
   Abi,
   Address,
@@ -120,7 +118,7 @@ import {
 export const getContract = <TAbi extends Abi | readonly unknown[], TWalletClient extends WalletClient>({
   abi,
   address,
-  chainId = ChainId.BSC,
+  chainId = ChainId.CYSIC,
   publicClient,
   signer,
 }: {
@@ -167,7 +165,7 @@ export const getPointCenterIfoContract = (signer?: WalletClient) => {
 export const getCakeContract = (chainId?: number) => {
   return getContract({
     abi: erc20Abi,
-    address: chainId ? CAKE[chainId]?.address : CAKE[ChainId.BSC].address,
+    address: chainId ? CAKE[chainId]?.address : CAKE[ChainId.CYSIC].address,
     chainId,
   })
 }
@@ -227,18 +225,6 @@ export const getCakeFlexibleSideVaultV2Contract = (signer?: WalletClient, chainI
   })
 }
 
-export const getPredictionsV3Contract = (address: Address, chainId?: number, signer?: WalletClient) => {
-  return getContract({ abi: predictionsV3ABI, address, signer, chainId })
-}
-
-export const getPredictionsV2Contract = (address: Address, chainId?: number, signer?: WalletClient) => {
-  return getContract({ abi: predictionsV2ABI, address, signer, chainId })
-}
-
-export const getPredictionsV1Contract = (signer?: WalletClient) => {
-  return getContract({ abi: predictionsV1ABI, address: getPredictionsV1Address(), signer })
-}
-
 export const getChainlinkOracleContract = (address: Address, signer?: WalletClient, chainId?: number) => {
   return getContract({ abi: chainlinkOracleABI, address, signer, chainId })
 }
@@ -263,10 +249,6 @@ export const getPotteryVaultContract = (address: Address, walletClient?: WalletC
 
 export const getPotteryDrawContract = (walletClient?: WalletClient) => {
   return getContract({ abi: potteryDrawABI, address: getPotteryDrawAddress(), signer: walletClient })
-}
-
-export const getIfoCreditAddressContract = (signer?: WalletClient) => {
-  return getIfoCreditAddressContract_(ChainId.BSC, getViemClients, signer)
 }
 
 export const getBCakeFarmBoosterContract = (signer?: WalletClient) => {

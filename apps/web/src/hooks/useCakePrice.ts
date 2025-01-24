@@ -1,12 +1,8 @@
-import { ChainId } from '@pancakeswap/chains'
 import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
-import { chainlinkOracleCAKE } from '@pancakeswap/prediction'
-import BigNumber from 'bignumber.js'
-import { chainlinkOracleABI } from 'config/abi/chainlinkOracle'
-import { publicClient } from 'utils/wagmi'
-import { formatUnits } from 'viem'
-import { FAST_INTERVAL } from 'config/constants'
 import { useQuery } from '@tanstack/react-query'
+import BigNumber from 'bignumber.js'
+import { FAST_INTERVAL } from 'config/constants'
+import { formatUnits } from 'viem'
 
 // for migration to bignumber.js to avoid breaking changes
 export const useCakePrice = ({ enabled = true } = {}) => {
@@ -21,11 +17,7 @@ export const useCakePrice = ({ enabled = true } = {}) => {
 }
 
 export const getCakePriceFromOracle = async () => {
-  const data = await publicClient({ chainId: ChainId.BSC }).readContract({
-    abi: chainlinkOracleABI,
-    address: chainlinkOracleCAKE[ChainId.BSC],
-    functionName: 'latestAnswer',
-  })
+  const data = BigInt(997e15) // 0.997
 
   return formatUnits(data, 8)
 }

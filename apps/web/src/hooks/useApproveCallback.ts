@@ -3,13 +3,12 @@ import { Currency, CurrencyAmount, ERC20Token } from '@pancakeswap/sdk'
 import { MaxUint256 } from '@pancakeswap/swap-sdk-core'
 import { useToast } from '@pancakeswap/uikit'
 import isUndefinedOrNull from '@pancakeswap/utils/isUndefinedOrNull'
-import { usePaymaster } from 'hooks/usePaymaster'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useHasPendingApproval, useTransactionAdder } from 'state/transactions/hooks'
 import { calculateGasMargin } from 'utils'
 import { getViemErrorMessage } from 'utils/errors'
 import { isUserRejected, logError } from 'utils/sentry'
-import { Address, SendTransactionReturnType, encodeFunctionData, parseAbi } from 'viem'
+import { Address } from 'viem'
 import { useAccount } from 'wagmi'
 import useGelatoLimitOrdersLib from './limitOrders/useGelatoLimitOrdersLib'
 import { useCallWithGasPrice } from './useCallWithGasPrice'
@@ -49,7 +48,6 @@ export function useApproveCallback(
   const token = amountToApprove?.currency?.isToken ? amountToApprove.currency : undefined
   const { allowance: currentAllowance, refetch } = useTokenAllowance(token, account ?? undefined, spender)
   const pendingApproval = useHasPendingApproval(token?.address, spender)
-  const { isPaymasterAvailable, isPaymasterTokenActive, sendPaymasterTransaction } = usePaymaster()
 
   const [pending, setPending] = useState<boolean>(pendingApproval)
   const [isPendingError, setIsPendingError] = useState<boolean>(false)
@@ -151,27 +149,9 @@ export function useApproveCallback(
       const finalAmount =
         overrideAmountApprove ?? (useExact ? amountToApprove?.quotient ?? targetAmount ?? MaxUint256 : MaxUint256)
 
-      let sendTxResult: Promise<SendTransactionReturnType> | undefined
-
-      if (enablePaymaster && isPaymasterAvailable && isPaymasterTokenActive) {
-        const calldata = encodeFunctionData({
-          abi: parseAbi(['function approve(address spender, uint256 amount) public returns (bool)']),
-          functionName: 'approve',
-          args: [spender as Address, finalAmount],
-        })
-
-        const call = {
-          address: tokenContract.address,
-          gas: estimatedGas,
-          calldata,
-        }
-
-        sendTxResult = sendPaymasterTransaction(call, account)
-      } else {
-        sendTxResult = callWithGasPrice(tokenContract, 'approve' as const, [spender as Address, finalAmount], {
-          gas: calculateGasMargin(estimatedGas),
-        }).then((response) => response.hash)
-      }
+      const sendTxResult = callWithGasPrice(tokenContract, 'approve' as const, [spender as Address, finalAmount], {
+        gas: calculateGasMargin(estimatedGas),
+      }).then((response) => response.hash)
 
       return sendTxResult
         .then((response) => {
@@ -212,11 +192,6 @@ export function useApproveCallback(
       t,
       addToTransaction,
       addTransaction,
-      account,
-      isPaymasterAvailable,
-      isPaymasterTokenActive,
-      sendPaymasterTransaction,
-      enablePaymaster,
     ],
   )
 

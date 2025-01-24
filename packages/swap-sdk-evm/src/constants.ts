@@ -12,7 +12,7 @@ export const WETH9: any = {}
 export const WBNB = {
   [ChainId.CYSIC]: new ERC20Token(
     ChainId.CYSIC,
-    cysicMetadata.WETH as `0x${string}`,
+    cysicMetadata.WBNB as `0x${string}`,
     18,
     'WBNB',
     'Wrapped BNB',
@@ -20,7 +20,7 @@ export const WBNB = {
   ),
   [ChainId.CYSIC_TESTNET]: new ERC20Token(
     ChainId.CYSIC_TESTNET,
-    cysicTestnetMetadata.WETH as `0x${string}`,
+    cysicTestnetMetadata.WBNB as `0x${string}`,
     18,
     'WBNB',
     'Wrapped BNB',

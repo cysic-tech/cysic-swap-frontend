@@ -3,8 +3,8 @@ import { CurrencyAmount, Token } from '@pancakeswap/swap-sdk-core'
 import { erc20Abi } from '@pancakeswap/swap-sdk-evm'
 import invariant from 'tiny-invariant'
 import { Address, PublicClient, createPublicClient, getContract, http } from 'viem'
-import { bsc, bscTestnet, goerli, mainnet } from 'viem/chains'
 
+import { cysic, cysicTestnet } from '@pancakeswap/ca-config'
 import { pancakePairV2ABI } from './abis/IPancakePair'
 import { Pair } from './entities/pair'
 
@@ -12,23 +12,17 @@ let TOKEN_DECIMALS_CACHE: { [chainId: number]: { [address: string]: number } } =
   [ChainId.CYSIC]: {},
 }
 
-const ethClient = createPublicClient({ chain: mainnet, transport: http() })
-const bscClient = createPublicClient({ chain: bsc, transport: http() })
-const bscTestnetClient = createPublicClient({ chain: bscTestnet, transport: http() })
-const goerliClient = createPublicClient({ chain: goerli, transport: http() })
+const cysicClient = createPublicClient({ chain: cysic, transport: http() })
+const cysicTestnetClient = createPublicClient({ chain: cysicTestnet, transport: http() })
 
 const getDefaultClient = (chainId: ChainId): PublicClient => {
   switch (chainId) {
-    case ChainId.ETHEREUM:
-      return ethClient
-    case ChainId.BSC:
-      return bscClient
-    case ChainId.BSC_TESTNET:
-      return bscTestnetClient
-    case ChainId.GOERLI:
-      return goerliClient
+    case ChainId.CYSIC:
+      return cysicClient
+    case ChainId.CYSIC_TESTNET:
+      return cysicTestnetClient
     default:
-      return bscClient
+      return cysicClient
   }
 }
 

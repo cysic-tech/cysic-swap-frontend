@@ -9,4 +9,4 @@ export type FAQConfig = (t: TranslateFunction) => {
 
   subtitle?: string
 }
-export type ConfigType = 'swap' | 'prediction' | 'buyCrypto'
+export type ConfigType = 'swap'

@@ -1,6 +1,6 @@
 import { ChainId } from '@pancakeswap/chains'
 import { getFarmsPrices } from '@pancakeswap/farms/farmPrices'
-import { fetchPublicIfoData, fetchUserIfoCredit } from '@pancakeswap/ifos'
+
 import {
   fetchFlexibleSideVaultUser,
   fetchPoolsAllowance,
@@ -23,7 +23,7 @@ import {
   isLegacyPool,
 } from '@pancakeswap/pools'
 import { getCurrencyUsdPrice } from '@pancakeswap/price-api-sdk'
-import { bscTokens } from '@pancakeswap/tokens'
+import { cysicTokens } from '@pancakeswap/tokens'
 import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
 import { getBalanceNumber } from '@pancakeswap/utils/formatBalance'
 import { PayloadAction, createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit'
@@ -36,7 +36,6 @@ import { getCakePriceFromOracle } from 'hooks/useCakePrice'
 import { farmV3ApiFetch } from 'state/farmsV3/hooks'
 import {
   PoolsState,
-  PublicIfoData,
   SerializedCakeVault,
   SerializedLockedCakeVault,
   SerializedLockedVaultUser,
@@ -116,18 +115,18 @@ export const fetchCakePoolPublicDataAsync = () => async (dispatch) => {
 export const fetchCakePoolUserDataAsync =
   ({ account, chainId }: { account: string; chainId: ChainId }) =>
   async (dispatch) => {
-    const client = publicClient({ chainId: ChainId.BSC })
+    const client = publicClient({ chainId: ChainId.CYSIC })
     const [allowance, stakingTokenBalance] = await client.multicall({
       contracts: [
         {
           abi: erc20Abi,
-          address: bscTokens.cake.address,
+          address: cysicTokens.cake.address,
           functionName: 'allowance',
           args: [account as Address, getCakeVaultAddress(chainId)],
         },
         {
           abi: erc20Abi,
-          address: bscTokens.cake.address,
+          address: cysicTokens.cake.address,
           functionName: 'balanceOf',
           args: [account as Address],
         },
@@ -398,24 +397,6 @@ export const fetchCakeVaultUserData = createAsyncThunk<
   return userData
 })
 
-export const fetchIfoPublicDataAsync = createAsyncThunk<PublicIfoData, ChainId>(
-  'ifoVault/fetchIfoPublicDataAsync',
-  async (chainId) => {
-    const publicIfoData = await fetchPublicIfoData(chainId, getViemClients)
-    return publicIfoData
-  },
-)
-
-export const fetchUserIfoCreditDataAsync =
-  ({ account, chainId }: { account: Address; chainId: ChainId }) =>
-  async (dispatch) => {
-    try {
-      const credit = await fetchUserIfoCredit({ account, chainId, provider: getViemClients })
-      dispatch(setIfoUserCreditData(credit))
-    } catch (error) {
-      console.error('[Ifo Credit Action] Error fetching user Ifo credit data', error)
-    }
-  }
 export const fetchCakeFlexibleSideVaultUserData = createAsyncThunk<
   SerializedVaultUser,
   { account: Address; chainId: ChainId }
@@ -528,11 +509,6 @@ export const PoolsSlice = createSlice({
     builder.addCase(fetchCakeVaultUserData.fulfilled, (state, action: PayloadAction<SerializedLockedVaultUser>) => {
       const userData = action.payload
       state.cakeVault = { ...state.cakeVault, userData }
-    })
-    // IFO
-    builder.addCase(fetchIfoPublicDataAsync.fulfilled, (state, action: PayloadAction<PublicIfoData>) => {
-      const { ceiling } = action.payload
-      state.ifo = { ...state.ifo, ceiling }
     })
     builder.addCase(
       fetchCakeFlexibleSideVaultUserData.fulfilled,

@@ -56,6 +56,7 @@
     "@babel/preset-env": "^7.23.3",
     "@babel/preset-react": "^7.23.3",
     "@pancakeswap/chains": "workspace:*",
+    "@pancakeswap/ca-config": "workspace:*",
     "@pancakeswap/hooks": "workspace:*",
     "@pancakeswap/utils": "workspace:*",
     "@storybook/addon-a11y": "^7.0.7",

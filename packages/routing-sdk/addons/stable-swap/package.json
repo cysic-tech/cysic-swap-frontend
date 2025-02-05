@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@pancakeswap/chains": "workspace:*",
+    "@pancakeswap/ca-config": "workspace:*",
     "@pancakeswap/stable-swap-sdk": "workspace:*",
     "@pancakeswap/swap-sdk-core": "workspace:*",
     "tiny-invariant": "^1.3.0"

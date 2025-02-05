@@ -9,6 +9,7 @@
   "type": "module",
   "dependencies": {
     "@pancakeswap/chains": "workspace:*",
+    "@pancakeswap/ca-config": "workspace:*",
     "@pancakeswap/sdk": "workspace:*",
     "@pancakeswap/token-lists": "workspace:*",
     "@pancakeswap/tokens": "workspace:*",

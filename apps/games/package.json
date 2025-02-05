@@ -11,6 +11,7 @@
   "dependencies": {
     "@pancakeswap/blog": "workspace:*",
     "@pancakeswap/chains": "workspace:*",
+    "@pancakeswap/ca-config": "workspace:*",
     "@pancakeswap/games": "workspace:*",
     "@pancakeswap/hooks": "workspace:*",
     "@pancakeswap/localization": "workspace:*",

@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@pancakeswap/chains": "workspace:*",
+    "@pancakeswap/ca-config": "workspace:*",
     "@pancakeswap/permit2-sdk": "workspace:*",
     "@pancakeswap/sdk": "workspace:*",
     "@pancakeswap/smart-router": "workspace:*",

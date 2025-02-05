@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@pancakeswap/chains": "workspace:*",
+    "@pancakeswap/ca-config": "workspace:*",
     "@pancakeswap/swap-sdk-core": "workspace:*",
     "@pancakeswap/v3-sdk": "workspace:*",
     "lodash": "^4.17.21",

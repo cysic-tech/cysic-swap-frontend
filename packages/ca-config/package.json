@@ -1,0 +1,11 @@
+{
+  "name": "@pancakeswap/ca-config",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "dependencies": {
+    "viem": "catalog:"
+  },
+  "private": true
+}

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "@pancakeswap/chains": "workspace:*",
+    "@pancakeswap/ca-config": "workspace:*",
     "@pancakeswap/farms": "workspace:*",
     "@pancakeswap/sdk": "workspace:*",
     "@pancakeswap/swap-sdk-core": "workspace:*",

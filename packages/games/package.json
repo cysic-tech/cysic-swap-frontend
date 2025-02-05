@@ -9,6 +9,7 @@
   "type": "module",
   "dependencies": {
     "@pancakeswap/chains": "workspace:*",
+    "@pancakeswap/ca-config": "workspace:*",
     "lodash": "^4.17.21"
   },
   "devDependencies": {

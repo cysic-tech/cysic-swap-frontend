@@ -17,6 +17,7 @@
   "module": "dist/index.mjs",
   "dependencies": {
     "@pancakeswap/chains": "workspace:*",
+    "@pancakeswap/ca-config": "workspace:*",
     "@pancakeswap/swap-sdk-core": "workspace:*",
     "@pancakeswap/permit2-sdk": "workspace:*",
     "dayjs": "^1.11.10",

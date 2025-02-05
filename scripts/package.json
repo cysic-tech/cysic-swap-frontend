@@ -5,6 +5,7 @@
   "devDependencies": {
     "@pancakeswap/aptos-swap-sdk": "workspace:*",
     "@pancakeswap/chains": "workspace:*",
+    "@pancakeswap/ca-config": "workspace:*",
     "@pancakeswap/farms": "workspace:*",
     "@types/lodash": "^4.14.168",
     "bignumber.js": "^9.1.1",

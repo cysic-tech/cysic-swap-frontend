@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@pancakeswap/chains": "workspace:*",
+    "@pancakeswap/ca-config": "workspace:*",
     "@pancakeswap/pools": "workspace:*",
     "@pancakeswap/tokens": "workspace:*",
     "viem": "catalog:"

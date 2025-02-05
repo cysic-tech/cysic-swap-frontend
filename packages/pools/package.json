@@ -18,6 +18,7 @@
   "module": "dist/index.mjs",
   "dependencies": {
     "@pancakeswap/chains": "workspace:*",
+    "@pancakeswap/ca-config": "workspace:*",
     "@pancakeswap/token-lists": "workspace:*",
     "@pancakeswap/tokens": "workspace:*",
     "bignumber.js": "^9.0.0",

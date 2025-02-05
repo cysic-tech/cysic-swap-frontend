@@ -36,8 +36,8 @@ const UNIVERSAL_ROUTER_ADDRESSES: Record<SupportedChain, Address> = {
 }
 
 export const getUniversalRouterAddress = (chainId: ChainId): Address => {
-  if (!(chainId in UNIVERSAL_ROUTER_ADDRESSES)) throw new Error(`Universal Router not deployed on chain ${chainId}`)
-  return UNIVERSAL_ROUTER_ADDRESSES[chainId]
+  // if (!(chainId in UNIVERSAL_ROUTER_ADDRESSES)) throw new Error(`Universal Router not deployed on chain ${chainId}`)
+  return UNIVERSAL_ROUTER_ADDRESSES?.[chainId]
 }
 
 export const CONTRACT_BALANCE = 2n ** 255n

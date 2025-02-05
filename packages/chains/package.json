@@ -38,6 +38,7 @@
     "node": ">=10"
   },
   "devDependencies": {
-    "tsup": "^6.7.0"
+    "tsup": "^6.7.0",
+    "@pancakeswap/ca-config": "workspace:*"
   }
 }

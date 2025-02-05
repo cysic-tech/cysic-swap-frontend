@@ -14,8 +14,8 @@ const { parseCurrency, parseCurrencyAmount, parsePool, serializeTrade } = SmartR
 const router = Router()
 
 const CACHE_TIME = {
-  [ChainId.ETHEREUM]: 10,
-  [ChainId.GOERLI]: 10,
+  [ChainId.CYSIC]: 2,
+  [ChainId.CYSIC_TESTNET]: 2,
   [ChainId.BSC]: 2,
   [ChainId.BSC_TESTNET]: 2,
 }

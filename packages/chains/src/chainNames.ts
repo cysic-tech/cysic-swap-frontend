@@ -1,6 +1,8 @@
 import { ChainId } from './chainId'
 
 export const chainNames: Record<ChainId, string> = {
+  [ChainId.CYSIC]: 'cysic',
+  [ChainId.CYSIC_TESTNET]: 'cysicTestnet',
   [ChainId.ETHEREUM]: 'eth',
   [ChainId.GOERLI]: 'goerli',
   [ChainId.BSC]: 'bsc',
@@ -24,6 +26,8 @@ export const chainNames: Record<ChainId, string> = {
 }
 
 export const chainNamesInKebabCase = {
+  [ChainId.CYSIC]: 'cysic',
+  [ChainId.CYSIC_TESTNET]: 'cysicTestnet',
   [ChainId.ETHEREUM]: 'ethereum',
   [ChainId.GOERLI]: 'goerli',
   [ChainId.BSC]: 'bsc',
@@ -47,6 +51,8 @@ export const chainNamesInKebabCase = {
 } as const
 
 export const mainnetChainNamesInKebabCase = {
+  [ChainId.CYSIC]: 'cysic',
+  [ChainId.CYSIC_TESTNET]: 'cysicTestnet',
   [ChainId.ETHEREUM]: 'ethereum',
   [ChainId.GOERLI]: 'ethereum',
   [ChainId.BSC]: 'bsc',
@@ -78,6 +84,8 @@ export const chainNameToChainId = Object.entries(chainNames).reduce((acc, [chain
 // @see https://github.com/DefiLlama/defillama-server/blob/master/common/chainToCoingeckoId.ts
 // @see https://github.com/DefiLlama/chainlist/blob/main/constants/chainIds.json
 export const defiLlamaChainNames: Record<ChainId, string> = {
+  [ChainId.CYSIC]: 'cysic',
+  [ChainId.CYSIC_TESTNET]: 'cysicTestnet',
   [ChainId.BSC]: 'bsc',
   [ChainId.ETHEREUM]: 'ethereum',
   [ChainId.GOERLI]: '',

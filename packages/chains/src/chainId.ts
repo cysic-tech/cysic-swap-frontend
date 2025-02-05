@@ -1,4 +1,6 @@
 export enum ChainId {
+  CYSIC = 9001,
+  CYSIC_TESTNET = 9000,
   ETHEREUM = 1,
   GOERLI = 5,
   BSC = 56,
@@ -22,6 +24,7 @@ export enum ChainId {
 }
 
 export const testnetChainIds = [
+  ChainId.CYSIC_TESTNET,
   ChainId.GOERLI,
   ChainId.BSC_TESTNET,
   ChainId.ZKSYNC_TESTNET,

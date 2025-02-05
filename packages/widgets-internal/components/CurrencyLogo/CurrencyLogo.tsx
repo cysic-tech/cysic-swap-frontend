@@ -51,6 +51,10 @@ export function CurrencyLogo({
     if (currency.chainId === ChainId.BSC) {
       return <BinanceIcon style={style} imageRef={imageRef} width={size} height={size} {...props} />;
     }
+    // todo add more chains
+    if (currency.chainId === ChainId.CYSIC) {
+      return <BinanceIcon style={style} imageRef={imageRef} width={size} height={size} {...props} />;
+    }
     return (
       <StyledLogo
         size={size}

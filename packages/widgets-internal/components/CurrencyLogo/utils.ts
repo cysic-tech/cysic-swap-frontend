@@ -6,6 +6,8 @@ import { getAddress } from "viem";
 import { CurrencyInfo } from "./types";
 
 const mapping: { [key: number]: string } = {
+  [ChainId.CYSIC]: "cysic",
+  [ChainId.CYSIC_TESTNET]: "cysicTestnet",
   [ChainId.BSC]: "smartchain",
   [ChainId.ETHEREUM]: "ethereum",
   [ChainId.POLYGON_ZKEVM]: "polygonzkevm",
@@ -16,6 +18,7 @@ const mapping: { [key: number]: string } = {
   [ChainId.OPBNB]: "opbnb",
 };
 
+// todo add cysic logo
 export const getTokenLogoURL = memoize(
   (token?: Token) => {
     if (token && mapping[token.chainId]) {

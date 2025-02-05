@@ -1,3 +1,4 @@
+import { cysicMetadata, cysicTestnetMetadata } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import type { Address } from 'viem'
 
@@ -5,6 +6,8 @@ import type { Address } from 'viem'
 export const EMPTY_FEE_PATH_PLACEHOLDER = 8388608
 
 export const MIXED_ROUTE_QUOTER_ADDRESSES = {
+  [ChainId.CYSIC]: cysicMetadata.MixedRouteQuoterV1,
+  [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.MixedRouteQuoterV1,
   [ChainId.ETHEREUM]: '0x678Aa4bF4E210cf2166753e054d5b7c31cc7fa86',
   [ChainId.GOERLI]: '0xB048Bbc1Ee6b733FFfCFb9e9CeF7375518e25997',
   [ChainId.BSC]: '0x678Aa4bF4E210cf2166753e054d5b7c31cc7fa86',

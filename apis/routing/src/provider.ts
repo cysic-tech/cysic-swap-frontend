@@ -1,8 +1,9 @@
+import { cysic, cysicRpc, cysicTestnet, cysicTestnetRpc } from '@pancakeswap/ca-config'
 import { ChainId, getV3Subgraphs } from '@pancakeswap/chains'
 import { OnChainProvider, SubgraphProvider } from '@pancakeswap/smart-router'
+import { GraphQLClient } from 'graphql-request'
 import { createPublicClient, http } from 'viem'
 import { bsc, bscTestnet, goerli, mainnet } from 'viem/chains'
-import { GraphQLClient } from 'graphql-request'
 
 import { SupportedChainId } from './constants'
 
@@ -38,9 +39,23 @@ const goerliClient = createPublicClient({
   transport: http(GOERLI_NODE),
 })
 
+const cysicClient = createPublicClient({
+  chain: cysic,
+  transport: http(cysicRpc),
+})
+
+const cysicTestnetClient = createPublicClient({
+  chain: cysicTestnet,
+  transport: http(cysicTestnetRpc),
+})
+
 // @ts-ignore
 export const viemProviders: OnChainProvider = ({ chainId }: { chainId?: ChainId }) => {
   switch (chainId) {
+    case ChainId.CYSIC:
+      return cysicClient
+    case ChainId.CYSIC_TESTNET:
+      return cysicTestnetClient
     case ChainId.ETHEREUM:
       return mainnetClient
     case ChainId.BSC:
@@ -55,21 +70,12 @@ export const viemProviders: OnChainProvider = ({ chainId }: { chainId?: ChainId 
 }
 
 export const v3SubgraphClients: Record<SupportedChainId, GraphQLClient> = {
-  [ChainId.ETHEREUM]: new GraphQLClient(V3_SUBGRAPHS[ChainId.ETHEREUM], { fetch }),
-  [ChainId.POLYGON_ZKEVM]: new GraphQLClient(V3_SUBGRAPHS[ChainId.POLYGON_ZKEVM], { fetch }),
-  [ChainId.ZKSYNC]: new GraphQLClient(V3_SUBGRAPHS[ChainId.ZKSYNC], { fetch }),
-  [ChainId.LINEA_TESTNET]: new GraphQLClient(V3_SUBGRAPHS[ChainId.LINEA_TESTNET], { fetch }),
-  [ChainId.GOERLI]: new GraphQLClient(V3_SUBGRAPHS[ChainId.GOERLI], { fetch }),
+  [ChainId.CYSIC]: new GraphQLClient(V3_SUBGRAPHS[ChainId.CYSIC], { fetch }),
+  [ChainId.CYSIC_TESTNET]: new GraphQLClient(V3_SUBGRAPHS[ChainId.CYSIC_TESTNET], { fetch }),
   [ChainId.BSC]: new GraphQLClient(V3_SUBGRAPHS[ChainId.BSC], { fetch }),
   [ChainId.BSC_TESTNET]: new GraphQLClient(V3_SUBGRAPHS[ChainId.BSC_TESTNET], { fetch }),
-  [ChainId.ARBITRUM_ONE]: new GraphQLClient(V3_SUBGRAPHS[ChainId.ARBITRUM_ONE], { fetch }),
-  [ChainId.LINEA]: new GraphQLClient(V3_SUBGRAPHS[ChainId.LINEA], { fetch }),
-  [ChainId.SCROLL_SEPOLIA]: new GraphQLClient(V3_SUBGRAPHS[ChainId.SCROLL_SEPOLIA], { fetch }),
-  [ChainId.BASE_TESTNET]: new GraphQLClient(V3_SUBGRAPHS[ChainId.BASE_TESTNET], { fetch }),
-  [ChainId.BASE]: new GraphQLClient(V3_SUBGRAPHS[ChainId.BASE], { fetch }),
-  [ChainId.OPBNB]: new GraphQLClient(V3_SUBGRAPHS[ChainId.OPBNB], { fetch }),
 } as const
 
-export const v3SubgraphProvider: SubgraphProvider = ({ chainId = ChainId.BSC }: { chainId?: ChainId }) => {
-  return v3SubgraphClients[chainId as SupportedChainId] || v3SubgraphClients[ChainId.BSC]
+export const v3SubgraphProvider: SubgraphProvider = ({ chainId = ChainId.CYSIC }: { chainId?: ChainId }) => {
+  return v3SubgraphClients[chainId as SupportedChainId] || v3SubgraphClients[ChainId.CYSIC]
 }

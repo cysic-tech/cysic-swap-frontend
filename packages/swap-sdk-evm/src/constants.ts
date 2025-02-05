@@ -1,3 +1,4 @@
+import { cysicMetadata, cysicTestnetMetadata } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import { Percent } from '@pancakeswap/swap-sdk-core'
 
@@ -212,7 +213,28 @@ export const WBNB = {
   ),
 }
 
+export const WCYS = {
+  [ChainId.CYSIC]: new ERC20Token(
+    ChainId.CYSIC,
+    cysicMetadata.WNATIVE,
+    18,
+    'WCYS',
+    'Wrapped CYS',
+    'https://cysic.xyz/',
+  ),
+  [ChainId.CYSIC_TESTNET]: new ERC20Token(
+    ChainId.CYSIC_TESTNET,
+    cysicTestnetMetadata.WNATIVE,
+    18,
+    'WCYS',
+    'Wrapped CYS',
+    'https://cysic.xyz/',
+  ),
+}
+
 export const WNATIVE = {
+  [ChainId.CYSIC]: WCYS[ChainId.CYSIC],
+  [ChainId.CYSIC_TESTNET]: WCYS[ChainId.CYSIC_TESTNET],
   [ChainId.ETHEREUM]: WETH9[ChainId.ETHEREUM],
   [ChainId.GOERLI]: WETH9[ChainId.GOERLI],
   [ChainId.BSC]: WBNB[ChainId.BSC],
@@ -243,7 +265,14 @@ const BNB = {
   decimals: 18,
 } as const
 
+const CYS = {
+  name: 'CYSIC Chain Native Token',
+  symbol: 'CYS',
+  decimals: 18,
+} as const
 export const NATIVE = {
+  [ChainId.CYSIC]: CYS,
+  [ChainId.CYSIC_TESTNET]: CYS,
   [ChainId.ETHEREUM]: ETHER,
   [ChainId.GOERLI]: { name: 'Goerli Ether', symbol: 'GOR', decimals: 18 },
   [ChainId.BSC]: BNB,

@@ -8,6 +8,8 @@ import { baseSepoliaTokens } from './constants/baseSepolia'
 import { baseTestnetTokens } from './constants/baseTestnet'
 import { bscTokens } from './constants/bsc'
 import { bscTestnetTokens } from './constants/bscTestnet'
+import { cysicTokens } from './constants/cysic'
+import { cysicTestnetTokens } from './constants/cysicTestnet'
 import { ethereumTokens } from './constants/eth'
 import { goerliTestnetTokens } from './constants/goerli'
 import { lineaTokens } from './constants/linea'
@@ -22,6 +24,8 @@ import { zksyncTokens } from './constants/zkSync'
 import { zkSyncTestnetTokens } from './constants/zkSyncTestnet'
 
 export const allTokens = {
+  [ChainId.CYSIC]: cysicTokens,
+  [ChainId.CYSIC_TESTNET]: cysicTestnetTokens,
   [ChainId.GOERLI]: goerliTestnetTokens,
   [ChainId.BSC]: bscTokens,
   [ChainId.BSC_TESTNET]: bscTestnetTokens,

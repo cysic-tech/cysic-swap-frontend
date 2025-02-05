@@ -13,6 +13,22 @@ export const DEFAULT_POOL_SELECTOR_CONFIG: PoolSelectorConfig = {
 }
 
 export const V3_DEFAULT_POOL_SELECTOR_CONFIG: PoolSelectorConfigChainMap = {
+  [ChainId.CYSIC]: {
+    topN: 2,
+    topNDirectSwaps: 2,
+    topNTokenInOut: 2,
+    topNSecondHop: 1,
+    topNWithEachBaseToken: 3,
+    topNWithBaseToken: 4,
+  },
+  [ChainId.CYSIC_TESTNET]: {
+    topN: 2,
+    topNDirectSwaps: 2,
+    topNTokenInOut: 2,
+    topNSecondHop: 1,
+    topNWithEachBaseToken: 3,
+    topNWithBaseToken: 4,
+  },
   [ChainId.BSC]: {
     topN: 2,
     topNDirectSwaps: 2,
@@ -48,6 +64,22 @@ export const V3_DEFAULT_POOL_SELECTOR_CONFIG: PoolSelectorConfigChainMap = {
 }
 
 export const V2_DEFAULT_POOL_SELECTOR_CONFIG: PoolSelectorConfigChainMap = {
+  [ChainId.CYSIC]: {
+    topN: 3,
+    topNDirectSwaps: 2,
+    topNTokenInOut: 2,
+    topNSecondHop: 1,
+    topNWithEachBaseToken: 3,
+    topNWithBaseToken: 3,
+  },
+  [ChainId.CYSIC_TESTNET]: {
+    topN: 3,
+    topNDirectSwaps: 2,
+    topNTokenInOut: 2,
+    topNSecondHop: 1,
+    topNWithEachBaseToken: 3,
+    topNWithBaseToken: 3,
+  },
   [ChainId.BSC]: {
     topN: 3,
     topNDirectSwaps: 2,

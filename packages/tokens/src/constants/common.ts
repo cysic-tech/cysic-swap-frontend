@@ -1,5 +1,23 @@
+import { cysicMetadata, cysicTestnetMetadata } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import { ERC20Token } from '@pancakeswap/sdk'
+
+export const CYS_MAINNET = new ERC20Token(
+  ChainId.CYSIC,
+  cysicMetadata.WNATIVE,
+  18,
+  'CYS',
+  'CYSIC Token',
+  'https://cysic.xyz/',
+)
+export const CYS_TESTNET = new ERC20Token(
+  ChainId.CYSIC_TESTNET,
+  cysicTestnetMetadata.WNATIVE,
+  18,
+  'CYS',
+  'CYSIC Token',
+  'https://cysic.xyz/',
+)
 
 export const CAKE_MAINNET = new ERC20Token(
   ChainId.BSC,
@@ -52,6 +70,19 @@ export const USDC_GOERLI = new ERC20Token(
   6,
   'tUSDC',
   'test USD Coin',
+)
+
+// todo
+export const USDT_CYSIC = new ERC20Token(ChainId.CYSIC, '0x', 18, 'USDT', 'Tether USD', 'https://tether.to/')
+
+// todo
+export const USDT_CYSICTESTNET = new ERC20Token(
+  ChainId.CYSIC_TESTNET,
+  '0x',
+  18,
+  'USDT',
+  'Tether USD',
+  'https://tether.to/',
 )
 
 export const USDT_BSC = new ERC20Token(
@@ -124,6 +155,8 @@ export const BUSD = {
 }
 
 export const CAKE = {
+  [ChainId.CYSIC]: CYS_MAINNET,
+  [ChainId.CYSIC_TESTNET]: CYS_TESTNET,
   [ChainId.ETHEREUM]: new ERC20Token(
     ChainId.ETHEREUM,
     '0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898',
@@ -496,7 +529,10 @@ export const WBTC_ETH = new ERC20Token(
   'https://bitcoin.org/',
 )
 
+// todo
 export const STABLE_COIN = {
+  [ChainId.CYSIC]: CAKE_MAINNET,
+  [ChainId.CYSIC_TESTNET]: CAKE_TESTNET,
   [ChainId.ETHEREUM]: USDT[ChainId.ETHEREUM],
   [ChainId.GOERLI]: USDC[ChainId.GOERLI],
   [ChainId.BSC]: USDT[ChainId.BSC],

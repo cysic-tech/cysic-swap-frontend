@@ -1,3 +1,4 @@
+import { cysicMetadata, cysicTestnetMetadata } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import uniq from 'lodash/uniq'
 
@@ -20,8 +21,11 @@ export const supportedChainIdV2 = [
   ChainId.ETHEREUM,
   ChainId.ARBITRUM_ONE,
 ] as const
+// todo
 export const supportedChainIdV3 = [
   // ChainId.GOERLI,
+  ChainId.CYSIC,
+  ChainId.CYSIC_TESTNET,
   ChainId.BSC,
   ChainId.BSC_TESTNET,
   ChainId.ETHEREUM,
@@ -60,6 +64,8 @@ export const masterChefAddresses = {
 } as const
 
 export const masterChefV3Addresses = {
+  [ChainId.CYSIC]: cysicMetadata.MasterChefV3,
+  [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.MasterChefV3,
   [ChainId.ETHEREUM]: '0x556B9306565093C855AEA9AE92A594704c2Cd59e',
   // [ChainId.GOERLI]: '0x864ED564875BdDD6F421e226494a0E7c071C06f8',
   [ChainId.BSC]: '0x556B9306565093C855AEA9AE92A594704c2Cd59e',

@@ -5,6 +5,8 @@ import {
   baseTokens,
   bscTestnetTokens,
   bscTokens,
+  cysicTestnetTokens,
+  cysicTokens,
   ethereumTokens,
   lineaTokens,
   opBnbTokens,
@@ -22,6 +24,12 @@ export type PriceHelper = {
 }
 
 export const priceHelperTokens = {
+  [ChainId.CYSIC]: {
+    list: [cysicTokens.wcys],
+  },
+  [ChainId.CYSIC_TESTNET]: {
+    list: [cysicTestnetTokens.wcys],
+  },
   [ChainId.ETHEREUM]: {
     list: [ethereumTokens.weth, ethereumTokens.usdc, ethereumTokens.usdt],
   },
@@ -66,6 +74,8 @@ export const priceHelperTokens = {
 
 // for testing purposes
 export const DEFAULT_COMMON_PRICE: Record<FarmV3SupportedChainId, CommonPrice> = {
+  [ChainId.CYSIC]: {},
+  [ChainId.CYSIC_TESTNET]: {},
   [ChainId.ETHEREUM]: {},
   [ChainId.BSC]: {},
   [ChainId.BSC_TESTNET]: {

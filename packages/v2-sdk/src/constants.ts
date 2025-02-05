@@ -1,14 +1,17 @@
+import { cysicMetadata, cysicTestnetMetadata } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import type { Address, Hash } from 'viem'
 
-export const FACTORY_ADDRESS = '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73'
+export const FACTORY_ADDRESS = cysicMetadata.PancakeFactory
 
 const FACTORY_ADDRESS_ETH = '0x1097053Fd2ea711dad45caCcc45EfF7548fCB362'
 
 export const FACTORY_ADDRESS_MAP = {
+  [ChainId.CYSIC]: FACTORY_ADDRESS,
+  [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.PancakeFactory,
   [ChainId.ETHEREUM]: FACTORY_ADDRESS_ETH,
   [ChainId.GOERLI]: FACTORY_ADDRESS_ETH,
-  [ChainId.BSC]: FACTORY_ADDRESS,
+  [ChainId.BSC]: '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73',
   [ChainId.BSC_TESTNET]: '0x6725F303b657a9451d8BA641348b6761A6CC7a17',
   [ChainId.ARBITRUM_ONE]: '0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E',
   [ChainId.ARBITRUM_GOERLI]: '0x333EAE459075b1d7dE8eb57997b5d4eee5F1070a',
@@ -28,13 +31,17 @@ export const FACTORY_ADDRESS_MAP = {
   [ChainId.BASE_SEPOLIA]: '0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E',
 } as const satisfies Record<ChainId, Address>
 
-export const INIT_CODE_HASH = '0x00fb7f630766e6a796048ea87d01acd3068e8ff67d078148a3fa3f4a84f69bd5'
+// todo
+export const INIT_CODE_HASH = cysicMetadata.InitCodeHash
+export const BSC_INIT_CODE_HASH = '0x00fb7f630766e6a796048ea87d01acd3068e8ff67d078148a3fa3f4a84f69bd5'
 
 const INIT_CODE_HASH_ETH = '0x57224589c67f3f30a6b0d7a1b54cf3153ab84563bc609ef41dfb34f8b2974d2d'
 export const INIT_CODE_HASH_MAP = {
+  [ChainId.CYSIC]: INIT_CODE_HASH,
+  [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.InitCodeHash,
   [ChainId.ETHEREUM]: INIT_CODE_HASH_ETH,
   [ChainId.GOERLI]: INIT_CODE_HASH_ETH,
-  [ChainId.BSC]: INIT_CODE_HASH,
+  [ChainId.BSC]: BSC_INIT_CODE_HASH,
   [ChainId.BSC_TESTNET]: '0xd0d4c4cd0848c93cb4fd1f498d7013ee6bfb25783ea21593d5834f5d250ece66',
   [ChainId.ARBITRUM_ONE]: INIT_CODE_HASH_ETH,
   [ChainId.ARBITRUM_GOERLI]: INIT_CODE_HASH_ETH,

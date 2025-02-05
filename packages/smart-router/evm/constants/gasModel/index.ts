@@ -22,6 +22,8 @@ import {
   zksyncTokens,
 } from '@pancakeswap/tokens'
 
+enum SupportedChainId {}
+
 export const usdGasTokensByChain = {
   [ChainId.ETHEREUM]: [ethereumTokens.usdt],
   [ChainId.GOERLI]: [goerliTestnetTokens.usdc],
@@ -43,7 +45,7 @@ export const usdGasTokensByChain = {
   [ChainId.SEPOLIA]: [scrollSepoliaTokens.usdc],
   [ChainId.ARBITRUM_SEPOLIA]: [arbSepoliaTokens.usdc],
   [ChainId.BASE_SEPOLIA]: [baseSepoliaTokens.usdc],
-} satisfies Record<ChainId, Token[]>
+} satisfies Record<SupportedChainId, Token[]>
 
 export * from './stableSwap'
 export * from './v2'

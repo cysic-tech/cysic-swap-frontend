@@ -5,6 +5,7 @@ import invariant from 'tiny-invariant'
 import { Address, PublicClient, createPublicClient, getContract, http } from 'viem'
 import { bsc, bscTestnet, goerli, mainnet } from 'viem/chains'
 
+import { cysic, cysicTestnet } from '@pancakeswap/ca-config'
 import { pancakePairV2ABI } from './abis/IPancakePair'
 import { Pair } from './entities/pair'
 
@@ -17,8 +18,15 @@ const bscClient = createPublicClient({ chain: bsc, transport: http() })
 const bscTestnetClient = createPublicClient({ chain: bscTestnet, transport: http() })
 const goerliClient = createPublicClient({ chain: goerli, transport: http() })
 
+const cysicClient = createPublicClient({ chain: cysic, transport: http() })
+const cysicTestnetClient = createPublicClient({ chain: cysicTestnet, transport: http() })
+
 const getDefaultClient = (chainId: ChainId): PublicClient => {
   switch (chainId) {
+    case ChainId.CYSIC:
+      return cysicClient
+    case ChainId.CYSIC_TESTNET:
+      return cysicTestnetClient
     case ChainId.ETHEREUM:
       return ethClient
     case ChainId.BSC:

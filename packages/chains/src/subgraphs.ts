@@ -1,3 +1,4 @@
+import { cysicMetadata, cysicTestnetMetadata } from '@pancakeswap/ca-config'
 import { ChainId } from './chainId'
 
 type SubgraphParams = {
@@ -24,6 +25,8 @@ export function getStableSwapSubgraphs({ theGraphApiKey }: Pick<SubgraphParams, 
 
 export function getV3Subgraphs({ noderealApiKey, theGraphApiKey }: SubgraphParams) {
   return {
+    [ChainId.CYSIC]: cysicMetadata.graph['exchange-v3'],
+    [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.graph['exchange-v3'],
     [ChainId.ETHEREUM]: `https://gateway-arbitrum.network.thegraph.com/api/${theGraphApiKey}/subgraphs/id/CJYGNhb7RvnhfBDjqpRnD3oxgyhibzc7fkAMa38YV3oS`,
     [ChainId.GOERLI]: 'https://api.thegraph.com/subgraphs/name/pancakeswap/exchange-v3-goerli',
     [ChainId.BSC]: `https://gateway-arbitrum.network.thegraph.com/api/${theGraphApiKey}/subgraphs/id/Hv1GncLY5docZoGtXjo4kwbTvxm3MAhVZqBZE4sUT9eZ`,
@@ -50,6 +53,8 @@ export function getV3Subgraphs({ noderealApiKey, theGraphApiKey }: SubgraphParam
 
 export function getV2Subgraphs({ noderealApiKey, theGraphApiKey }: SubgraphParams) {
   return {
+    [ChainId.CYSIC]: cysicMetadata.graph['exchange-v2'],
+    [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.graph['exchange-v2'],
     [ChainId.BSC]: 'https://proxy-worker-api.pancakeswap.com/bsc-exchange',
     [ChainId.ETHEREUM]: `https://gateway-arbitrum.network.thegraph.com/api/${theGraphApiKey}/subgraphs/id/9opY17WnEPD4REcC43yHycQthSeUMQE26wyoeMjZTLEx`,
     [ChainId.POLYGON_ZKEVM]: `https://gateway-arbitrum.network.thegraph.com/api/${theGraphApiKey}/subgraphs/id/37WmH5kBu6QQytRpMwLJMGPRbXvHgpuZsWqswW4Finc2`,
@@ -65,6 +70,8 @@ export function getV2Subgraphs({ noderealApiKey, theGraphApiKey }: SubgraphParam
 
 export function getBlocksSubgraphs({ noderealApiKey }: SubgraphParams) {
   return {
+    [ChainId.CYSIC]: cysicMetadata.graph.blocks,
+    [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.graph.blocks,
     [ChainId.BSC]: 'https://api.thegraph.com/subgraphs/name/pancakeswap/blocks',
     [ChainId.ETHEREUM]: 'https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks',
     [ChainId.POLYGON_ZKEVM]: 'https://api.studio.thegraph.com/query/45376/polygon-zkevm-block/version/latest',

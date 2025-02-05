@@ -1,7 +1,10 @@
+import { cysicMetadata, cysicTestnetMetadata } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import type { Address } from 'viem'
 
 export const V3_QUOTER_ADDRESSES = {
+  [ChainId.CYSIC]: cysicMetadata.QuoterV2,
+  [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.QuoterV2,
   [ChainId.ETHEREUM]: '0xB048Bbc1Ee6b733FFfCFb9e9CeF7375518e25997',
   [ChainId.GOERLI]: '0xbC203d7f83677c7ed3F7acEc959963E7F4ECC5C2',
   [ChainId.BSC]: '0xB048Bbc1Ee6b733FFfCFb9e9CeF7375518e25997',

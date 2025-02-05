@@ -1,8 +1,10 @@
 import { ChainId } from '@pancakeswap/chains'
 import { Address } from 'viem'
 
+enum SupportedChainId {}
+
 // @fixme convert to ChainId after all chains are updated
-const PERMIT2_ADDRESSES: Record<ChainId, Address> = {
+const PERMIT2_ADDRESSES: Record<SupportedChainId, Address> = {
   [ChainId.ETHEREUM]: '0x31c2F6fcFf4F8759b3Bd5Bf0e1084A055615c768',
   [ChainId.GOERLI]: '0x31c2F6fcFf4F8759b3Bd5Bf0e1084A055615c768',
   [ChainId.SEPOLIA]: '0x31c2F6fcFf4F8759b3Bd5Bf0e1084A055615c768',

@@ -42,4 +42,5 @@ export interface chainMetadata {
   // zero
   zeroAddress: `0x${string}`
   MulticallV3: `0x${string}`
+  [key: string]: any
 }

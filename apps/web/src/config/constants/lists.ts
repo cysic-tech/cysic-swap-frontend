@@ -10,6 +10,10 @@ export const PANCAKE_ARB_DEFAULT = 'https://tokens.pancakeswap.finance/pancakesw
 export const PANCAKE_LINEA_DEFAULT = 'https://tokens.pancakeswap.finance/pancakeswap-linea-default.json'
 export const PANCAKE_BASE_DEFAULT = 'https://tokens.pancakeswap.finance/pancakeswap-base-default.json'
 export const PANCAKE_OPBNB_DEFAULT = 'https://tokens.pancakeswap.finance/pancakeswap-opbnb-default.json'
+export const PANCAKE_CYSIC_DEFAULT =
+  'https://raw.githubusercontent.com/cysic-tech/token-list/refs/heads/master/default/cysic.json'
+export const PANCAKE_CYSIC_TESTNET_DEFAULT =
+  'https://raw.githubusercontent.com/cysic-tech/token-list/refs/heads/master/default/cysic-testnet.json'
 
 export const PANCAKE_ETH_MM = 'https://tokens.pancakeswap.finance/pancakeswap-eth-mm.json'
 export const PANCAKE_BSC_MM = 'https://tokens.pancakeswap.finance/pancakeswap-bnb-mm.json'
@@ -18,6 +22,8 @@ export const PANCAKE_ARB_MM = 'https://tokens.pancakeswap.finance/pancakeswap-ar
 const COINGECKO_ETH = 'https://tokens.coingecko.com/uniswap/all.json'
 // export const CMC = 'https://tokens.pancakeswap.finance/cmc.json' // not updated for a while
 
+const CYSIC_URLS = [PANCAKE_CYSIC_DEFAULT]
+const CYSIC_TESTNET_URLS = [PANCAKE_CYSIC_TESTNET_DEFAULT]
 const ETH_URLS = [PANCAKE_ETH_DEFAULT, PANCAKE_ETH_MM, COINGECKO_ETH]
 const BSC_URLS = [PANCAKE_EXTENDED, COINGECKO, PANCAKE_BSC_MM]
 const POLYGON_ZKEVM_URLS = [
@@ -40,13 +46,20 @@ const BASE_URLS = [PANCAKE_BASE_DEFAULT, OP_SUPER_CHAIN_URL, 'https://tokens.coi
 const OPBNB_URLS = [PANCAKE_OPBNB_DEFAULT]
 
 // List of official tokens list
-export const OFFICIAL_LISTS = [PANCAKE_EXTENDED, PANCAKE_ETH_DEFAULT]
+export const OFFICIAL_LISTS = [
+  // PANCAKE_EXTENDED,
+  // PANCAKE_ETH_DEFAULT,
+  PANCAKE_CYSIC_DEFAULT,
+  PANCAKE_CYSIC_TESTNET_DEFAULT,
+]
 
 export const UNSUPPORTED_LIST_URLS: string[] = []
 export const WARNING_LIST_URLS: string[] = []
 
 // lower index == higher priority for token import
 export const DEFAULT_LIST_OF_LISTS: string[] = [
+  ...CYSIC_URLS,
+  ...CYSIC_TESTNET_URLS,
   ...BSC_URLS,
   ...ETH_URLS,
   ...ZKSYNC_URLS,
@@ -62,6 +75,8 @@ export const DEFAULT_LIST_OF_LISTS: string[] = [
 
 // default lists to be 'active' aka searched across
 export const DEFAULT_ACTIVE_LIST_URLS: string[] = [
+  PANCAKE_CYSIC_DEFAULT,
+  PANCAKE_CYSIC_TESTNET_DEFAULT,
   PANCAKE_EXTENDED,
   PANCAKE_ETH_DEFAULT,
   PANCAKE_ETH_MM,
@@ -80,6 +95,8 @@ export const DEFAULT_ACTIVE_LIST_URLS: string[] = [
 ]
 
 export const MULTI_CHAIN_LIST_URLS: { [chainId: number]: string[] } = {
+  [ChainId.CYSIC]: CYSIC_URLS,
+  [ChainId.CYSIC_TESTNET]: CYSIC_TESTNET_URLS,
   [ChainId.BSC]: BSC_URLS,
   [ChainId.ETHEREUM]: ETH_URLS,
   [ChainId.ZKSYNC]: ZKSYNC_URLS,

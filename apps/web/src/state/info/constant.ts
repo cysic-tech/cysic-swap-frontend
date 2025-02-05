@@ -1,17 +1,20 @@
 import { GraphQLClient } from 'graphql-request'
 import { infoStableSwapClients, v2Clients } from 'utils/graphql'
 
+import { cysic } from '@pancakeswap/ca-config'
 import { ChainId, isTestnetChainId } from '@pancakeswap/chains'
 import { STABLE_SUPPORTED_CHAIN_IDS } from '@pancakeswap/stable-swap-sdk'
 import { BSC_TOKEN_WHITELIST, ETH_TOKEN_BLACKLIST, ETH_TOKEN_WHITELIST, TOKEN_BLACKLIST } from 'config/constants/info'
 import mapValues from 'lodash/mapValues'
 import { arbitrum, base, bsc, linea, mainnet, opBNB, polygonZkEvm, zkSync } from 'wagmi/chains'
 
-export type MultiChainName = 'BSC' | 'ETH' | 'POLYGON_ZKEVM' | 'ZKSYNC' | 'ARB' | 'LINEA' | 'BASE' | 'OPBNB'
+export type MultiChainName = 'CYSIC' | 'BSC' | 'ETH' | 'POLYGON_ZKEVM' | 'ZKSYNC' | 'ARB' | 'LINEA' | 'BASE' | 'OPBNB'
 
-export type MultiChainNameExtend = MultiChainName | 'BSC_TESTNET' | 'ZKSYNC_TESTNET'
+export type MultiChainNameExtend = MultiChainName | 'BSC_TESTNET' | 'ZKSYNC_TESTNET' | 'CYSIC_TESTNET'
 
 export const multiChainName: Record<number | string, MultiChainNameExtend> = {
+  [ChainId.CYSIC]: 'CYSIC',
+  [ChainId.CYSIC_TESTNET]: 'CYSIC_TESTNET',
   [ChainId.BSC]: 'BSC',
   [ChainId.ETHEREUM]: 'ETH',
   [ChainId.BSC_TESTNET]: 'BSC_TESTNET',
@@ -28,6 +31,7 @@ export const multiChainShortName: Record<number, string> = {
 }
 
 export const multiChainQueryMainToken: Record<MultiChainName, string> = {
+  CYSIC: 'CYS',
   BSC: 'BNB',
   ETH: 'ETH',
   POLYGON_ZKEVM: 'ETH',
@@ -39,6 +43,7 @@ export const multiChainQueryMainToken: Record<MultiChainName, string> = {
 }
 
 export const multiChainId: Record<MultiChainName, ChainId> = {
+  CYSIC: ChainId.CYSIC,
   BSC: ChainId.BSC,
   ETH: ChainId.ETHEREUM,
   POLYGON_ZKEVM: ChainId.POLYGON_ZKEVM,
@@ -50,6 +55,7 @@ export const multiChainId: Record<MultiChainName, ChainId> = {
 }
 
 export const multiChainPaths = {
+  [ChainId.CYSIC]: '',
   [ChainId.BSC]: '',
   [ChainId.ETHEREUM]: '/eth',
   [ChainId.POLYGON_ZKEVM]: '/polygon-zkevm',
@@ -66,6 +72,7 @@ export const multiChainQueryStableClient = STABLE_SUPPORTED_CHAIN_IDS.reduce((ac
 }, {} as Record<MultiChainName, GraphQLClient>)
 
 export const infoChainNameToExplorerChainName = {
+  CYSIC: 'cysic',
   BSC: 'bsc',
   ETH: 'ethereum',
   POLYGON_ZKEVM: 'polygon-zkevm',
@@ -81,6 +88,7 @@ export const STABLESWAP_SUBGRAPHS_START_BLOCK = {
 }
 
 export const multiChainScan: Record<MultiChainName, string> = {
+  CYSIC: cysic.blockExplorers.default.name,
   BSC: bsc.blockExplorers.default.name,
   ETH: mainnet.blockExplorers.default.name,
   POLYGON_ZKEVM: polygonZkEvm.blockExplorers.default.name,
@@ -101,6 +109,7 @@ export const multiChainScanName: Partial<Record<ChainId, string>> = {
 
 export const multiChainTokenBlackList: Record<MultiChainName, string[]> = mapValues(
   {
+    CYSIC: ['0x'],
     BSC: TOKEN_BLACKLIST,
     ETH: ETH_TOKEN_BLACKLIST,
     POLYGON_ZKEVM: ['0x'],
@@ -115,6 +124,7 @@ export const multiChainTokenBlackList: Record<MultiChainName, string[]> = mapVal
 
 export const multiChainTokenWhiteList: Record<MultiChainName, string[]> = mapValues(
   {
+    CYSIC: [],
     BSC: BSC_TOKEN_WHITELIST,
     ETH: ETH_TOKEN_WHITELIST,
     POLYGON_ZKEVM: [],

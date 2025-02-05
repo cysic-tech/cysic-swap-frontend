@@ -6,6 +6,8 @@ const phishingBannerAtom = atomWithStorage<number>('pcs:phishing-banner', 0)
 
 const hidePhishingBannerAtom = atom(
   (get) => {
+    return false
+
     const now = dayjs()
     const last = dayjs(get(phishingBannerAtom)).add(1, 'day')
     return last && now.unix() > last.unix()

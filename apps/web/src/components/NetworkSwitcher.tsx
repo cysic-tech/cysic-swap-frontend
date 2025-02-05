@@ -104,7 +104,7 @@ const WrongNetworkSelect = ({ switchNetwork, chainId }) => {
     },
   )
   const { chain } = useAccount()
-  const localChainId = useLocalNetworkChain() || ChainId.BSC
+  const localChainId = useLocalNetworkChain() || ChainId.CYSIC
 
   const localChainName = chains.find((c) => c.id === localChainId)?.name ?? 'BSC'
 

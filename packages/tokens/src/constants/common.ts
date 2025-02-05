@@ -72,19 +72,6 @@ export const USDC_GOERLI = new ERC20Token(
   'test USD Coin',
 )
 
-// todo
-export const USDT_CYSIC = new ERC20Token(ChainId.CYSIC, '0x', 18, 'USDT', 'Tether USD', 'https://tether.to/')
-
-// todo
-export const USDT_CYSICTESTNET = new ERC20Token(
-  ChainId.CYSIC_TESTNET,
-  '0x',
-  18,
-  'USDT',
-  'Tether USD',
-  'https://tether.to/',
-)
-
 export const USDT_BSC = new ERC20Token(
   ChainId.BSC,
   '0x55d398326f99059fF775485246999027B3197955',
@@ -99,6 +86,24 @@ export const USDT_ETH = new ERC20Token(
   '0xdAC17F958D2ee523a2206206994597C13D831ec7',
   6,
   'USDT',
+  'Tether USD',
+  'https://tether.to/',
+)
+
+export const USDT_CYSIC = new ERC20Token(
+  ChainId.CYSIC,
+  cysicMetadata.USDT,
+  18,
+  'USDT',
+  'Tether USD',
+  'https://tether.to/',
+)
+
+export const USDT_CYSIC_TESTNET = new ERC20Token(
+  ChainId.CYSIC_TESTNET,
+  cysicTestnetMetadata.USDT,
+  18,
+  'tUSDT',
   'Tether USD',
   'https://tether.to/',
 )
@@ -393,6 +398,8 @@ export const USDC = {
 }
 
 export const USDT = {
+  [ChainId.CYSIC]: USDT_CYSIC,
+  [ChainId.CYSIC_TESTNET]: USDT_CYSIC_TESTNET,
   [ChainId.BSC]: USDT_BSC,
   [ChainId.ETHEREUM]: USDT_ETH,
   [ChainId.ARBITRUM_ONE]: new ERC20Token(

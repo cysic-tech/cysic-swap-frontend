@@ -1,3 +1,4 @@
+import { cysicMetadata, cysicTestnetMetadata } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import { masterChefV3Addresses } from '@pancakeswap/farms'
 import { GAUGES_ADDRESS, GAUGES_CALC_ADDRESS } from '@pancakeswap/gauges'
@@ -25,6 +26,8 @@ export default {
     [ChainId.BSC]: '0x5aF6D33DE2ccEC94efb1bDF8f92Bd58085432d2c',
   },
   multiCall: {
+    [ChainId.CYSIC]: cysicMetadata.MulticallV3,
+    [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.MulticallV3,
     [ChainId.ETHEREUM]: '0xcA11bde05977b3631167028862bE2a173976CA11',
     [ChainId.GOERLI]: '0xcA11bde05977b3631167028862bE2a173976CA11',
     [ChainId.BSC]: '0xcA11bde05977b3631167028862bE2a173976CA11',
@@ -136,6 +139,8 @@ export default {
     [ChainId.BSC_TESTNET]: '0xDB9D365b50E62fce747A90515D2bd1254A16EbB9',
   },
   zap: {
+    [ChainId.CYSIC]: cysicMetadata.PancakeZapV1,
+    [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.PancakeZapV1,
     [ChainId.BSC]: '0xD4c4a7C55c9f7B3c48bafb6E8643Ba79F42418dF',
     [ChainId.BSC_TESTNET]: '0xD85835207054F25620109bdc745EC1D1f84F04e1',
   },
@@ -177,6 +182,8 @@ export default {
   nftPositionManager: NFT_POSITION_MANAGER_ADDRESSES,
   v3PoolDeployer: DEPLOYER_ADDRESSES,
   v3Migrator: {
+    [ChainId.CYSIC]: cysicMetadata.V3Migrator,
+    [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.V3Migrator,
     [ChainId.ETHEREUM]: '0xbC203d7f83677c7ed3F7acEc959963E7F4ECC5C2',
     [ChainId.GOERLI]: '0x46A15B0b27311cedF172AB29E4f4766fbE7F4364',
     [ChainId.BSC]: '0xbC203d7f83677c7ed3F7acEc959963E7F4ECC5C2',

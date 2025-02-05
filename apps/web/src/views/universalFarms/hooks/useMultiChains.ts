@@ -1,12 +1,13 @@
+import { ChainId } from '@pancakeswap/chains'
 import { CHAINS } from 'config/chains'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import { useMemo } from 'react'
 
 export const MAINNET_CHAINS = CHAINS.filter((chain) => {
-  if ('testnet' in chain && chain.testnet) {
+  if (process.env.NODE_ENV === 'production' && 'testnet' in chain && chain.testnet) {
     return false
   }
-  return true
+  return [ChainId.CYSIC, ChainId.CYSIC_TESTNET].includes(chain.id)
 })
 
 export const useAllChainIds = () => useMemo(() => MAINNET_CHAINS.map((chain) => chain.id), [])

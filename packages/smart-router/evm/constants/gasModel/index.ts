@@ -9,6 +9,8 @@ import {
   baseTokens,
   bscTestnetTokens,
   bscTokens,
+  cysicTestnetTokens,
+  cysicTokens,
   ethereumTokens,
   goerliTestnetTokens,
   lineaTestnetTokens,
@@ -25,6 +27,8 @@ import {
 enum SupportedChainId {}
 
 export const usdGasTokensByChain = {
+  [ChainId.CYSIC]: [cysicTokens.usdt],
+  [ChainId.CYSIC_TESTNET]: [cysicTestnetTokens.usdt],
   [ChainId.ETHEREUM]: [ethereumTokens.usdt],
   [ChainId.GOERLI]: [goerliTestnetTokens.usdc],
   [ChainId.BSC]: [bscTokens.usdt],
@@ -50,3 +54,4 @@ export const usdGasTokensByChain = {
 export * from './stableSwap'
 export * from './v2'
 export * from './v3'
+

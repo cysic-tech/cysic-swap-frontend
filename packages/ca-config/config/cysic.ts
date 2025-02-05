@@ -44,8 +44,8 @@ const cysicMetadata: chainMetadata = {
 
   // zero
   zeroAddress: '0x0000000000000000000000000000000000000000',
-
   MulticallV3: '0x2c92F7945ecba1bB3179F7486187FDaCcF7a05B5',
+  USDT: '0x2C44A1775616461C04011495ad1401D872da0054',
 }
 
 const cysicTestnetMetadata: chainMetadata = {
@@ -93,6 +93,7 @@ const cysicTestnetMetadata: chainMetadata = {
   // zero
   zeroAddress: '0x0000000000000000000000000000000000000000',
   MulticallV3: '0x2c92F7945ecba1bB3179F7486187FDaCcF7a05B5',
+  USDT: '0x2C44A1775616461C04011495ad1401D872da0054',
 }
 
 const cysicTestnetRpc: string = 'https://evm-dev.prover.xyz'
@@ -115,7 +116,7 @@ const cysicTestnet = defineChain({
       url: 'https://cys-dev.prover.xyz/',
     },
   },
-  testnet: false,
+  testnet: true,
   contracts: {
     multicall3: {
       address: '0x2c92F7945ecba1bB3179F7486187FDaCcF7a05B5',

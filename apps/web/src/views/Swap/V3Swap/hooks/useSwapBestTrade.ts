@@ -146,9 +146,10 @@ export function useSwapBestTrade({ maxHops }: Options = {}) {
     v2Swap,
     v3Swap,
     stableSwap: stableSwapEnable,
-    type: 'auto',
+    type: 'quoter',
     trackPerf: true,
   })
+  console.log('error', error)
   const [loading, setLoading] = useState(false)
   const refresh = useCallback(async () => {
     try {

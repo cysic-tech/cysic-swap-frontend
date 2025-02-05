@@ -1,6 +1,8 @@
 import { ChainId } from '@pancakeswap/chains'
 
 export const SUPPORTED_CHAIN_IDS = [
+  ChainId.CYSIC,
+  ChainId.CYSIC_TESTNET,
   ChainId.BSC,
   // ChainId.BSC_TESTNET,
   ChainId.ETHEREUM,

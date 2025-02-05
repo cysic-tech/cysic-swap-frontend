@@ -1,3 +1,4 @@
+import { cysicMetadata } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import { Percent, Token, WNATIVE } from '@pancakeswap/sdk'
 import {
@@ -13,6 +14,8 @@ import {
   baseTokens,
   bscTestnetTokens,
   bscTokens,
+  cysicTestnetTokens,
+  cysicTokens,
   lineaTestnetTokens,
   lineaTokens,
   opBnbTestnetTokens,
@@ -34,6 +37,8 @@ export {
 } from '@pancakeswap/smart-router'
 
 export const CHAIN_REFRESH_TIME = {
+  [ChainId.CYSIC]: 6_000,
+  [ChainId.CYSIC_TESTNET]: 6_000,
   [ChainId.ETHEREUM]: 12_000,
   [ChainId.GOERLI]: 12_000,
   [ChainId.BSC]: 6_000,
@@ -58,6 +63,8 @@ export const CHAIN_REFRESH_TIME = {
 
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
+  [ChainId.CYSIC]: [cysicTokens.wcys],
+  [ChainId.CYSIC_TESTNET]: [cysicTestnetTokens.wcys],
   [ChainId.ETHEREUM]: [USDC[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM], WNATIVE[ChainId.ETHEREUM], WBTC_ETH],
   [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI], BUSD[ChainId.GOERLI]],
   [ChainId.BSC]: [bscTokens.usdt, bscTokens.cake, bscTokens.btcb],
@@ -87,6 +94,8 @@ export const SUGGESTED_BASES: ChainTokenList = {
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
+  [ChainId.CYSIC]: [cysicTokens.wcys],
+  [ChainId.CYSIC_TESTNET]: [cysicTestnetTokens.wcys],
   [ChainId.ETHEREUM]: [USDC[ChainId.ETHEREUM], WNATIVE[ChainId.ETHEREUM], USDT[ChainId.ETHEREUM], WBTC_ETH],
   [ChainId.GOERLI]: [USDC[ChainId.GOERLI], WNATIVE[ChainId.GOERLI], BUSD[ChainId.GOERLI]],
   [ChainId.BSC]: [bscTokens.wbnb, bscTokens.dai, bscTokens.busd, bscTokens.usdt, bscTokens.cake],
@@ -109,6 +118,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.BASE_SEPOLIA]: [baseSepoliaTokens.usdc, baseSepoliaTokens.weth],
 }
 
+// todo
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
   [ChainId.ETHEREUM]: [
     [WNATIVE[ChainId.ETHEREUM], USDC[ChainId.ETHEREUM]],
@@ -163,9 +173,9 @@ export const BASE_FEE = new Percent(25n, BIPS_BASE)
 export const INPUT_FRACTION_AFTER_FEE = ONE_HUNDRED_PERCENT.subtract(BASE_FEE)
 
 // BNB
-export const DEFAULT_INPUT_CURRENCY = 'BNB'
+export const DEFAULT_INPUT_CURRENCY = 'CYS'
 // CAKE
-export const DEFAULT_OUTPUT_CURRENCY = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82'
+export const DEFAULT_OUTPUT_CURRENCY = cysicMetadata.WNATIVE
 
 // Handler string is passed to Gelato to use PCS router
 export const GELATO_HANDLER = 'pancakeswap'

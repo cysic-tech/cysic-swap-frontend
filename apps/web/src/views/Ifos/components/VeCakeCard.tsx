@@ -57,7 +57,7 @@ export function VeCakeCard({ ifoAddress }: Props) {
       Number(
         formatBigInt(
           isUserDelegated ? nativeCakeLockedAmount : nativeCakeLockedAmount + proxyCakeLockedAmount,
-          CAKE[chainId || ChainId.BSC].decimals,
+          CAKE[chainId || ChainId.CYSIC].decimals,
         ),
       ),
     [nativeCakeLockedAmount, proxyCakeLockedAmount, chainId, isUserDelegated],

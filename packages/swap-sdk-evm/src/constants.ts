@@ -226,7 +226,7 @@ export const WCYS = {
     ChainId.CYSIC_TESTNET,
     cysicTestnetMetadata.WNATIVE,
     18,
-    'WCYS',
+    'tWCYS',
     'Wrapped CYS',
     'https://cysic.xyz/',
   ),

@@ -1,15 +1,11 @@
-import { useAtom } from 'jotai'
-import flatMap from 'lodash/flatMap'
-import uniqWith from 'lodash/uniqWith'
-import { useMemo } from 'react'
-import { selectorByUrlsAtom } from 'state/lists/hooks'
-import { SUGGESTED_BASES } from 'config/constants/exchange'
 import { ChainId, ERC20Token, Native } from '@pancakeswap/sdk'
 import type { TokenInfo } from '@pancakeswap/token-lists'
+import { SUGGESTED_BASES } from 'config/constants/exchange'
 import {
   PANCAKE_ARB_DEFAULT,
   PANCAKE_BASE_DEFAULT,
   PANCAKE_BSC_MM,
+  PANCAKE_CYSIC_TESTNET_DEFAULT,
   PANCAKE_ETH_DEFAULT,
   PANCAKE_ETH_MM,
   PANCAKE_EXTENDED,
@@ -18,6 +14,11 @@ import {
   PANCAKE_POLYGON_ZKEVM_DEFAULT,
   PANCAKE_ZKSYNC_DEFAULT,
 } from 'config/constants/lists'
+import { useAtom } from 'jotai'
+import flatMap from 'lodash/flatMap'
+import uniqWith from 'lodash/uniqWith'
+import { useMemo } from 'react'
+import { selectorByUrlsAtom } from 'state/lists/hooks'
 import { useOrderChainIds } from './useMultiChains'
 
 const BSC_URLS = [PANCAKE_EXTENDED, PANCAKE_BSC_MM]
@@ -28,8 +29,13 @@ const ARBITRUM_URLS = [PANCAKE_ARB_DEFAULT]
 const LINEA_URLS = [PANCAKE_LINEA_DEFAULT]
 const BASE_URLS = [PANCAKE_BASE_DEFAULT]
 const OPBNB_URLS = [PANCAKE_OPBNB_DEFAULT]
+// const CYSIC_URLS = [PANCAKE_CYSIC_DEFAULT]
+const CYSIC_TESTNET_URLS = [PANCAKE_CYSIC_TESTNET_DEFAULT]
 
 export const MULTI_CHAIN_LIST_URLS: { [chainId: number]: string[] } = {
+  // todo commentout until mainnet is configured
+  // [ChainId.CYSIC]: CYSIC_URLS,
+  [ChainId.CYSIC_TESTNET]: CYSIC_TESTNET_URLS,
   [ChainId.BSC]: BSC_URLS,
   [ChainId.ETHEREUM]: ETH_URLS,
   [ChainId.ZKSYNC]: ZKSYNC_URLS,
@@ -44,6 +50,7 @@ export const useTokensFromUrls = (urls: string[]) => {
   const [lists] = useAtom(selectorByUrlsAtom)
   return useMemo(() => {
     const tokenInfos = flatMap(urls, (url) => lists[url]?.current?.tokens).filter(Boolean) as TokenInfo[]
+
     return tokenInfos.map(
       ({ chainId, address, decimals, symbol, name }) => new ERC20Token(chainId, address, decimals, symbol, name),
     )
@@ -64,6 +71,10 @@ export const useMultiChainsTokens = () => {
       ].filter(Boolean),
     [orderedChainIds],
   )
+
   const tokenList = useTokensFromUrls(listUrls)
-  return useMemo(() => uniqWith(suggestedTokens.concat(tokenList), (a, b) => a.equals(b)), [tokenList, suggestedTokens])
+  return useMemo(
+    () => uniqWith(suggestedTokens.concat(tokenList), (a, b) => a && a?.equals(b)),
+    [tokenList, suggestedTokens],
+  )
 }

@@ -16,9 +16,9 @@ import isEmpty from 'lodash/isEmpty'
 import React, { useMemo } from 'react'
 import { UpdaterByChainId } from 'state/lists/updater'
 import styled from 'styled-components'
-import { getChainFullName } from '../utils'
 import { MAINNET_CHAINS } from '../hooks/useMultiChains'
 import { useMultiChainsTokens } from '../hooks/useMultiChainsTokens'
+import { getChainFullName } from '../utils'
 
 const PoolsFilterContainer = styled(Flex)<{ $childrenCount: number }>`
   flex-wrap: wrap;
@@ -126,7 +126,7 @@ export const PoolsFilterPanel: React.FC<React.PropsWithChildren<IPoolsFilterPane
 
   const allTokens = useMultiChainsTokens()
   const filteredTokens = useMemo(
-    () => allTokens.filter((token) => selectedNetwork.includes(token.chainId)),
+    () => allTokens.filter((token) => selectedNetwork.includes(token?.chainId)),
     [selectedNetwork, allTokens],
   )
 

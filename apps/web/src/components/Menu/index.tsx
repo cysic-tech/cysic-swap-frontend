@@ -1,6 +1,5 @@
 import { languageList, useTranslation } from '@pancakeswap/localization'
 import { Text, Menu as UikitMenu, footerLinks, useModal } from '@pancakeswap/uikit'
-import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
 import { usePhishingBanner } from '@pancakeswap/utils/user'
 import { NextLinkFromReactRouter } from '@pancakeswap/widgets-internal'
 import USCitizenConfirmModal from 'components/Modal/USCitizenConfirmModal'
@@ -125,7 +124,7 @@ const Menu = (props) => {
       currentLang={currentLanguage.code}
       langs={languageList}
       setLang={setLanguage}
-      cakePriceUsd={cakePrice.eq(BIG_ZERO) ? undefined : cakePrice}
+      // cakePriceUsd={cakePrice.eq(BIG_ZERO) ? undefined : cakePrice}
       links={menuItems}
       subLinks={
         activeSubMenuItem?.overrideSubNavItems ??
@@ -134,12 +133,12 @@ const Menu = (props) => {
           ? []
           : activeSubMenuItem?.items ?? activeMenuItem?.items)
       }
-      footerLinks={getFooterLinks}
+      // footerLinks={getFooterLinks}
       activeItem={activeMenuItem?.href}
       activeSubItem={activeSubMenuItem?.href}
       activeSubItemChildItem={activeSubChildMenuItem?.href}
-      buyCakeLabel={t('Buy CAKE')}
-      buyCakeLink="/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82&chainId=56"
+      // buyCakeLabel={t('Buy CAKE')}
+      // buyCakeLink="/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82&chainId=56"
       {...props}
     />
   )

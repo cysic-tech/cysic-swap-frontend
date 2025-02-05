@@ -1,27 +1,7 @@
+import { cysic, cysicTestnet } from '@pancakeswap/ca-config'
 import { ChainId, chainNames } from '@pancakeswap/chains'
 import memoize from 'lodash/memoize'
-import {
-  Chain,
-  arbitrum,
-  arbitrumGoerli,
-  arbitrumSepolia,
-  base,
-  baseGoerli,
-  baseSepolia,
-  bscTestnet,
-  bsc as bsc_,
-  goerli,
-  linea,
-  lineaTestnet,
-  mainnet,
-  opBNB,
-  opBNBTestnet,
-  polygonZkEvm,
-  polygonZkEvmTestnet,
-  scrollSepolia,
-  sepolia,
-  zkSync,
-} from 'wagmi/chains'
+import { Chain, bscTestnet, bsc as bsc_ } from 'wagmi/chains'
 
 export const CHAIN_QUERY_NAME = chainNames
 
@@ -57,40 +37,8 @@ const bsc = {
  * The expectation is that all of these networks have immediate transaction confirmation.
  */
 export const L2_CHAIN_IDS: ChainId[] = [
-  ChainId.ARBITRUM_ONE,
-  ChainId.ARBITRUM_GOERLI,
-  ChainId.POLYGON_ZKEVM,
-  ChainId.POLYGON_ZKEVM_TESTNET,
-  ChainId.ZKSYNC,
-  ChainId.ZKSYNC_TESTNET,
-  ChainId.LINEA_TESTNET,
-  ChainId.LINEA,
-  ChainId.BASE,
-  ChainId.BASE_TESTNET,
-  ChainId.OPBNB,
-  ChainId.OPBNB_TESTNET,
-  ChainId.ARBITRUM_SEPOLIA,
-  ChainId.BASE_SEPOLIA,
+  // ChainId.ARBITRUM_ONE,
+  // ChainId.ARBITRUM_GOERLI,
 ]
 
-export const CHAINS: [Chain, ...Chain[]] = [
-  bsc,
-  bscTestnet,
-  mainnet,
-  goerli,
-  sepolia,
-  polygonZkEvm,
-  polygonZkEvmTestnet,
-  zkSync,
-  arbitrum,
-  arbitrumGoerli,
-  arbitrumSepolia,
-  linea,
-  lineaTestnet,
-  base,
-  baseGoerli,
-  baseSepolia,
-  opBNB,
-  opBNBTestnet,
-  scrollSepolia,
-]
+export const CHAINS: [Chain, ...Chain[]] = [cysic, cysicTestnet, bsc, bscTestnet]

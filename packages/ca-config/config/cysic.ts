@@ -115,7 +115,7 @@ const cysicTestnet = defineChain({
       url: 'https://cys-dev.prover.xyz/',
     },
   },
-  testnet: true,
+  testnet: false,
   contracts: {
     multicall3: {
       address: '0x2c92F7945ecba1bB3179F7486187FDaCcF7a05B5',

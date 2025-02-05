@@ -1,8 +1,6 @@
 import { Token } from '@pancakeswap/swap-sdk-core'
 import { Address } from 'viem'
 
-import { validateAndParseAddress } from '../utils'
-
 // /**
 //  * Represents an ERC20 token with a unique address and some metadata.
 //  */
@@ -15,6 +13,6 @@ export class ERC20Token extends Token {
     name?: string,
     projectLink?: string,
   ) {
-    super(chainId, validateAndParseAddress(address), decimals, symbol, name, projectLink)
+    super(chainId, address, decimals, symbol, name, projectLink)
   }
 }

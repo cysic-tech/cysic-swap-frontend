@@ -1,3 +1,4 @@
+import { cysicRpc, cysicTestnetRpc } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import { getNodeRealUrl } from 'utils/node/nodeReal'
 import { getGroveUrl } from 'utils/node/pokt'
@@ -27,6 +28,8 @@ const ARBITRUM_NODES = [
 ].filter(notEmpty)
 
 export const SERVER_NODES = {
+  [ChainId.CYSIC]: [cysicRpc],
+  [ChainId.CYSIC_TESTNET]: [cysicTestnetRpc],
   [ChainId.BSC]: [
     getNodeRealUrl(ChainId.BSC, process.env.SERVER_NODE_REAL_API_ETH) || '',
     process.env.NEXT_PUBLIC_NODE_PRODUCTION || '',
@@ -87,6 +90,8 @@ export const SERVER_NODES = {
 } satisfies Record<ChainId, readonly string[]>
 
 export const PUBLIC_NODES: Record<ChainId, string[] | readonly string[]> = {
+  [ChainId.CYSIC]: [cysicRpc],
+  [ChainId.CYSIC_TESTNET]: [cysicTestnetRpc],
   [ChainId.BSC]: [
     process.env.NEXT_PUBLIC_NODE_PRODUCTION || '',
     getNodeRealUrl(ChainId.BSC, process.env.NEXT_PUBLIC_NODE_REAL_API_ETH) || '',

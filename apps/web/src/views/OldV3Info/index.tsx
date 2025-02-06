@@ -1,11 +1,11 @@
 import { useTranslation } from '@pancakeswap/localization'
 import { AutoColumn, Box, Button, Card, Heading, Text } from '@pancakeswap/uikit'
+import isUndefinedOrNull from '@pancakeswap/utils/isUndefinedOrNull'
 import Page from 'components/Layout/Page'
 import dayjs from 'dayjs'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import useTheme from 'hooks/useTheme'
 import { useEffect, useMemo, useState } from 'react'
-import isUndefinedOrNull from '@pancakeswap/utils/isUndefinedOrNull'
 import BarChart from './components/BarChart/alt'
 import { DarkGreyCard } from './components/Card'
 import LineChart from './components/LineChart/alt'
@@ -38,7 +38,9 @@ export default function Home() {
   const protocolData = useProtocolData()
   const transactionData = useProtocolTransactionData()
   const topTokensData = useTopTokensData()
+  console.log('topTokensData', topTokensData)
   const topPoolsData = useTopPoolsData()
+  console.log('topPoolsData', topPoolsData)
   const chartData = useProtocolChartData()
   const { chainId } = useActiveChainId()
   const { t } = useTranslation()
@@ -93,7 +95,7 @@ export default function Home() {
       return Object.values(topTokensData)
         .map((d) => d)
         .filter((d) => !isUndefinedOrNull(d))
-        .filter((d) => d.tvlUSD > 0)
+        .filter((d) => d.tvlUSD >= 0)
     return []
   }, [topTokensData])
 

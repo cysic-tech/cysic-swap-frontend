@@ -54,9 +54,10 @@ export const ONE_HOUR_SECONDS = 3600
 export const ONE_DAY_SECONDS = 86400
 export const MAX_UINT128 = 2n ** 128n - 1n
 
+// TODO
 export const SUBGRAPH_START_BLOCK = {
-  [ChainId.CYSIC]: 289298,
-  [ChainId.CYSIC_TESTNET]: 289298,
+  [ChainId.CYSIC]: 726648,
+  [ChainId.CYSIC_TESTNET]: 726648,
   [ChainId.BSC]: 26956207,
   [ChainId.ETHEREUM]: 16950686,
   [ChainId.POLYGON_ZKEVM]: 750149,

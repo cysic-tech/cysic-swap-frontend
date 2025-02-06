@@ -1,5 +1,5 @@
-import { useTranslation } from '@pancakeswap/localization'
 import { ChainId } from '@pancakeswap/chains'
+import { useTranslation } from '@pancakeswap/localization'
 import {
   Box,
   ButtonMenu,
@@ -12,6 +12,7 @@ import {
 } from '@pancakeswap/uikit'
 import { NextLinkFromReactRouter } from '@pancakeswap/widgets-internal'
 
+import { cysic, cysicMetadata, cysicTestnet } from '@pancakeswap/ca-config'
 import { ChainLogo } from 'components/Logo/ChainLogo'
 import { ASSET_CDN } from 'config/constants/endpoints'
 import { useRouter } from 'next/router'
@@ -20,7 +21,7 @@ import { multiChainId, multiChainPaths, multiChainShortName } from 'state/info/c
 import { useChainNameByQuery, useMultiChainPath } from 'state/info/hooks'
 import { styled } from 'styled-components'
 import { chains } from 'utils/wagmi'
-import { arbitrum, bsc, mainnet, polygonZkEvm, zkSync, linea, base, opBNB } from 'wagmi/chains'
+import { bsc } from 'wagmi/chains'
 import { v3InfoPath } from '../../constants'
 import Search from '../Search'
 
@@ -75,7 +76,7 @@ const InfoNav: React.FC<{ isStableSwap: boolean }> = ({ isStableSwap }) => {
   )
 }
 
-const targetChains = [mainnet, bsc, polygonZkEvm, zkSync, arbitrum, linea, base, opBNB]
+const targetChains = [cysic, cysicTestnet, bsc]
 
 export const NetworkSwitcher: React.FC<{ activeIndex: number }> = ({ activeIndex }) => {
   const { t } = useTranslation()
@@ -97,7 +98,11 @@ export const NetworkSwitcher: React.FC<{ activeIndex: number }> = ({ activeIndex
     <UserMenu
       alignItems="top"
       ml="8px"
-      avatarSrc={`${ASSET_CDN}/web/chains/${multiChainId[chainName]}.png`}
+      avatarSrc={
+        [ChainId.CYSIC, ChainId.CYSIC_TESTNET].includes(multiChainId[chainName])
+          ? cysicMetadata.logoUri
+          : `${ASSET_CDN}/web/chains/${multiChainId[chainName]}.png`
+      }
       text={
         foundChain ? (
           <>

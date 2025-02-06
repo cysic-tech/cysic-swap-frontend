@@ -1,5 +1,5 @@
-import Pools from 'views/V3Info/views/PoolsPage'
-import { InfoPageLayout } from 'views/V3Info/components/Layout'
+import { InfoPageLayout } from 'views/OldV3Info/components/Layout'
+import Pools from 'views/OldV3Info/views/PoolsPage'
 
 const InfoPoolsPage = () => {
   return <Pools />

@@ -173,6 +173,7 @@ export default function V3FormView({
     undefined,
     formState,
   )
+
   const hasZapV3Pool = useMemo(() => {
     if (pool) {
       const zapV3Whitelist = ZAP_V3_POOL_ADDRESSES[pool.chainId]

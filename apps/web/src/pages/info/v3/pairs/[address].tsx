@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
-import { InfoPageLayout } from 'views/V3Info/components/Layout'
-import Pool from 'views/V3Info/views/PoolPage'
+import { InfoPageLayout } from 'views/OldV3Info/components/Layout'
+import Pool from 'views/OldV3Info/views/PoolPage'
 
 const PoolPage = () => {
   const router = useRouter()

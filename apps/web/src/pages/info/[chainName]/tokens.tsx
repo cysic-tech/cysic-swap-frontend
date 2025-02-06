@@ -1,5 +1,5 @@
-import Tokens from 'views/Info/Tokens'
 import { InfoPageLayout } from 'views/Info'
+import Tokens from 'views/OldInfo/Tokens'
 
 const InfoTokensPage = () => {
   return <Tokens />

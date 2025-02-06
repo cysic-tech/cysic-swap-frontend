@@ -6,8 +6,8 @@ import dynamic from 'next/dynamic'
 import { useMemo, useState } from 'react'
 import { ChartEntry, PriceChartEntry, TokenData } from 'state/oldInfo/types'
 import { formatAmount } from 'utils/formatInfoNumbers'
-import BarChart from 'views/oldInfo/components/InfoCharts/BarChart'
-import LineChart from 'views/oldInfo/components/InfoCharts/LineChart'
+import BarChart from 'views/OldInfo/components/InfoCharts/BarChart'
+import LineChart from 'views/OldInfo/components/InfoCharts/LineChart'
 
 const CandleChart = dynamic(() => import('../CandleChart'), {
   ssr: false,

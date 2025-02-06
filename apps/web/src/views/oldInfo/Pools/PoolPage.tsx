@@ -42,11 +42,11 @@ import { styled } from 'styled-components'
 import { getBlockExploreLink } from 'utils'
 import { formatAmount } from 'utils/formatInfoNumbers'
 import { getTokenSymbolAlias } from 'utils/getTokenAlias'
-import { CurrencyLogo, DoubleCurrencyLogo } from 'views/oldInfo/components/CurrencyLogo'
-import ChartCard from 'views/oldInfo/components/InfoCharts/ChartCard'
-import TransactionTable from 'views/oldInfo/components/InfoTables/TransactionsTable'
-import Percent from 'views/oldInfo/components/Percent'
-import SaveIcon from 'views/oldInfo/components/SaveIcon'
+import { CurrencyLogo, DoubleCurrencyLogo } from 'views/OldInfo/components/CurrencyLogo'
+import ChartCard from 'views/OldInfo/components/InfoCharts/ChartCard'
+import TransactionTable from 'views/OldInfo/components/InfoTables/TransactionsTable'
+import Percent from 'views/OldInfo/components/Percent'
+import SaveIcon from 'views/OldInfo/components/SaveIcon'
 
 const ContentLayout = styled.div`
   display: grid;

@@ -1,13 +1,12 @@
 import { useRouter } from 'next/router'
 import { InfoPageLayout } from 'views/Info'
-import Pool from 'views/OldInfo/Pools/PoolPage'
+import Pool from 'views/Info/Pools/PoolPage'
 
 const PoolPage = () => {
   const router = useRouter()
-  return <Pool address={String(router.query.address)} />
+  return <Pool address={String(router.query.address).toLowerCase()} />
 }
 
 PoolPage.Layout = InfoPageLayout
-PoolPage.chains = [] // set all
-
+PoolPage.chains = []
 export default PoolPage

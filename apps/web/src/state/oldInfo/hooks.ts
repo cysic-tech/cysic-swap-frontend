@@ -19,7 +19,7 @@ import fetchTokenTransactions from 'state/oldInfo/queries/tokens/transactions'
 import { Block, Transaction } from 'state/oldInfo/types'
 import { getAprsForStableFarm } from 'utils/getAprsForStableFarm'
 import { getDeltaTimestamps } from 'utils/getDeltaTimestamps'
-import { useBlockFromTimeStampQuery } from 'views/oldInfo/hooks/useBlocksFromTimestamps'
+import { useBlockFromTimeStampQuery } from 'views/OldInfo/hooks/useBlocksFromTimestamps'
 import { MultiChainName, MultiChainNameExtend, checkIsStableSwap, multiChainId } from './constant'
 import { ChartEntry, PoolData, PriceChartEntry, ProtocolData, TokenData } from './types'
 

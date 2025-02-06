@@ -1,11 +1,11 @@
+import Tokens from 'views/Info/Tokens'
 import { InfoPageLayout } from 'views/Info'
-import Tokens from 'views/OldInfo/Tokens'
 
 const InfoTokensPage = () => {
   return <Tokens />
 }
 
 InfoTokensPage.Layout = InfoPageLayout
-InfoTokensPage.chains = [] // set all
+InfoTokensPage.chains = []
 
 export default InfoTokensPage

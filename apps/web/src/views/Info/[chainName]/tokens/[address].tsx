@@ -1,7 +1,7 @@
+import Token from 'views/Info/Tokens/TokenPage'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { getTokenStaticPaths, getTokenStaticProps } from 'utils/pageUtils'
 import { InfoPageLayout } from 'views/Info'
-import Token from 'views/OldInfo/Tokens/TokenPage'
+import { getTokenStaticPaths, getTokenStaticProps } from 'utils/pageUtils'
 
 const TokenPage = ({ address }: { address: string }) => {
   if (!address) {

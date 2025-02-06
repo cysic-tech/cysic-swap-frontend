@@ -9,7 +9,7 @@ import { PoolData } from 'state/oldInfo/types'
 import { styled } from 'styled-components'
 import { formatAmount } from 'utils/formatInfoNumbers'
 import { getTokenSymbolAlias } from 'utils/getTokenAlias'
-import { DoubleCurrencyLogo } from 'views/oldInfo/components/CurrencyLogo'
+import { DoubleCurrencyLogo } from 'views/OldInfo/components/CurrencyLogo'
 import { Arrow, Break, ClickableColumnHeader, PageButtons, TableWrapper } from './shared'
 
 /**

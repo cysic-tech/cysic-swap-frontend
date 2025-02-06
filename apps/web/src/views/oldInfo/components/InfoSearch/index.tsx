@@ -14,8 +14,8 @@ import { PoolData } from 'state/oldInfo/types'
 import { styled } from 'styled-components'
 import { formatAmount } from 'utils/formatInfoNumbers'
 import { getTokenNameAlias, getTokenSymbolAlias } from 'utils/getTokenAlias'
-import { CurrencyLogo, DoubleCurrencyLogo } from 'views/oldInfo/components/CurrencyLogo'
-import SaveIcon from 'views/oldInfo/components/SaveIcon'
+import { CurrencyLogo, DoubleCurrencyLogo } from 'views/OldInfo/components/CurrencyLogo'
+import SaveIcon from 'views/OldInfo/components/SaveIcon'
 
 const Container = styled.div`
   position: relative;

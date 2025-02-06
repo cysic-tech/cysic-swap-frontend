@@ -7,8 +7,8 @@ import { useAllTokenDataQuery, useChainNameByQuery, useMultiChainPath } from 'st
 import { TokenData } from 'state/oldInfo/types'
 import { styled } from 'styled-components'
 import { formatAmount } from 'utils/formatInfoNumbers'
-import { CurrencyLogo } from 'views/oldInfo/components/CurrencyLogo'
-import Percent from 'views/oldInfo/components/Percent'
+import { CurrencyLogo } from 'views/OldInfo/components/CurrencyLogo'
+import Percent from 'views/OldInfo/components/Percent'
 
 const CardWrapper = styled(NextLinkFromReactRouter)`
   display: inline-block;

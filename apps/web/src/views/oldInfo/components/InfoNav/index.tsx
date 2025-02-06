@@ -23,7 +23,7 @@ import { multiChainId, multiChainPaths, multiChainShortName } from 'state/oldInf
 import { useChainIdByQuery, useChainNameByQuery, useMultiChainPath } from 'state/oldInfo/hooks'
 import { styled } from 'styled-components'
 import { chains } from 'utils/wagmi'
-import Search from 'views/oldInfo/components/InfoSearch'
+import Search from 'views/OldInfo/components/InfoSearch'
 import { arbitrum, base, bsc, linea, mainnet, opBNB, polygonZkEvm, zkSync } from 'wagmi/chains'
 
 const NavWrapper = styled(Flex)`

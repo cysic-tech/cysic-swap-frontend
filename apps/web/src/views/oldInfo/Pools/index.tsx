@@ -4,7 +4,7 @@ import Page from 'components/Layout/Page'
 import useInfoUserSavedTokensAndPools from 'hooks/useInfoUserSavedTokensAndPoolsList'
 import { useMemo } from 'react'
 import { useChainIdByQuery, usePoolDatasQuery } from 'state/oldInfo/hooks'
-import PoolTable from 'views/oldInfo/components/InfoTables/PoolsTable'
+import PoolTable from 'views/OldInfo/components/InfoTables/PoolsTable'
 import { useNonSpamPoolsData } from '../hooks/usePoolsData'
 
 const PoolsOverview: React.FC<React.PropsWithChildren> = () => {

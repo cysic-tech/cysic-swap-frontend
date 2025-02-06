@@ -2,7 +2,7 @@ import { gql } from 'graphql-request'
 import { useEffect, useState } from 'react'
 import { getDeltaTimestamps } from 'utils/getDeltaTimestamps'
 import { infoClient } from 'utils/graphql'
-import { useBlocksFromTimestamps } from 'views/oldInfo/hooks/useBlocksFromTimestamps'
+import { useBlocksFromTimestamps } from 'views/OldInfo/hooks/useBlocksFromTimestamps'
 
 export interface BnbPrices {
   current: number

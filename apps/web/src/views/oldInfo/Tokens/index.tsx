@@ -4,8 +4,8 @@ import Page from 'components/Layout/Page'
 import useInfoUserSavedTokensAndPools from 'hooks/useInfoUserSavedTokensAndPoolsList'
 import { useMemo } from 'react'
 import { useAllTokenDataQuery, useChainIdByQuery, useTokenDatasQuery } from 'state/oldInfo/hooks'
-import TokenTable from 'views/oldInfo/components/InfoTables/TokensTable'
-import TopTokenMovers from 'views/oldInfo/components/TopTokenMovers'
+import TokenTable from 'views/OldInfo/components/InfoTables/TokensTable'
+import TopTokenMovers from 'views/OldInfo/components/TopTokenMovers'
 
 const TokensOverview: React.FC<React.PropsWithChildren> = () => {
   const { t } = useTranslation()

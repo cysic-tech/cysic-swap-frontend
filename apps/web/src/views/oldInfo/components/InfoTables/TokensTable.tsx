@@ -10,8 +10,8 @@ import { useChainNameByQuery, useMultiChainPath, useStableSwapPath } from 'state
 import { TokenData } from 'state/oldInfo/types'
 import { formatAmount } from 'utils/formatInfoNumbers'
 import { getTokenNameAlias, getTokenSymbolAlias } from 'utils/getTokenAlias'
-import { CurrencyLogo } from 'views/oldInfo/components/CurrencyLogo'
-import Percent from 'views/oldInfo/components/Percent'
+import { CurrencyLogo } from 'views/OldInfo/components/CurrencyLogo'
+import Percent from 'views/OldInfo/components/Percent'
 import { Arrow, Break, ClickableColumnHeader, PageButtons, TableWrapper } from './shared'
 
 /**

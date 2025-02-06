@@ -6,10 +6,10 @@ import { useCallback, useMemo } from 'react'
 import { useFarmV2PublicAPI } from 'state/farms/hooks'
 import { useFarmsV3Public } from 'state/farmsV3/hooks'
 import { CHAIN_IDS } from 'utils/wagmi'
+import { useCurrencyParams } from 'views/AddLiquidityV3/hooks/useCurrencyParams'
 import AddLiquidityV2FormProvider from 'views/OldAddLiquidity/AddLiquidityV2FormProvider'
 import { AddLiquidityV3Layout, UniversalAddLiquidity } from 'views/OldAddLiquidityV3'
 import LiquidityFormProvider from 'views/OldAddLiquidityV3/formViews/V3FormView/form/LiquidityFormProvider'
-import { useCurrencyParams } from 'views/OldAddLiquidityV3/hooks/useCurrencyParams'
 import { SELECTOR_TYPE } from 'views/OldAddLiquidityV3/types'
 
 const AddLiquidityPage = () => {

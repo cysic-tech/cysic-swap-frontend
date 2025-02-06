@@ -25,8 +25,8 @@ import { usePairTokensPrice } from 'hooks/v3/usePairTokensPrice'
 import { useAllV3Ticks } from 'hooks/v3/usePoolTickData'
 import useV3DerivedInfo from 'hooks/v3/useV3DerivedInfo'
 import { batch } from 'react-redux'
-import { Field } from 'state/mint/actions'
 import currencyId from 'utils/currencyId'
+import { CurrencyField as Field } from 'utils/types'
 
 import { useUserPositionInfo } from 'views/Farms/components/YieldBooster/hooks/bCakeV3/useBCakeV3Info'
 import { BoostStatus, useBoostStatus } from 'views/Farms/components/YieldBooster/hooks/bCakeV3/useBoostStatus'
@@ -99,6 +99,7 @@ export function AprCalculator({
   const sqrtRatioX96 = useMemo(() => price && encodeSqrtRatioX96(price.numerator, price.denominator), [price])
   const { [Bound.LOWER]: tickLower, [Bound.UPPER]: tickUpper } = ticks
   const { [Bound.LOWER]: priceLower, [Bound.UPPER]: priceUpper } = pricesAtTicks
+  console.log('parsedAmounts', parsedAmounts, baseCurrency, quoteCurrency)
   const { [Field.CURRENCY_A]: amountA, [Field.CURRENCY_B]: amountB } = parsedAmounts
 
   const tokenA = (baseCurrency ?? undefined)?.wrapped

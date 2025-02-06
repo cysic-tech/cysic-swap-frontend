@@ -1,8 +1,8 @@
 import { ChainId, getLlamaChainName } from '@pancakeswap/chains'
 import { gql } from 'graphql-request'
 import orderBy from 'lodash/orderBy'
-import { Block } from 'state/info/types'
 import { multiChainBlocksClient, multiChainName, MultiChainNameExtend } from 'state/oldInfo/constant'
+import { Block } from 'state/oldInfo/types'
 import { multiQuery } from 'utils/infoQueryHelpers'
 
 const getBlockSubqueries = (timestamps: number[]) =>

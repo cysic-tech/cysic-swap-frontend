@@ -1,3 +1,4 @@
+import { ChainId } from '@pancakeswap/chains'
 import { gql } from 'graphql-request'
 import { useEffect, useState } from 'react'
 import { getDeltaTimestamps } from 'utils/getDeltaTimestamps'
@@ -49,7 +50,8 @@ const fetchBnbPrices = async (
   blockWeek: number,
 ): Promise<{ bnbPrices: BnbPrices | undefined; error: boolean }> => {
   try {
-    const data = await infoClient.request<PricesResponse>(BNB_PRICES, {
+    // TODO mainnet替换链
+    const data = await infoClient[ChainId.CYSIC_TESTNET].request<PricesResponse>(BNB_PRICES, {
       block24,
       block48,
       blockWeek,

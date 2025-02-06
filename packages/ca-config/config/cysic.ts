@@ -1,15 +1,16 @@
 import { defineChain } from 'viem'
 import { chainMetadata } from './interface'
 
+const dexName = 'cysicswap'
 const cysicMetadata: chainMetadata = {
   chainId: 9001,
   graph: {
-    blocks: 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/blocks/graphql',
-    'exchange-cake-pairs': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/exchange-cake-pairs/graphql',
-    'exchange-v2': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/exchange-v2/graphql',
-    'exchange-v3': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/exchange-v3/graphql',
-    pairs: 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/pairs/graphql',
-    'user-position-v3': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/user-position-v3/graphql',
+    blocks: 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/blocks',
+    'exchange-cake-pairs': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/exchange-cake-pairs',
+    'exchange-v2': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/exchange-v2',
+    'exchange-v3': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/exchange-v3',
+    pairs: 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/pairs',
+    'user-position-v3': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/user-position-v3',
   },
   network: 'cysic',
   // v3
@@ -55,12 +56,12 @@ const cysicTestnetMetadata: chainMetadata = {
   chainId: 9000,
   // https://dev-swap.prover.xyz/subgraphs/name/cysicswap/blocks/graphql?
   graph: {
-    blocks: 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/blocks/graphql',
-    'exchange-cake-pairs': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/exchange-cake-pairs/graphql',
-    'exchange-v2': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/exchange-v2/graphql',
-    'exchange-v3': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/exchange-v3/graphql',
-    pairs: 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/pairs/graphql',
-    'user-position-v3': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/user-position-v3/graphql',
+    blocks: 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/blocks',
+    'exchange-cake-pairs': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/exchange-cake-pairs',
+    'exchange-v2': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/exchange-v2',
+    'exchange-v3': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/exchange-v3',
+    pairs: 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/pairs',
+    'user-position-v3': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/user-position-v3',
   },
   network: 'cysic-dev',
   // v3
@@ -158,4 +159,4 @@ const cysic = defineChain({
   },
 })
 
-export { cysic, cysicMetadata, cysicRpc, cysicTestnet, cysicTestnetMetadata, cysicTestnetRpc }
+export { cysic, cysicMetadata, cysicRpc, cysicTestnet, cysicTestnetMetadata, cysicTestnetRpc, dexName }

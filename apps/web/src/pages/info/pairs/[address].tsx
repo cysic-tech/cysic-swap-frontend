@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { InfoPageLayout } from 'views/Info'
+import { InfoPageLayout } from 'views/OldInfo'
 import Pool from 'views/OldInfo/Pools/PoolPage'
 
 const PoolPage = () => {

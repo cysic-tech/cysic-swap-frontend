@@ -14,7 +14,7 @@ import { getPercentChange } from 'utils/infoDataHelpers'
 import { explorerApiClient } from './api/client'
 import { useExplorerChainNameByQuery } from './api/hooks'
 import { operations } from './api/schema'
-import { checkIsStableSwap, multiChainId, MultiChainName, MultiChainNameExtend } from './constant'
+import { checkIsStableSwap, multiChainId, MultiChainName } from './constant'
 import { PoolData, PriceChartEntry, ProtocolData, TokenData } from './types'
 
 dayjs.extend(duration)
@@ -1007,6 +1007,10 @@ export const useChainNameByQuery = (): MultiChainName => {
   const { query } = useRouter()
   const chainName = useMemo(() => {
     switch (query?.chainName) {
+      case 'cysic-testnet':
+        return 'CYSIC_TESTNET'
+      case 'cysic':
+        return 'CYSIC'
       case 'eth':
         return 'ETH'
       case 'polygon-zkevm':
@@ -1021,8 +1025,9 @@ export const useChainNameByQuery = (): MultiChainName => {
         return 'BASE'
       case 'opbnb':
         return 'OPBNB'
+      // TODO mainnet前修改
       default:
-        return 'BSC'
+        return 'CYSIC_TESTNET'
     }
   }, [query])
   return chainName

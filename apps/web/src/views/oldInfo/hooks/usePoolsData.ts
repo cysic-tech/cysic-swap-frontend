@@ -1,4 +1,3 @@
-import dayjs from 'dayjs'
 import { useMemo } from 'react'
 import { checkIsStableSwap } from 'state/oldInfo/constant'
 import { useAllPoolDataQuery, useStableSwapTopPoolsAPR } from 'state/oldInfo/hooks'
@@ -25,6 +24,7 @@ export const usePoolsData = () => {
       })
       .filter((pool) => pool.token1.name !== 'unknown' && pool.token0.name !== 'unknown')
   }, [allPoolData, isStableSwap, stableSwapsAprs])
+
   return { poolsData, stableSwapsAprs }
 }
 
@@ -39,10 +39,10 @@ export const useNonSpamPoolsData = () => {
           return acc
         }
 
-        const maySpam = dayjs().diff(dayjs.unix(data.timestamp), 'day') < 4
+        // const maySpam = dayjs().diff(dayjs.unix(data.timestamp), 'day') < 4
 
         // top 10 should not show may spam tokens,
-        if (maySpam) return acc
+        // if (maySpam) return acc
 
         // after top 10 will not filtered
         acc.push(data)

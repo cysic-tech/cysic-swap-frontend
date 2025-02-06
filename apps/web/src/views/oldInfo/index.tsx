@@ -17,7 +17,7 @@ export const InfoPageLayout = ({ children }) => {
     const config = [
       {
         label: t('V3'),
-        href: `/oldInfo/v3${chainPath}`,
+        href: `/info/v3${chainPath}`,
       },
       {
         label: t('V2'),

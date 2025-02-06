@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
+import { getBlocksFromTimestamps } from 'oldUtils/getBlocksFromTimestamps'
 import { useEffect, useState } from 'react'
 import { multiChainId, multiChainName, MultiChainNameExtend } from 'state/oldInfo/constant'
 import { useChainNameByQuery } from 'state/oldInfo/hooks'
 import { Block } from 'state/oldInfo/types'
-import { getBlocksFromTimestamps } from 'utils/getBlocksFromTimestamps'
 
 /**
  * for a given array of timestamps, returns block entities

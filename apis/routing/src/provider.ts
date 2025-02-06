@@ -1,4 +1,4 @@
-import { cysic, cysicRpc, cysicTestnet, cysicTestnetRpc } from '@pancakeswap/ca-config'
+import { createCustomGraphql, cysic, cysicRpc, cysicTestnet, cysicTestnetRpc } from '@pancakeswap/ca-config'
 import { ChainId, getV3Subgraphs } from '@pancakeswap/chains'
 import { OnChainProvider, SubgraphProvider } from '@pancakeswap/smart-router'
 import { GraphQLClient } from 'graphql-request'
@@ -70,8 +70,8 @@ export const viemProviders: OnChainProvider = ({ chainId }: { chainId?: ChainId 
 }
 
 export const v3SubgraphClients: Record<SupportedChainId, GraphQLClient> = {
-  [ChainId.CYSIC]: new GraphQLClient(V3_SUBGRAPHS[ChainId.CYSIC], { fetch }),
-  [ChainId.CYSIC_TESTNET]: new GraphQLClient(V3_SUBGRAPHS[ChainId.CYSIC_TESTNET], { fetch }),
+  [ChainId.CYSIC]: createCustomGraphql(new GraphQLClient(V3_SUBGRAPHS[ChainId.CYSIC], { fetch })),
+  [ChainId.CYSIC_TESTNET]: createCustomGraphql(new GraphQLClient(V3_SUBGRAPHS[ChainId.CYSIC_TESTNET], { fetch })),
   [ChainId.BSC]: new GraphQLClient(V3_SUBGRAPHS[ChainId.BSC], { fetch }),
   [ChainId.BSC_TESTNET]: new GraphQLClient(V3_SUBGRAPHS[ChainId.BSC_TESTNET], { fetch }),
 } as const

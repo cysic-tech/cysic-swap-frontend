@@ -1,12 +1,19 @@
+import { createCustomGraphql } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import { STABLE_SUPPORTED_CHAIN_IDS } from '@pancakeswap/stable-swap-sdk'
 import { BIT_QUERY, STABLESWAP_SUBGRAPHS_URLS, V3_BSC_INFO_CLIENT, V3_SUBGRAPH_URLS } from 'config/constants/endpoints'
 import { GraphQLClient } from 'graphql-request'
 import { V2_SUBGRAPH_URLS } from '../config/constants/endpoints'
 
-export const infoClient = new GraphQLClient(V2_SUBGRAPH_URLS[ChainId.BSC])
+// bnb price
+export const infoClient = {
+  [ChainId.CYSIC]: createCustomGraphql(new GraphQLClient(V2_SUBGRAPH_URLS[ChainId.CYSIC])),
+  [ChainId.CYSIC_TESTNET]: createCustomGraphql(new GraphQLClient(V2_SUBGRAPH_URLS[ChainId.CYSIC_TESTNET])),
+}
 
 export const v3Clients = {
+  [ChainId.CYSIC]: createCustomGraphql(new GraphQLClient(V3_SUBGRAPH_URLS[ChainId.CYSIC])),
+  [ChainId.CYSIC_TESTNET]: createCustomGraphql(new GraphQLClient(V3_SUBGRAPH_URLS[ChainId.CYSIC_TESTNET])),
   [ChainId.ETHEREUM]: new GraphQLClient(V3_SUBGRAPH_URLS[ChainId.ETHEREUM]),
   [ChainId.GOERLI]: new GraphQLClient(V3_SUBGRAPH_URLS[ChainId.GOERLI]),
   [ChainId.BSC]: new GraphQLClient(V3_SUBGRAPH_URLS[ChainId.BSC]),
@@ -27,6 +34,8 @@ export const v3Clients = {
 export const v3InfoClients = { ...v3Clients, [ChainId.BSC]: new GraphQLClient(V3_BSC_INFO_CLIENT) }
 
 export const v2Clients = {
+  [ChainId.CYSIC]: createCustomGraphql(new GraphQLClient(V2_SUBGRAPH_URLS[ChainId.CYSIC])),
+  [ChainId.CYSIC_TESTNET]: createCustomGraphql(new GraphQLClient(V2_SUBGRAPH_URLS[ChainId.CYSIC_TESTNET])),
   [ChainId.ETHEREUM]: new GraphQLClient(V2_SUBGRAPH_URLS[ChainId.ETHEREUM]),
   [ChainId.BSC]: new GraphQLClient(V2_SUBGRAPH_URLS[ChainId.BSC]),
   [ChainId.POLYGON_ZKEVM]: new GraphQLClient(V2_SUBGRAPH_URLS[ChainId.POLYGON_ZKEVM]),

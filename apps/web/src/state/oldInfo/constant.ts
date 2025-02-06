@@ -21,6 +21,7 @@ import {
   PCS_V2_START,
   TOKEN_BLACKLIST,
 } from 'config/constants/info'
+import dayjs from 'dayjs'
 import mapValues from 'lodash/mapValues'
 import { arbitrum, base, bsc, linea, mainnet, opBNB, polygonZkEvm, zkSync } from 'wagmi/chains'
 
@@ -85,6 +86,8 @@ export const multiChainBlocksClient: Record<MultiChainNameExtend, string> = {
 }
 
 export const multiChainStartTime = {
+  CYSIC: +dayjs().unix(),
+  CYSIC_TESTNET: +dayjs('2025-02-01').unix(),
   BSC: PCS_V2_START,
   ETH: PCS_ETH_START,
   POLYGON_ZKEVM: 1686236845,

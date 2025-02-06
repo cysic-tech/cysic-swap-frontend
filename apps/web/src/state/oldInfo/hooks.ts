@@ -328,6 +328,10 @@ export const useChainNameByQuery = (): MultiChainName => {
   const { query } = useRouter()
   const chainName = useMemo(() => {
     switch (query?.chainName) {
+      case 'cysic-testnet':
+        return 'CYSIC_TESTNET'
+      case 'cysic':
+        return 'CYSIC'
       case 'eth':
         return 'ETH'
       case 'polygon-zkevm':
@@ -342,8 +346,9 @@ export const useChainNameByQuery = (): MultiChainName => {
         return 'BASE'
       case 'opbnb':
         return 'OPBNB'
+      // TODO mainnet前修改
       default:
-        return 'BSC'
+        return 'CYSIC_TESTNET'
     }
   }, [query])
   return chainName

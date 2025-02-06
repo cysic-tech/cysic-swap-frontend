@@ -1,5 +1,5 @@
-import { InfoPageLayout } from 'views/OldInfo'
-import Overview from 'views/OldInfo/Overview'
+import { InfoPageLayout } from 'views/V3Info/components/Layout'
+import Overview from 'views/V3Info'
 
 const InfoPage = () => {
   return <Overview />

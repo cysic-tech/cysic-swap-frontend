@@ -100,3 +100,14 @@ export const WALLET_API = 'https://wallet-api.pancakeswap.com'
 export const BINANCE_DATA_API = 'https://data-api.binance.vision/api'
 
 export const PREDICTION_PRICE_API = '/api/prediction/price'
+
+// old version
+export const BLOCKS_CLIENT = BLOCKS_SUBGRAPHS[ChainId.BSC]
+export const BLOCKS_CLIENT_CYSIC = BLOCKS_SUBGRAPHS[ChainId.CYSIC]
+export const BLOCKS_CLIENT_CYSIC_TESTNET = BLOCKS_SUBGRAPHS[ChainId.CYSIC_TESTNET]
+export const BLOCKS_CLIENT_ETH = BLOCKS_SUBGRAPHS[ChainId.ETHEREUM]
+export const BLOCKS_CLIENT_POLYGON_ZKEVM = BLOCKS_SUBGRAPHS[ChainId.POLYGON_ZKEVM]
+export const BLOCKS_CLIENT_ZKSYNC = BLOCKS_SUBGRAPHS[ChainId.ZKSYNC]
+export const BLOCKS_CLIENT_LINEA = BLOCKS_SUBGRAPHS[ChainId.LINEA]
+export const BLOCKS_CLIENT_BASE = BLOCKS_SUBGRAPHS[ChainId.BASE]
+export const BLOCKS_CLIENT_OPBNB = BLOCKS_SUBGRAPHS[ChainId.OPBNB]

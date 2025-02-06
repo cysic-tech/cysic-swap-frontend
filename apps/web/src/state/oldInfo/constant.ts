@@ -1,6 +1,8 @@
 import {
   BLOCKS_CLIENT,
   BLOCKS_CLIENT_BASE,
+  BLOCKS_CLIENT_CYSIC,
+  BLOCKS_CLIENT_CYSIC_TESTNET,
   BLOCKS_CLIENT_ETH,
   BLOCKS_CLIENT_LINEA,
   BLOCKS_CLIENT_OPBNB,
@@ -9,6 +11,7 @@ import {
 import { GraphQLClient } from 'graphql-request'
 import { infoStableSwapClients, v2Clients } from 'utils/graphql'
 
+import { cysic, cysicTestnet } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import {
   BSC_TOKEN_WHITELIST,
@@ -21,11 +24,23 @@ import {
 import mapValues from 'lodash/mapValues'
 import { arbitrum, base, bsc, linea, mainnet, opBNB, polygonZkEvm, zkSync } from 'wagmi/chains'
 
-export type MultiChainName = 'BSC' | 'ETH' | 'POLYGON_ZKEVM' | 'ZKSYNC' | 'ARB' | 'LINEA' | 'BASE' | 'OPBNB'
+export type MultiChainName =
+  | 'BSC'
+  | 'CYSIC'
+  | 'CYSIC_TESTNET'
+  | 'ETH'
+  | 'POLYGON_ZKEVM'
+  | 'ZKSYNC'
+  | 'ARB'
+  | 'LINEA'
+  | 'BASE'
+  | 'OPBNB'
 
 export type MultiChainNameExtend = MultiChainName | 'BSC_TESTNET' | 'ZKSYNC_TESTNET'
 
 export const multiChainName: Record<number | string, MultiChainNameExtend> = {
+  [ChainId.CYSIC]: 'CYSIC',
+  [ChainId.CYSIC_TESTNET]: 'CYSIC_TESTNET',
   [ChainId.BSC]: 'BSC',
   [ChainId.ETHEREUM]: 'ETH',
   [ChainId.BSC_TESTNET]: 'BSC_TESTNET',
@@ -42,6 +57,8 @@ export const multiChainShortName: Record<number, string> = {
 }
 
 export const multiChainQueryMainToken: Record<MultiChainName, string> = {
+  CYSIC: 'CyS',
+  CYSIC_TESTNET: 'CYS',
   BSC: 'BNB',
   ETH: 'ETH',
   POLYGON_ZKEVM: 'ETH',
@@ -53,6 +70,8 @@ export const multiChainQueryMainToken: Record<MultiChainName, string> = {
 }
 
 export const multiChainBlocksClient: Record<MultiChainNameExtend, string> = {
+  CYSIC: BLOCKS_CLIENT_CYSIC,
+  CYSIC_TESTNET: BLOCKS_CLIENT_CYSIC_TESTNET,
   BSC: BLOCKS_CLIENT,
   ETH: BLOCKS_CLIENT_ETH,
   BSC_TESTNET: 'https://api.thegraph.com/subgraphs/name/lengocphuc99/bsc_testnet-blocks',
@@ -77,6 +96,8 @@ export const multiChainStartTime = {
 }
 
 export const multiChainId: Record<MultiChainName, ChainId> = {
+  CYSIC: ChainId.CYSIC,
+  CYSIC_TESTNET: ChainId.CYSIC_TESTNET,
   BSC: ChainId.BSC,
   ETH: ChainId.ETHEREUM,
   POLYGON_ZKEVM: ChainId.POLYGON_ZKEVM,
@@ -108,6 +129,8 @@ export const STABLESWAP_SUBGRAPHS_START_BLOCK = {
 }
 
 export const multiChainScan: Record<MultiChainName, string> = {
+  CYSIC: cysic.blockExplorers.default.name,
+  CYSIC_TESTNET: cysicTestnet.blockExplorers.default.name,
   BSC: bsc.blockExplorers.default.name,
   ETH: mainnet.blockExplorers.default.name,
   POLYGON_ZKEVM: polygonZkEvm.blockExplorers.default.name,
@@ -120,6 +143,8 @@ export const multiChainScan: Record<MultiChainName, string> = {
 
 export const multiChainTokenBlackList: Record<MultiChainName, string[]> = mapValues(
   {
+    CYSIC: ['0x'],
+    CYSIC_TESTNET: ['0x'],
     BSC: TOKEN_BLACKLIST,
     ETH: ETH_TOKEN_BLACKLIST,
     POLYGON_ZKEVM: ['0x'],
@@ -134,6 +159,8 @@ export const multiChainTokenBlackList: Record<MultiChainName, string[]> = mapVal
 
 export const multiChainTokenWhiteList: Record<MultiChainName, string[]> = mapValues(
   {
+    CYSIC: [],
+    CYSIC_TESTNET: [],
     BSC: BSC_TOKEN_WHITELIST,
     ETH: ETH_TOKEN_WHITELIST,
     POLYGON_ZKEVM: [],

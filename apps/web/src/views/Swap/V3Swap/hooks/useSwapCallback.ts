@@ -62,7 +62,7 @@ export function useSwapCallback({
     feeOptions,
   )
 
-  const { callback } = useSendSwapTransaction(account, chainId, trade ?? undefined, swapCalls, 'UniversalRouter')
+  const { callback } = useSendSwapTransaction(account, chainId, trade ?? undefined, swapCalls, 'V3SmartSwap')
 
   return useMemo(() => {
     if (!trade || !account || !chainId || !callback) {

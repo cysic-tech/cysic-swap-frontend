@@ -163,12 +163,14 @@ export function useV3PoolsWithTicksOnChain(
       try {
         const startTime = performance.now()
         const label = `[V3_POOLS_WITH_TICKS_ON_CHAIN] chain ${currencyA?.chainId} ${currencyA?.symbol} - ${currencyB?.symbol}. (multicall gas limit: ${gasLimit})`
+        console.log(label)
         const res = await V4Router.getV3CandidatePools({
           currencyA,
           currencyB,
           clientProvider,
           gasLimit,
         })
+
         const duration = Math.floor(performance.now() - startTime)
         tracker.log(`[PERF] ${label} duration:${duration}ms`, {
           chainId: currencyA?.chainId,
@@ -219,6 +221,7 @@ export function useV3PoolsWithTicks(
         throw new Error('Invalid pools to get ticks')
       }
       const label = `[V3_POOL_TICKS] ${key} ${blockNumber?.toString()}`
+      console.log(label)
       SmartRouter.logger.metric(label)
       const poolTicks = await Promise.all(
         pools.map(async (pool) => {

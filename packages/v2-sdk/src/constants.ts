@@ -32,13 +32,13 @@ export const FACTORY_ADDRESS_MAP = {
 } as const satisfies Record<ChainId, Address>
 
 // todo
-export const INIT_CODE_HASH = cysicMetadata.InitCodeHash
+export const INIT_CODE_HASH = cysicMetadata.InitCodeHashV2
 export const BSC_INIT_CODE_HASH = '0x00fb7f630766e6a796048ea87d01acd3068e8ff67d078148a3fa3f4a84f69bd5'
 
 const INIT_CODE_HASH_ETH = '0x57224589c67f3f30a6b0d7a1b54cf3153ab84563bc609ef41dfb34f8b2974d2d'
 export const INIT_CODE_HASH_MAP = {
   [ChainId.CYSIC]: INIT_CODE_HASH,
-  [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.InitCodeHash,
+  [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.InitCodeHashV2,
   [ChainId.ETHEREUM]: INIT_CODE_HASH_ETH,
   [ChainId.GOERLI]: INIT_CODE_HASH_ETH,
   [ChainId.BSC]: BSC_INIT_CODE_HASH,

@@ -155,12 +155,15 @@ export function useBestAMMTrade({ type = 'quoter', ...params }: useBestAMMTradeO
   const [speedQuoteEnabled] = useSpeedQuote()
   const isWrapping = useIsWrapping(baseCurrency, currency, amount?.toExact())
 
+  // enabled when: type is 'quoter' or 'auto', and not wrapping
   const isQuoterEnabled = useMemo(
     () => Boolean(!isWrapping && (type === 'quoter' || type === 'auto')),
     [type, isWrapping],
   )
 
   // const isPriceApiEnabled = useExperimentalFeatureEnabled(EXPERIMENTAL_FEATURES.PriceAPI)
+
+  // enabled when: type is 'api', and not wrapping
   const isQuoterAPIEnabled = useMemo(() => Boolean(!isWrapping && type === 'api'), [isWrapping, type])
 
   const apiAutoRevalidate = typeof autoRevalidate === 'boolean' ? autoRevalidate : isQuoterAPIEnabled
@@ -172,6 +175,7 @@ export function useBestAMMTrade({ type = 'quoter', ...params }: useBestAMMTradeO
   //   autoRevalidate: apiAutoRevalidate,
   // })
 
+  // enabled when: global enabled && type is 'api'
   const bestTradeFromQuoterApi = useBestAMMTradeFromQuoterWorker2({
     ...params,
     enabled: Boolean(enabled && isQuoterAPIEnabled),
@@ -181,6 +185,8 @@ export function useBestAMMTrade({ type = 'quoter', ...params }: useBestAMMTradeO
   const quoterAutoRevalidate = typeof autoRevalidate === 'boolean' ? autoRevalidate : isQuoterEnabled
 
   const offchainQuoterEnabled = Boolean(enabled && isQuoterEnabled && !isQuoterAPIEnabled && speedQuoteEnabled)
+
+  // enabled when: global enabled && quoter enabled && not api && speed quote enabled
   const bestTradeFromQuickOnChainQuote = useBestAMMTradeFromQuoterWorker({
     ...params,
     maxHops: 1,
@@ -188,15 +194,28 @@ export function useBestAMMTrade({ type = 'quoter', ...params }: useBestAMMTradeO
     enabled: offchainQuoterEnabled,
     autoRevalidate: quoterAutoRevalidate,
   })
+
+  // const bestTradeFromOffchainQuoter = useBestAMMTradeFromOffchainQuoter({
+
+  // enabled when: global enabled && quoter enabled && not api && speedQuoteEnabled
   const bestTradeFromOffchainQuoter = useBestAMMTradeFromOffchainQuoter({
     ...params,
     enabled: offchainQuoterEnabled,
     autoRevalidate: quoterAutoRevalidate,
   })
+
+  // enabled when: global enabled && quoter enabled && not api && speedQuoteEnabled
   const bestVerifiedTradeFromOffchainQuoter = useTradeVerifiedByQuoter({
     ...bestTradeFromOffchainQuoter,
     enabled: offchainQuoterEnabled,
   })
+
+  console.log(
+    'bestVerifiedTradeFromOffchainQuoter',
+    bestTradeFromOffchainQuoter,
+    offchainQuoterEnabled,
+    bestVerifiedTradeFromOffchainQuoter,
+  )
   const bestOffchainWithQuickOnChainQuote = useBetterQuote(
     bestVerifiedTradeFromOffchainQuoter,
     bestTradeFromQuickOnChainQuote,
@@ -210,6 +229,8 @@ export function useBestAMMTrade({ type = 'quoter', ...params }: useBestAMMTradeO
     bestVerifiedTradeFromOffchainQuoter.error instanceof NoValidRouteError
 
   const shouldFallbackQuoterOnChain = !speedQuoteEnabled || noValidRouteFromOffchainQuoter
+
+  // enabled when: global enabled && quoter enabled && not api && shouldFallbackQuoterOnChain
   const bestTradeFromOnChainQuoter = useBestAMMTradeFromQuoterWorker({
     ...params,
     enabled: Boolean(enabled && isQuoterEnabled && !isQuoterAPIEnabled && shouldFallbackQuoterOnChain),

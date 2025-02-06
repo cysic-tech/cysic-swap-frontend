@@ -4,7 +4,7 @@ import { Address } from 'viem'
 
 // todo
 export const MULTICALL_ADDRESS: { [key in ChainId]?: Address } = {
-  [ChainId.CYSIC]: cysicMetadata.PancakeInterfaceMulticall,
+  [ChainId.CYSIC]: cysicMetadata.PancakeInterfaceMulticallV2,
   [ChainId.ZKSYNC]: '0x95071cBD09184083E7F732a710c2e30c9882Fd5f',
   [ChainId.BSC]: '0x39eecaE833c944ebb94942Fa44CaE46e87a8Da17',
   [ChainId.ETHEREUM]: '0xC0916D7E360c31D5F6D0c497E6a36B7B0E80e3cf',
@@ -15,7 +15,7 @@ export const MULTICALL_ADDRESS: { [key in ChainId]?: Address } = {
   [ChainId.OPBNB]: '0xeF1511D29fB37cb87E33339EeC9BE13AB46E3b50',
 
   // Testnets
-  [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.PancakeInterfaceMulticall,
+  [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.PancakeInterfaceMulticallV2,
   [ChainId.BSC_TESTNET]: '0xeeF6ff30cF5D5b8aBA0DE16A01d17A0697a275b5',
   [ChainId.GOERLI]: '0xD55CAFAB2Ffa1139Be46bc5C0b8259c620050dFC',
   [ChainId.ARBITRUM_GOERLI]: '0xe12a5c707Fb528acbE6117b20AF1f7c20b0A8077',

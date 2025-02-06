@@ -85,12 +85,14 @@ async function fillPoolsWithTicks({ pools, clientProvider, gasLimit }: FillPools
     throw new Error('Fill pools with ticks failed. No valid public client or tick lens found.')
   }
   const { gasLimit: gasLimitPerCall, retryGasMultiplier } = getV3PoolFetchConfig(chainId)
+  // const gasLimitPerCall = 49192575n
   const bitmapIndexes = pools
     .map(({ tick, fee }, i) => buildBitmapIndexList<{ poolIndex: number }>({ currentTick: tick, fee, poolIndex: i }))
     .reduce<{ bitmapIndex: number; poolIndex: number }[]>((acc, cur) => {
       acc.push(...cur)
       return acc
     }, [])
+
   const res = await multicallByGasLimit(
     bitmapIndexes.map(({ poolIndex, bitmapIndex }) => ({
       target: tickLensAddress as Address,
@@ -110,6 +112,7 @@ async function fillPoolsWithTicks({ pools, clientProvider, gasLimit }: FillPools
       },
     },
   )
+  console.log('multicallByGasLimit', res)
   const poolsWithTicks = pools.map((p) => ({ ...p }))
   for (const [index, result] of res.results.entries()) {
     const { poolIndex } = bitmapIndexes[index]

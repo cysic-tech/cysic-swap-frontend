@@ -24,8 +24,8 @@ import {
 } from 'viem'
 import { useSendTransaction } from 'wagmi'
 
-import { usePaymaster } from 'hooks/usePaymaster'
 import { ClassicOrder } from '@pancakeswap/price-api-sdk'
+import { usePaymaster } from 'hooks/usePaymaster'
 import { logger } from 'utils/datadog'
 import { viemClients } from 'utils/viem'
 import { isZero } from '../utils/isZero'
@@ -100,6 +100,8 @@ export default function useSendSwapTransaction(
                     data: calldata,
                     value: hexToBigInt(value),
                   }
+
+            console.log('tx', tx, publicClient)
             return publicClient
               .estimateGas(tx)
               .then((gasEstimate) => {
@@ -114,6 +116,7 @@ export default function useSendSwapTransaction(
               })
           }),
         )
+        console.log('estimatedCalls', swapCalls, estimatedCalls)
 
         // a successful estimation is a bignumber gas estimate and the next call is also a bignumber gas estimate
         let bestCallOption: SuccessfulCall | SwapCallEstimate | undefined = estimatedCalls.find(

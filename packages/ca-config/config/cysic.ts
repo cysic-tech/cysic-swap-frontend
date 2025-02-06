@@ -32,13 +32,13 @@ const cysicMetadata: chainMetadata = {
   NonfungibleTokenPositionDescriptor: '0xa0f38b0e1f4580Ec2e5Ed049296A6A7a642be755',
   NonfungiblePositionManager: '0xdf5B0565769EadF40328f3d5dbD4f38a9b941A53',
   PancakeInterfaceMulticall: '0xe81FB7a8a87Ea12c05ee718cD5025c400EbC22C6',
-
+  PancakeInterfaceMulticallV2: '0x12c89f85000213D4ac3E1b4Baa56D37c39758d8A',
   // v2
   WBNB: '0x0261d2F0199D060540C97DC13B5420d5c91A8fe9',
   PancakeFactory: '0x43d46c17d5Ab670C388a6cb6eb1Cf287730F6E46',
   PancakeRouter: '0x423AcE92C608cA4538585329DA3102c3901b9cDD',
   PancakeZapV1: '0x6Bd19C2499bBacdA3D141bDc75045CB0ca76aAe8',
-
+  InitCodeHashV2: '0xa5934690703a592a07e841ca29d5e5c79b5e22ed4749057bb216dc31100be1c0',
   // WETH
   WETH: '0x',
 
@@ -80,12 +80,14 @@ const cysicTestnetMetadata: chainMetadata = {
   NonfungibleTokenPositionDescriptor: '0xa0f38b0e1f4580Ec2e5Ed049296A6A7a642be755',
   NonfungiblePositionManager: '0xdf5B0565769EadF40328f3d5dbD4f38a9b941A53',
   PancakeInterfaceMulticall: '0xe81FB7a8a87Ea12c05ee718cD5025c400EbC22C6',
+  PancakeInterfaceMulticallV2: '0x12c89f85000213D4ac3E1b4Baa56D37c39758d8A',
 
   // v2
   WBNB: '0x0261d2F0199D060540C97DC13B5420d5c91A8fe9',
   PancakeFactory: '0x43d46c17d5Ab670C388a6cb6eb1Cf287730F6E46',
   PancakeRouter: '0x423AcE92C608cA4538585329DA3102c3901b9cDD',
   PancakeZapV1: '0x6Bd19C2499bBacdA3D141bDc75045CB0ca76aAe8',
+  InitCodeHashV2: '0xa5934690703a592a07e841ca29d5e5c79b5e22ed4749057bb216dc31100be1c0',
 
   // WETH
   WETH: '0x',

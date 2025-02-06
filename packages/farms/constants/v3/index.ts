@@ -1,8 +1,17 @@
 import { ChainId } from '@pancakeswap/chains'
 import { Address } from 'viem'
+import { FarmV3SupportedChainId } from '../../src'
+import { ComputedFarmConfigV3 } from '../../src/types'
+// import { farmsV3 as sysicFarms } from '../cysic'
+// import { farmsV3 as cysicTestnetFarms } from '../cysicTestnet'
 
 export type Addresses = {
   [chainId in ChainId]?: Address
+}
+
+export const farmsV3ConfigChainMap: Record<FarmV3SupportedChainId, ComputedFarmConfigV3[]> = {
+  // [ChainId.CYSIC]: sysicFarms,
+  // [ChainId.CYSIC_TESTNET]: cysicTestnetFarms,
 }
 
 export const bCakeFarmBoosterV3Address: Addresses = {

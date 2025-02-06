@@ -99,7 +99,6 @@ export function AprCalculator({
   const sqrtRatioX96 = useMemo(() => price && encodeSqrtRatioX96(price.numerator, price.denominator), [price])
   const { [Bound.LOWER]: tickLower, [Bound.UPPER]: tickUpper } = ticks
   const { [Bound.LOWER]: priceLower, [Bound.UPPER]: priceUpper } = pricesAtTicks
-  console.log('parsedAmounts', parsedAmounts, baseCurrency, quoteCurrency)
   const { [Field.CURRENCY_A]: amountA, [Field.CURRENCY_B]: amountB } = parsedAmounts
 
   const tokenA = (baseCurrency ?? undefined)?.wrapped

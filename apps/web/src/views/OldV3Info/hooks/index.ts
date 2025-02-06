@@ -82,7 +82,7 @@ export const useProtocolTransactionData = (): Transaction[] | undefined => {
     enabled: Boolean(chainId),
     ...QUERY_SETTINGS_IMMUTABLE,
   })
-  return useMemo(() => data?.filter((d) => d.amountUSD > 0) ?? [], [data])
+  return useMemo(() => data?.filter((d) => d.amountUSD >= 0) ?? [], [data])
 }
 
 export const useTokenPriceChartData = (
@@ -428,7 +428,7 @@ export const usePoolTransactions = (address: string): Transaction[] | undefined 
     enabled: Boolean(chainId && address),
     ...QUERY_SETTINGS_IMMUTABLE,
   })
-  return useMemo(() => data?.data?.filter((d) => d.amountUSD > 0) ?? undefined, [data])
+  return useMemo(() => data?.data?.filter((d) => d.amountUSD >= 0) ?? undefined, [data])
 }
 
 export const usePoolChartData = (address: string): PoolChartEntry[] | undefined => {

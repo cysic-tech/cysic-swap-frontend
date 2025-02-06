@@ -2,9 +2,9 @@ import dayjs from 'dayjs'
 import { gql } from 'graphql-request'
 import orderBy from 'lodash/orderBy'
 
+import { getBlocksFromTimestamps } from 'oldUtils/getBlocksFromTimestamps'
+import { multiQuery } from 'oldUtils/infoQueryHelpers'
 import { PriceChartEntry } from 'state/oldInfo/types'
-import { getBlocksFromTimestamps } from 'utils/getBlocksFromTimestamps'
-import { multiQuery } from 'utils/infoQueryHelpers'
 import { MultiChainName, checkIsStableSwap, getMultiChainQueryEndPointWithStableSwap } from '../../constant'
 
 interface FormattedHistory {

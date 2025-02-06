@@ -12,6 +12,7 @@ import {
 } from '@pancakeswap/uikit'
 import { NextLinkFromReactRouter } from '@pancakeswap/widgets-internal'
 
+import { cysicMetadata } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import { useTranslation } from '@pancakeswap/localization'
 import { STABLE_SUPPORTED_CHAIN_IDS } from '@pancakeswap/stable-swap-sdk'
@@ -122,7 +123,11 @@ export const NetworkSwitcher: React.FC<{ activeIndex: number }> = ({ activeIndex
     <UserMenu
       alignItems="top"
       ml="8px"
-      avatarSrc={`${ASSET_CDN}/web/chains/${multiChainId[chainName]}.png`}
+      avatarSrc={
+        [ChainId.CYSIC, ChainId.CYSIC_TESTNET].includes(multiChainId[chainName])
+          ? cysicMetadata.logoUri
+          : `${ASSET_CDN}/web/chains/${multiChainId[chainName]}.png`
+      }
       text={
         foundChain ? (
           <>

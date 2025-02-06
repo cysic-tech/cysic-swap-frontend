@@ -121,49 +121,58 @@ struct AllowanceTransferDetails {
 `.replaceAll('\n', '')
 
 export const ABI_PARAMETER = {
-  // Batch Reverts
+  // 32 Batch Reverts
   [CommandType.EXECUTE_SUB_PLAN]: parseAbiParameters('bytes _commands, bytes[] _inputs'),
 
-  // Permit2 Actions
+  // 10 Permit2 Actions
   [CommandType.PERMIT2_PERMIT]: parseAbiParameters([
     'PermitSingle permitSingle, bytes data',
     ABI_STRUCT_PERMIT_SINGLE,
     ABI_STRUCT_PERMIT_DETAILS,
   ]),
+  // 3
   [CommandType.PERMIT2_PERMIT_BATCH]: parseAbiParameters([
     'PermitBatch permitBatch, bytes data',
     ABI_STRUCT_PERMIT_BATCH,
     ABI_STRUCT_PERMIT_SINGLE,
     ABI_STRUCT_PERMIT_DETAILS,
   ]),
+  // 2
   [CommandType.PERMIT2_TRANSFER_FROM]: parseAbiParameters('address token, address recipient, uint160 amount'),
+  // 13
   [CommandType.PERMIT2_TRANSFER_FROM_BATCH]: parseAbiParameters([
     'AllowanceTransferDetails[] batchDetails',
     ABI_STRUCT_ALLOWANCE_TRANSFER_DETAILS,
   ]),
 
-  // swap actions
+  // 0 swap actions
   [CommandType.V3_SWAP_EXACT_IN]: parseAbiParameters(
     'address recipient, uint256 amountIn, uint256 amountOutMin, bytes path, bool payerIsUser',
   ),
+  // 1
   [CommandType.V3_SWAP_EXACT_OUT]: parseAbiParameters(
     'address recipient, uint256 amountOut, uint256 amountInMax, bytes path, bool payerIsUser',
   ),
+  // 8
   [CommandType.V2_SWAP_EXACT_IN]: parseAbiParameters(
     'address recipient, uint256 amountIn, uint256 amountOutMin, address[] path, bool payerIsUser',
   ),
+  // 9
   [CommandType.V2_SWAP_EXACT_OUT]: parseAbiParameters(
     'address recipient, uint256 amountOut, uint256 amountInMax, address[] path, bool payerIsUser',
   ),
+  // 34
   [CommandType.STABLE_SWAP_EXACT_IN]: parseAbiParameters(
     'address recipient, uint256 amountIn, uint256 amountOutMin, address[] path, uint256[] flag, bool payerIsUser',
   ),
+  // 35
   [CommandType.STABLE_SWAP_EXACT_OUT]: parseAbiParameters(
     'address recipient, uint256 amountOut, uint256 amountInMax, address[] path, uint256[] flag, bool payerIsUser',
   ),
 
-  // Token Actions and Checks
+  // 11 Token Actions and Checks
   [CommandType.WRAP_ETH]: parseAbiParameters('address recipient, uint256 amountMin'),
+  // 12
   [CommandType.UNWRAP_WETH]: parseAbiParameters('address recipient, uint256 amountMin'),
   [CommandType.SWEEP]: parseAbiParameters('address token, address recipient, uint256 amountMin'),
   // [CommandType.SWEEP_ERC721]: parseAbiParameters('address token, address recipient, uint256 id'),
@@ -242,6 +251,7 @@ export function createCommand<TCommandType extends CommandUsed>(
   parameters: ABIParametersType<TCommandType>,
 ): RouterCommand {
   // const params = parameters.filter((param) => param !== null)
+  console.log('--createCommand--', CommandType[type], type, parameters)
   const encodedInput = encodeAbiParameters(ABI_PARAMETER[type], parameters as any)
   return { type, encodedInput }
 }

@@ -1,11 +1,12 @@
+import { cysicMetadata } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import { Currency, Token } from '@pancakeswap/sdk'
 import {
   ImageProps,
   TokenImage as UIKitTokenImage,
   TokenPairImage as UIKitTokenPairImage,
-  TokenPairLogo as UIKitTokenPairLogo,
   TokenPairImageProps as UIKitTokenPairImageProps,
+  TokenPairLogo as UIKitTokenPairLogo,
 } from '@pancakeswap/uikit'
 import uriToHttp from '@pancakeswap/utils/uriToHttp'
 import { ASSET_CDN } from 'config/constants/endpoints'
@@ -45,7 +46,9 @@ export const getImageUrlsFromToken = (token: Currency & { logoURI?: string | und
 }
 
 export const getChainLogoUrlFromChainId = (chainId: number) =>
-  `https://assets.pancakeswap.finance/web/chains/${chainId}.png`
+  [ChainId.CYSIC, ChainId.CYSIC_TESTNET].includes(+chainId)
+    ? cysicMetadata.logoUri
+    : `https://assets.pancakeswap.finance/web/chains/${chainId}.png`
 
 export const TokenPairImage: React.FC<React.PropsWithChildren<TokenPairImageProps>> = ({
   primaryToken,

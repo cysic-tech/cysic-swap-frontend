@@ -101,7 +101,6 @@ export default function useSendSwapTransaction(
                     value: hexToBigInt(value),
                   }
 
-            console.log('tx', tx, publicClient)
             return publicClient
               .estimateGas(tx)
               .then((gasEstimate) => {

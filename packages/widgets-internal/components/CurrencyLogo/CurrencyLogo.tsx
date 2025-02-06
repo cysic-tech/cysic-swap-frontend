@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { styled } from "styled-components";
 import { space, SpaceProps } from "styled-system";
 
+import { cysicMetadata } from "@pancakeswap/ca-config";
 import { CurrencyInfo } from "./types";
 import { getCurrencyLogoUrlsByInfo } from "./utils";
 
@@ -52,8 +53,17 @@ export function CurrencyLogo({
       return <BinanceIcon style={style} imageRef={imageRef} width={size} height={size} {...props} />;
     }
     // todo add more chains
-    if (currency.chainId === ChainId.CYSIC) {
-      return <BinanceIcon style={style} imageRef={imageRef} width={size} height={size} {...props} />;
+    if (currency?.chainId && [ChainId.CYSIC, ChainId.CYSIC_TESTNET].includes(currency.chainId)) {
+      return (
+        <StyledLogo
+          size={size}
+          srcs={[cysicMetadata.logoUri]}
+          width={size}
+          imageRef={imageRef}
+          style={style}
+          {...props}
+        />
+      );
     }
     return (
       <StyledLogo

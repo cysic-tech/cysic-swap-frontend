@@ -1,3 +1,5 @@
+import { cysicMetadata } from '@pancakeswap/ca-config'
+import { ChainId } from '@pancakeswap/chains'
 import { ArrowDropDownIcon, ArrowDropUpIcon, Box, FlexGap, Text } from '@pancakeswap/uikit'
 import { ASSET_CDN } from 'config/constants/endpoints'
 import Image from 'next/image'
@@ -16,7 +18,9 @@ export const getNotificationPairlogo = (message: string, type: SubsctiptionType)
   const chainId = CHAIN_NAME_TO_CHAIN_ID[chainName]
 
   const image1 = isAprNotification ? '/images/notifications/farms-scope.svg' : '/logo.png'
-  const image2 = `${ASSET_CDN}/web/chains/${chainId}.png`
+  const image2 = [ChainId.CYSIC, ChainId.CYSIC_TESTNET].includes(chainId)
+    ? cysicMetadata.logoUri
+    : `${ASSET_CDN}/web/chains/${chainId}.png`
 
   return { image1, image2 }
 }

@@ -23,6 +23,7 @@ export abstract class PancakeSwapUniversalRouter {
     const planner = new RoutePlanner()
 
     const tradeCommand: PancakeSwapTrade = new PancakeSwapTrade(trade, options)
+    console.log('tradeCommand', tradeCommand)
 
     const inputCurrency = tradeCommand.trade.inputAmount.currency
     invariant(!(inputCurrency.isNative && !!options.inputTokenPermit), 'NATIVE_INPUT_PERMIT')
@@ -56,13 +57,18 @@ export abstract class PancakeSwapUniversalRouter {
     config: SwapRouterConfig = {},
   ): MethodParameters {
     const { commands, inputs } = planner
-    const calldata = config.deadline
-      ? encodeFunctionData({
+    const data = config.deadline
+      ? {
           abi: UniversalRouterABI,
           args: [commands, inputs, BigInt(config.deadline)],
           functionName: 'execute',
-        })
-      : encodeFunctionData({ abi: UniversalRouterABI, args: [commands, inputs], functionName: 'execute' })
+        }
+      : { abi: UniversalRouterABI, args: [commands, inputs], functionName: 'execute' }
+
+    console.log({
+      args: data?.args,
+    })
+    const calldata = encodeFunctionData(data as any)
     return { calldata, value: toHex(nativeCurrencyValue) }
   }
 }

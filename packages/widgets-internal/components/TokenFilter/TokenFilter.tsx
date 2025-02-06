@@ -1,3 +1,4 @@
+import { cysicMetadata } from "@pancakeswap/ca-config";
 import { ChainId, getChainName as defaultGetChainName } from "@pancakeswap/chains";
 import { useTheme } from "@pancakeswap/hooks";
 import { Currency, ERC20Token } from "@pancakeswap/sdk";
@@ -85,10 +86,14 @@ const StyledChainLogo = styled.img`
 const CurrencyLogoWithChain = ({ currency }: { currency: ERC20Token }) => (
   <CurrencyLogoContainer>
     <CurrencyLogo currency={currency} />
-    <StyledChainLogo
-      alt={`chain-${currency.chainId}`}
-      src={`https://assets.pancakeswap.finance/web/chains/${currency.chainId}.png`}
-    />
+    {[ChainId.CYSIC, ChainId.CYSIC_TESTNET].include(currency.chainId) ? (
+      <StyledChainLogo alt={`chain-${currency.chainId}`} src={cysicMetadata.logoUri} />
+    ) : (
+      <StyledChainLogo
+        alt={`chain-${currency.chainId}`}
+        src={`https://assets.pancakeswap.finance/web/chains/${currency.chainId}.png`}
+      />
+    )}
   </CurrencyLogoContainer>
 );
 

@@ -33,6 +33,8 @@ const cysicMetadata: chainMetadata = {
   NonfungiblePositionManager: '0xdf5B0565769EadF40328f3d5dbD4f38a9b941A53',
   PancakeInterfaceMulticall: '0xe81FB7a8a87Ea12c05ee718cD5025c400EbC22C6',
   PancakeInterfaceMulticallV2: '0x12c89f85000213D4ac3E1b4Baa56D37c39758d8A',
+  Permit2: '0x1080dFA879DEbA5C2c924a2475986B23b497B667',
+  UniversalRouter: '0x4305a4b18771db008E7BAB6dEdE3c6Bd928Fb4d4',
   // v2
   WBNB: '0x0261d2F0199D060540C97DC13B5420d5c91A8fe9',
   PancakeFactory: '0x43d46c17d5Ab670C388a6cb6eb1Cf287730F6E46',
@@ -45,7 +47,8 @@ const cysicMetadata: chainMetadata = {
   // zero
   zeroAddress: '0x0000000000000000000000000000000000000000',
   MulticallV3: '0x2c92F7945ecba1bB3179F7486187FDaCcF7a05B5',
-  USDT: '0x2C44A1775616461C04011495ad1401D872da0054',
+  USDT: '0x1D94C15436EB1281b013e3C40De6d36f86b8fC2A',
+  logoUri: 'https://cysic.xyz/assets/Symbol/Cysic%20Symbol.svg',
 }
 
 const cysicTestnetMetadata: chainMetadata = {
@@ -81,7 +84,8 @@ const cysicTestnetMetadata: chainMetadata = {
   NonfungiblePositionManager: '0xdf5B0565769EadF40328f3d5dbD4f38a9b941A53',
   PancakeInterfaceMulticall: '0xe81FB7a8a87Ea12c05ee718cD5025c400EbC22C6',
   PancakeInterfaceMulticallV2: '0x12c89f85000213D4ac3E1b4Baa56D37c39758d8A',
-
+  Permit2: '0x1080dFA879DEbA5C2c924a2475986B23b497B667',
+  UniversalRouter: '0x4305a4b18771db008E7BAB6dEdE3c6Bd928Fb4d4',
   // v2
   WBNB: '0x0261d2F0199D060540C97DC13B5420d5c91A8fe9',
   PancakeFactory: '0x43d46c17d5Ab670C388a6cb6eb1Cf287730F6E46',
@@ -95,7 +99,8 @@ const cysicTestnetMetadata: chainMetadata = {
   // zero
   zeroAddress: '0x0000000000000000000000000000000000000000',
   MulticallV3: '0x2c92F7945ecba1bB3179F7486187FDaCcF7a05B5',
-  USDT: '0x2C44A1775616461C04011495ad1401D872da0054',
+  USDT: '0x1D94C15436EB1281b013e3C40De6d36f86b8fC2A',
+  logoUri: 'https://cysic.xyz/assets/Symbol/Cysic%20Symbol.svg',
 }
 
 const cysicTestnetRpc: string = 'https://evm-dev.prover.xyz'

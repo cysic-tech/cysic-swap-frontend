@@ -1,7 +1,8 @@
+import { ChainId, Currency } from "@pancakeswap/sdk";
 import { useMemo } from "react";
-import { Currency } from "@pancakeswap/sdk";
 import { styled } from "styled-components";
 
+import { cysicMetadata } from "@pancakeswap/ca-config";
 import Image from "next/image";
 import { CurrencyLogo } from "./CurrencyLogo";
 
@@ -38,14 +39,25 @@ export function DoubleCurrencyLogo({
         )}
         {currency1 && <CurrencyLogo currency={currency1} size={`${size.toString()}px`} />}
         {showChainLogo && currency0 ? (
-          <Image
-            alt={`chain-${currency0.chainId}`}
-            src={`https://assets.pancakeswap.finance/web/chains/${currency0.chainId}.png`}
-            style={{ maxHeight: chainLogoSize, margin: "8px" }}
-            width={chainLogoSize}
-            height={chainLogoSize}
-            unoptimized
-          />
+          [ChainId.CYSIC, ChainId.CYSIC_TESTNET].includes(+currency0.chainId) ? (
+            <Image
+              alt={`chain-${currency0.chainId}`}
+              style={{ maxHeight: chainLogoSize, margin: "8px" }}
+              src={cysicMetadata.logoUri}
+              width={chainLogoSize}
+              height={chainLogoSize}
+              unoptimized
+            />
+          ) : (
+            <Image
+              alt={`chain-${currency0.chainId}`}
+              src={`https://assets.pancakeswap.finance/web/chains/${currency0.chainId}.png`}
+              style={{ maxHeight: chainLogoSize, margin: "8px" }}
+              width={chainLogoSize}
+              height={chainLogoSize}
+              unoptimized
+            />
+          )
         ) : null}
       </Wrapper>
     </>

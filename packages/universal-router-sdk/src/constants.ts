@@ -1,9 +1,12 @@
+import { cysicMetadata, cysicTestnetMetadata } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import { Address } from 'viem'
 
 enum SupportedChain {}
 
 const UNIVERSAL_ROUTER_ADDRESSES: Record<SupportedChain, Address> = {
+  [ChainId.CYSIC]: cysicMetadata.UniversalRouter,
+  [ChainId.CYSIC_TESTNET]: cysicTestnetMetadata.UniversalRouter,
   [ChainId.ETHEREUM]: '0x65b382653f7C31bC0Af67f188122035461ec9C76',
   [ChainId.GOERLI]: '0xC46abF8B66Df4B9Eb0cC0cf6eba24226AC6E6285',
   [ChainId.SEPOLIA]: '0x55D32fa7Da7290838347bc97cb7fAD4992672255',

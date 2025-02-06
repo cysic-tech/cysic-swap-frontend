@@ -1,3 +1,4 @@
+import { cysicMetadata } from '@pancakeswap/ca-config'
 import { ChainId } from '@pancakeswap/chains'
 import { useHttpLocations } from '@pancakeswap/hooks'
 import { Currency } from '@pancakeswap/sdk'
@@ -55,8 +56,8 @@ export default function CurrencyLogo({ currency, size = '24px', style }: LogoPro
       return <BinanceIcon width={size} style={style} />
     }
     // todo add more chainId
-    if (currency.chainId === ChainId.CYSIC) {
-      return <BinanceIcon width={size} style={style} />
+    if ([ChainId.CYSIC, ChainId.CYSIC_TESTNET].includes(+currency?.chainId || -1)) {
+      return <StyledLogo size={size} srcs={[cysicMetadata.logoUri]} width={size} style={style} />
     }
     return (
       <StyledLogo size={size} srcs={[`${ASSET_CDN}/web/native/${currency.chainId}.png`]} width={size} style={style} />

@@ -1,4 +1,5 @@
-import { getChainNameInKebabCase } from '@pancakeswap/chains'
+import { cysicMetadata } from '@pancakeswap/ca-config'
+import { ChainId, getChainNameInKebabCase } from '@pancakeswap/chains'
 import { Protocol } from '@pancakeswap/farms'
 import { useTranslation } from '@pancakeswap/localization'
 import { Flex } from '@pancakeswap/uikit'
@@ -68,7 +69,9 @@ export const useSelectedChainsName = (chainIds: number[]) => {
 }
 
 const chainsOpts = MAINNET_CHAINS.map((chain) => ({
-  icon: `${ASSET_CDN}/web/chains/${chain.id}.png`,
+  icon: [ChainId.CYSIC, ChainId.CYSIC_TESTNET].includes(chain.id)
+    ? cysicMetadata.logoUri
+    : `${ASSET_CDN}/web/chains/${chain.id}.png`,
   value: chain.id,
   label: chain.name,
 }))

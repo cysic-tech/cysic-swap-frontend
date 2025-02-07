@@ -22,6 +22,9 @@ RUN pnpm build
 # Stage 2: Serve the application with nginx
 FROM nginx:alpine
 
+# 设置工作目录
+WORKDIR /app
+
 RUN apk add --no-cache nodejs npm && npm install -g pnpm
 
 COPY --from=builder /app /app

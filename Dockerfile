@@ -28,14 +28,14 @@ RUN npm install -g pnpm
 # 安装依赖
 RUN pnpm install --force
 
-# 启动项目 默认部署在 3000 端口
-RUN pnpm start
-
 # 复制自定义 nginx 配置文件
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # 暴露端口
 EXPOSE 8080
 
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 # 启动 nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/entrypoint.sh"]

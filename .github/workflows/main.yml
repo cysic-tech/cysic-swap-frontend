@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: cysic-tech/cysic-swap
+  IMAGE_NAME: cysic-tech/cysic-swap-frontend
 
 jobs:
   build:

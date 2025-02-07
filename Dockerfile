@@ -22,6 +22,8 @@ RUN pnpm build
 # Stage 2: Serve the application with nginx
 FROM nginx:alpine
 
+RUN apk add --no-cache nodejs npm && npm install -g pnpm
+
 # 安装 pnpm
 RUN npm install -g pnpm
 

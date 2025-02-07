@@ -24,6 +24,8 @@ FROM nginx:alpine
 
 RUN apk add --no-cache nodejs npm && npm install -g pnpm
 
+COPY --from=builder /app /app
+
 # 安装 pnpm
 RUN npm install -g pnpm
 

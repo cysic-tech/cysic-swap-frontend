@@ -50,6 +50,8 @@ const cysicMetadata: chainMetadata = {
   MulticallV3: '0x2c92F7945ecba1bB3179F7486187FDaCcF7a05B5',
   USDT: '0x1D94C15436EB1281b013e3C40De6d36f86b8fC2A',
   logoUri: 'https://cysic.xyz/assets/Symbol/Cysic%20Symbol.svg',
+
+  usdtWnativeLp: '0xfF42396Ef67f2925b209c94E5B40BdaFf62C69d3',
 }
 
 const cysicTestnetMetadata: chainMetadata = {
@@ -102,6 +104,7 @@ const cysicTestnetMetadata: chainMetadata = {
   MulticallV3: '0x2c92F7945ecba1bB3179F7486187FDaCcF7a05B5',
   USDT: '0x1D94C15436EB1281b013e3C40De6d36f86b8fC2A',
   logoUri: 'https://cysic.xyz/assets/Symbol/Cysic%20Symbol.svg',
+  usdtWnativeLp: '0xfF42396Ef67f2925b209c94E5B40BdaFf62C69d3',
 }
 
 const cysicTestnetRpc: string = 'https://evm-dev.prover.xyz'

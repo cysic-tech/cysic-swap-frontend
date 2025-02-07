@@ -1,10 +1,8 @@
-import { createAction } from '@reduxjs/toolkit'
 import { Price, Token } from '@pancakeswap/swap-sdk-core'
+import { createAction } from '@reduxjs/toolkit'
+import { CurrencyField as Field } from 'utils/types'
 
-export enum Field {
-  CURRENCY_A = 'CURRENCY_A',
-  CURRENCY_B = 'CURRENCY_B',
-}
+export { Field }
 
 export const typeInput = createAction<{ field: Field; typedValue: string | undefined; noLiquidity: boolean }>(
   'mintV3/typeInputMint',

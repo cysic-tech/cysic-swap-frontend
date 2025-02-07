@@ -1,10 +1,10 @@
 import { Currency } from '@pancakeswap/sdk'
-import { FeeAmount, Pool, tickToPrice } from '@pancakeswap/v3-sdk'
+import { Pool, tickToPrice } from '@pancakeswap/v3-sdk'
 import { useMemo } from 'react'
 
 import { getActiveTick } from 'utils/getActiveTick'
 import { PoolState, TickProcessed } from './types'
-import useAllV3TicksQuery, { TickData } from './useAllV3TicksQuery'
+import useAllV3TicksQuery, { TickData } from './useAllV3TicksQueryV2'
 import { usePool } from './usePools'
 import computeSurroundingTicks from './utils/computeSurroundingTicks'
 
@@ -13,7 +13,9 @@ const PRICE_FIXED_DIGITS = 8
 function useTicksFromSubgraph(
   currencyA: Currency | undefined | null,
   currencyB: Currency | undefined | null,
-  feeAmount: FeeAmount | undefined,
+  // ERROR type is invalid.
+  // feeAmount: FeeAmount | undefined,
+  feeAmount: any | undefined,
   activeTick: number | undefined,
   enabled = true,
 ) {
@@ -38,7 +40,9 @@ export function useAllV3Ticks({
 }: {
   currencyA?: Currency | null
   currencyB?: Currency | null
-  feeAmount?: FeeAmount
+  // ERROR type
+  // feeAmount?: FeeAmount
+  feeAmount?: any
   activeTick?: number
   enabled?: boolean
 }): {
@@ -58,7 +62,9 @@ export function useAllV3Ticks({
 export function usePoolActiveLiquidity(
   currencyA: Currency | undefined,
   currencyB: Currency | undefined,
-  feeAmount: FeeAmount | undefined,
+  // ERROR type
+  // feeAmount: FeeAmount | undefined,
+  feeAmount: any | undefined,
 ): {
   isLoading: boolean
   error: any

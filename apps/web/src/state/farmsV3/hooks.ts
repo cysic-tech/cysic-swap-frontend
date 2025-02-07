@@ -61,7 +61,7 @@ export const farmV3ApiFetch = (chainId: number): Promise<FarmsV3Response> =>
     })
 
 const fallback: Awaited<ReturnType<typeof farmFetcherV3.fetchFarms>> = {
-  chainId: ChainId.BSC,
+  chainId: ChainId.CYSIC,
   farmsWithPrice: [],
   poolLength: 0,
   cakePerSecond: '0',

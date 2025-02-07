@@ -34,7 +34,7 @@ import { useIsExpertMode, useUserSlippage } from '@pancakeswap/utils/user'
 import { FeeAmount, NonfungiblePositionManager, Pool } from '@pancakeswap/v3-sdk'
 import CurrencyInputPanel from 'components/CurrencyInputPanel'
 import { useTransactionDeadline } from 'hooks/useTransactionDeadline'
-import useV3DerivedInfo from 'hooks/v3/useV3DerivedInfo'
+import useV3DerivedInfo from 'hooks/v3/useV3DerivedInfoV2'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { ApprovalState, useApproveCallback } from 'hooks/useApproveCallback'

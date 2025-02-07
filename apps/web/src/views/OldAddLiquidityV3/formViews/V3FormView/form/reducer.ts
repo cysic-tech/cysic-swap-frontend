@@ -1,8 +1,8 @@
+import { Price, Token } from '@pancakeswap/swap-sdk-core'
 import { createReducer } from '@reduxjs/toolkit'
 import { useAtomValue, useSetAtom } from 'jotai'
 import { atomWithReducer } from 'jotai/utils'
 import { createContext, useContext } from 'react'
-import { Price, Token } from '@pancakeswap/swap-sdk-core'
 
 import {
   Field,

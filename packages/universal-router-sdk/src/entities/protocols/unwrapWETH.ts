@@ -17,7 +17,12 @@ export class UnwrapWETH implements Command {
   readonly amount: BigintIsh
 
   constructor(amount: BigintIsh, chainId: ChainId, permit2?: Permit2Signature) {
-    this.wethAddress = WETH9[chainId].address
+    // 确保 chainId 存在于 WETH9 映射中
+    if (!(chainId in WETH9)) {
+      throw new Error(`ChainId ${chainId} not supported`)
+    }
+
+    this.wethAddress = WETH9[chainId as keyof typeof WETH9].address
     this.amount = amount
 
     if (permit2) {

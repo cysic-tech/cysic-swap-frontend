@@ -14,10 +14,10 @@
     "wrangler": "catalog:"
   },
   "dependencies": {
+    "@pancakeswap/sdk": "workspace:*",
     "@pancakeswap/price-api-sdk": "workspace:*",
     "@pancakeswap/chains": "workspace:*",
     "@pancakeswap/ca-config": "workspace:*",
-    "@pancakeswap/sdk": "workspace:*",
     "@pancakeswap/stable-swap-sdk": "workspace:*",
     "@pancakeswap/swap-sdk-core": "workspace:*",
     "@pancakeswap/token-lists": "workspace:*",

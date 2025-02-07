@@ -80,7 +80,9 @@ export const fetchFarmPools = async (
   const localPools = fetchFarmConfig.filter((farm) => {
     return (
       args.protocols?.includes(farm.protocol) &&
-      (Array.isArray(args.chainId) ? args.chainId.includes(farm.chainId) : farm.chainId === args.chainId)
+      (Array.isArray(args.chainId)
+        ? args.chainId.includes(farm.chainId as FarmV4SupportedChainId)
+        : farm.chainId === args.chainId)
     )
   })
   const remoteMissedPoolsIndex: number[] = []
@@ -152,7 +154,7 @@ export const fetchV3PoolsStatusByChainId = async (chainId: number, pools: { pid?
   )
 
   const resp = await client.multicall({
-    contracts: poolInfoCalls,
+    contracts: poolInfoCalls as any,
     allowFailure: false,
   })
   return resp

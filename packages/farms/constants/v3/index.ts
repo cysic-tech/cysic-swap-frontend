@@ -10,8 +10,8 @@ export type Addresses = {
 }
 
 export const farmsV3ConfigChainMap: Record<FarmV3SupportedChainId, ComputedFarmConfigV3[]> = {
-  // [ChainId.CYSIC]: sysicFarms,
-  // [ChainId.CYSIC_TESTNET]: cysicTestnetFarms,
+  [ChainId.CYSIC]: [],
+  [ChainId.CYSIC_TESTNET]: [],
 }
 
 export const bCakeFarmBoosterV3Address: Addresses = {

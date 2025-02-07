@@ -6,8 +6,8 @@ import { CommitButton } from 'components/CommitButton'
 import CurrencyInputPanel from 'components/CurrencyInputPanel'
 
 import { ApprovalState } from 'hooks/useApproveCallback'
-import { Field } from 'state/mint/actions'
 import { logGTMClickAddLiquidityEvent } from 'utils/customGTMEventTracking'
+import { CurrencyField as Field } from 'utils/types'
 
 import { useTranslation } from '@pancakeswap/localization'
 import { useIsExpertMode } from '@pancakeswap/utils/user'

@@ -1,6 +1,8 @@
 import { isStableFarm } from '@pancakeswap/farms'
 import { OldSubgraphHealthIndicator as V3SubgraphHealthIndicator } from 'components/SubgraphHealthIndicator'
+import { BLOCKS_CLIENT_WITH_CHAIN } from 'config/constants/endpoints'
 import { useCurrency } from 'hooks/Tokens'
+import { useActiveChainId } from 'hooks/useActiveChainId'
 import { useRouter } from 'next/router'
 import { useCallback, useMemo } from 'react'
 import { useFarmV2PublicAPI } from 'state/farms/hooks'
@@ -14,6 +16,7 @@ import { SELECTOR_TYPE } from 'views/OldAddLiquidityV3/types'
 
 const AddLiquidityPage = () => {
   const router = useRouter()
+  const { chainId } = useActiveChainId()
 
   // fetching farm api instead of using redux store here to avoid huge amount of actions and hooks needed
   const { data: farmsV2Public } = useFarmV2PublicAPI()
@@ -79,7 +82,7 @@ const AddLiquidityPage = () => {
             preferredSelectType={!feeAmount ? preferFarmType?.type : undefined}
             preferredFeeAmount={!feeAmount ? preferFarmType?.feeAmount : undefined}
           />
-          <V3SubgraphHealthIndicator />
+          <V3SubgraphHealthIndicator chainId={chainId} subgraphName={BLOCKS_CLIENT_WITH_CHAIN[chainId]} />
         </AddLiquidityV3Layout>
       </LiquidityFormProvider>
     </AddLiquidityV2FormProvider>

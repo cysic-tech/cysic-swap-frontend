@@ -226,7 +226,9 @@ export function useV3PoolsWithTicks(
       const poolTicks = await Promise.all(
         pools.map(async (pool) => {
           const { token0 } = pool
-          return getPoolTicks(token0.chainId, SmartRouter.getPoolAddress(pool), undefined, signal).then((data) => {
+          // return getPoolTicks(token0.chainId, SmartRouter.getPoolAddress(pool), undefined, signal).then((data) => {
+          // TODO old version
+          return getPoolTicks(token0.chainId, SmartRouter.getPoolAddress(pool), undefined).then((data) => {
             return data.map(
               ({ tick, liquidityNet, liquidityGross }) =>
                 new Tick({ index: Number(tick), liquidityNet, liquidityGross }),

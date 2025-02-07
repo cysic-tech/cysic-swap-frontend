@@ -51,11 +51,11 @@ const fetchBnbPrices = async (
 ): Promise<{ bnbPrices: BnbPrices | undefined; error: boolean }> => {
   try {
     // TODO mainnet替换链
-    const data = await infoClient[ChainId.CYSIC_TESTNET].request<PricesResponse>(BNB_PRICES, {
+    const data = await (infoClient[ChainId.CYSIC_TESTNET].request(BNB_PRICES, {
       block24,
       block48,
       blockWeek,
-    })
+    }) as Promise<PricesResponse>)
     return {
       error: false,
       bnbPrices: {

@@ -109,7 +109,7 @@ export const OldSubgraphHealthIndicator: React.FC<SubgraphHealthIndicatorProps> 
   obeyGlobalSetting = true,
 }) => {
   const { t } = useTranslation()
-  const { status, currentBlock, blockDifference, latestBlock } = useSubgraphHealth({ chainId, subgraphName })
+  const { status, currentBlock, blockDifference, latestBlock } = useSubgraphHealth({ chainId, subgraph: subgraphName })
   const [alwaysShowIndicator] = useSubgraphHealthIndicatorManager()
   const forceIndicatorDisplay =
     status === SubgraphStatus.WARNING || status === SubgraphStatus.NOT_OK || status === SubgraphStatus.DOWN

@@ -86,7 +86,7 @@ const StyledChainLogo = styled.img`
 const CurrencyLogoWithChain = ({ currency }: { currency: ERC20Token }) => (
   <CurrencyLogoContainer>
     <CurrencyLogo currency={currency} />
-    {[ChainId.CYSIC, ChainId.CYSIC_TESTNET].include(currency.chainId) ? (
+    {[ChainId.CYSIC, ChainId.CYSIC_TESTNET].includes(currency.chainId) ? (
       <StyledChainLogo alt={`chain-${currency.chainId}`} src={cysicMetadata.logoUri} />
     ) : (
       <StyledChainLogo

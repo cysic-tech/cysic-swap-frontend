@@ -22,6 +22,12 @@ RUN pnpm build
 # Stage 2: Serve the application with nginx
 FROM nginx:alpine
 
+# 安装 pnpm
+RUN npm install -g pnpm
+
+# 安装依赖
+RUN pnpm install --force
+
 # 启动项目 默认部署在 3000 端口
 RUN pnpm start
 

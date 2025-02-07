@@ -5,16 +5,15 @@ FROM node:18 as builder
 WORKDIR /app
 
 # 复制 package.json 和 pnpm-lock.yaml 文件
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml  ./
+#COPY package.json pnpm-lock.yaml pnpm-workspace.yaml  ./
+# 复制所有项目文件到容器
+COPY . .
 
 # 安装 pnpm
 RUN npm install -g pnpm
 
 # 安装依赖
 RUN pnpm install --force
-
-# 复制所有项目文件到容器
-COPY . .
 
 # 构建项目
 RUN pnpm build

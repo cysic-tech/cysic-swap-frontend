@@ -2,6 +2,8 @@
 
 echo "Starting application..."
 
+cd /app
+
 # 后台启动 pnpm start
 pnpm start &
 

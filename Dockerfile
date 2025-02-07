@@ -11,32 +11,10 @@ COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm
 
 # 安装依赖
-RUN pnpm install --force --debug
+RUN pnpm install --force
 
 # 复制所有项目文件到容器
 COPY . .
 
 # 构建项目
 RUN pnpm build
-
-# Stage 2: Serve the application with nginx
-FROM nginx:alpine
-
-# 安装 Node.js、npm 和 pnpm
-RUN apk add --no-cache nodejs npm && npm install -g pnpm
-
-# 复制整个构建后的 /app 目录到 /app
-COPY --from=builder /app /app
-
-# 复制自定义 nginx 配置文件
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# 复制入口脚本
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-# 暴露端口
-EXPOSE 8080
-
-# 启动 nginx
-CMD ["/entrypoint.sh"]

@@ -4,7 +4,7 @@ import { createWallets, getDocLink } from 'config/wallet'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import useAuth from 'hooks/useAuth'
 
-import { ChainId } from '@pancakeswap/chains'
+import { basicChainId } from '@pancakeswap/chains'
 import { useMemo } from 'react'
 import { logGTMWalletConnectEvent } from 'utils/customGTMEventTracking'
 import { useConnect } from 'wagmi'
@@ -20,7 +20,7 @@ const WalletModalManager: React.FC<{ isOpen: boolean; onDismiss?: () => void }> 
 
   const docLink = useMemo(() => getDocLink(code), [code])
 
-  const wallets = useMemo(() => createWallets(chainId || ChainId.CYSIC, connectAsync), [chainId, connectAsync])
+  const wallets = useMemo(() => createWallets(chainId || basicChainId, connectAsync), [chainId, connectAsync])
 
   return (
     <WalletModalV2

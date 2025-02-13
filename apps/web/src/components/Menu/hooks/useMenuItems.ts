@@ -1,4 +1,4 @@
-import { ChainId } from '@pancakeswap/chains'
+import { basicChainId } from '@pancakeswap/chains'
 import { useTheme } from '@pancakeswap/hooks'
 import { useTranslation } from '@pancakeswap/localization'
 import { useActiveChainId } from 'hooks/useActiveChainId'
@@ -46,7 +46,7 @@ export const useMenuItems = ({ onClick }: UseMenuItemsParams = {}): ConfigMenuIt
       }
 
       if (item.href === '/info/v3') {
-        const href = `${item.href}${multiChainPaths[chainId || ChainId.CYSIC] ?? ''}`
+        const href = `${item.href}${multiChainPaths[chainId || basicChainId] ?? ''}`
         return { ...item, href, onClick: onClickEvent }
       }
 

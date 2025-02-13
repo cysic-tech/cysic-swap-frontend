@@ -1,4 +1,4 @@
-import { ChainId } from '@pancakeswap/chains'
+import { ChainId, basicChainId } from '@pancakeswap/chains'
 import { getSourceChain, isIfoSupported } from '@pancakeswap/ifos'
 import { getLivePoolsConfig } from '@pancakeswap/pools'
 import { Token } from '@pancakeswap/sdk'
@@ -167,7 +167,7 @@ export const useCakeVaultPublicData = () => {
 }
 
 const useCakeVaultChain = (chainId?: ChainId) => {
-  return useMemo(() => getSourceChain(chainId) || ChainId.CYSIC, [chainId])
+  return useMemo(() => getSourceChain(chainId) || basicChainId, [chainId])
 }
 
 export const useFetchIfo = () => {

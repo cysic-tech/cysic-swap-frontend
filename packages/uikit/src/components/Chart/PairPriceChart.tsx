@@ -50,8 +50,8 @@ export type PairPriceChartNewProps = {
 
 const getChartColors = ({ isChangePositive }: { isChangePositive: boolean }) => {
   return isChangePositive
-    ? { gradient1: "#00E7B0", gradient2: "#0C8B6C", stroke: "#31D0AA" }
-    : { gradient1: "#ED4B9E", gradient2: "#ED4B9E", stroke: "#ED4B9E " };
+    ? { gradient1: "#00E7B0", gradient2: "#0C8B6C", stroke: "#11D473" }
+    : { gradient1: "#FF401A", gradient2: "#FF401A", stroke: "#FF401A " };
 };
 
 const dateFormattingByTimewindow: Record<PairDataTimeWindowEnum, string> = {
@@ -75,7 +75,7 @@ const getOHLC = (candleData: BarData) => {
   const diffFormatted = formatAmount(Math.abs(diff), formatOptions);
   const percentageChangeFormatted = `${formatAmount(percentageChange, formatOptions)} %`;
 
-  const color = diff > 0 ? "#31D0AA" : "#ED4B9E";
+  const color = diff > 0 ? "#11D473" : "#FF401A";
 
   return `
     O <span style="color: ${color};">${openFormatted}</span>
@@ -215,7 +215,7 @@ export const PairPriceChart: React.FC<PairPriceChartNewProps> = ({
           labelVisible: false,
           style: 3,
           width: 1,
-          color: isDark ? "#B8ADD2" : "#7A6EAA",
+          color: isDark ? "#00F0FF" : "#7A6EAA",
         },
       },
     });
@@ -237,11 +237,11 @@ export const PairPriceChart: React.FC<PairPriceChartNewProps> = ({
       });
     } else {
       newSeries = chart.addCandlestickSeries({
-        upColor: "#31D0AA",
-        downColor: "#ED4B9E",
+        upColor: "#11D473",
+        downColor: "#FF401A",
         borderVisible: false,
-        wickUpColor: "#31D0AA",
-        wickDownColor: "#ED4B9E",
+        wickUpColor: "#11D473",
+        wickDownColor: "#FF401A",
       });
     }
 

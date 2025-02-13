@@ -1,4 +1,4 @@
-import { ChainId } from '@pancakeswap/chains'
+import { ChainId, basicChainId } from '@pancakeswap/chains'
 import { useTranslation } from '@pancakeswap/localization'
 import { Button, Grid, Message, MessageText, Modal, Text } from '@pancakeswap/uikit'
 import { useMenuItems } from 'components/Menu/hooks/useMenuItems'
@@ -17,7 +17,7 @@ import Dots from '../Loader/Dots'
 export function UnsupportedNetworkModal({ pageSupportedChains }: { pageSupportedChains: number[] }) {
   const { switchNetworkAsync, isLoading, canSwitch } = useSwitchNetwork()
   const switchNetworkLocal = useSwitchNetworkLocal()
-  const chainId = useLocalNetworkChain() || ChainId.CYSIC
+  const chainId = useLocalNetworkChain() || basicChainId
   const { isConnected } = useAccount()
   const { logout } = useAuth()
   const { t } = useTranslation()

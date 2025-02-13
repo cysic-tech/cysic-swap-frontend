@@ -1,5 +1,5 @@
-import React from "react";
 import uniqueId from "lodash/uniqueId";
+import React from "react";
 import Svg from "../Svg";
 import { SvgProps } from "../types";
 
@@ -85,7 +85,7 @@ const Icon: React.FC<React.PropsWithChildren<SvgProps>> = (props) => {
           gradientUnits="userSpaceOnUse"
         >
           <stop stopColor="#53DEE9" />
-          <stop offset="1" stopColor="#1FC7D4" />
+          <stop offset="1" stopColor="#00F0FF" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_won"
@@ -96,7 +96,7 @@ const Icon: React.FC<React.PropsWithChildren<SvgProps>> = (props) => {
           gradientUnits="userSpaceOnUse"
         >
           <stop stopColor="#53DEE9" />
-          <stop offset="1" stopColor="#1FC7D4" />
+          <stop offset="1" stopColor="#00F0FF" />
         </linearGradient>
         <clipPath id={id}>
           <rect width="64" height="64" fill="white" />

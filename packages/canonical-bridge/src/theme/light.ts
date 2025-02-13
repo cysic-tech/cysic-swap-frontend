@@ -19,7 +19,7 @@ export const light = {
     disabled: rgba('#181A1E', 0.3),
     brand: '#181A1E',
     warning: '#BC4E00',
-    danger: '#ED4B9E',
+    danger: '#FF401A',
     route: { title: '#5C5F6A' },
     network: {
       title: '#7A6EAA',
@@ -64,7 +64,7 @@ export const light = {
       active: '#115F39',
     },
     danger: {
-      default: '#ED4B9E',
+      default: '#FF401A',
       subtle: '#FDE2E4',
       hover: '#A91E27',
       active: '#821119',

@@ -18,7 +18,7 @@ const StyledLink = styled(Link)`
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
-  color: ${(props: any) => (props.theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+  color: ${(props: any) => (props.theme.isDark ? '#00F0FF' : '#7A6EAA')};
   text-align: center;
   & > svg {
     margin-left: 4px;

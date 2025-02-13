@@ -72,7 +72,7 @@ export const BCakeMigrationBanner = () => {
   )
   if (!PM_V2_SS_BOOSTER_SUPPORT_CHAINS.includes(chainId ?? 0)) return null
   return (
-    <BannerContainer background="linear-gradient(261deg, rgba(158, 63, 253, 0.12) 27.61%, rgba(98, 61, 255, 0.25) 76.11%), linear-gradient(247deg, #53DEE9 -16.43%, #A881FC 92.15%)">
+    <BannerContainer background="linear-gradient(261deg, rgba(158, 63, 253, 0.12) 27.61%, rgba(98, 61, 255, 0.25) 76.11%), linear-gradient(247deg, #53DEE9 -16.43%, #00F0FF 92.15%)">
       <BannerMain
         containerStyle={{ marginRight: '-60px', width: '70%' }}
         title={

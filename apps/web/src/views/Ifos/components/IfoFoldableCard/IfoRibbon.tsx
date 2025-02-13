@@ -1,14 +1,14 @@
-import { Box, Flex, Heading, Progress, ProgressBar } from '@pancakeswap/uikit'
-import { useTranslation } from '@pancakeswap/localization'
-import { styled } from 'styled-components'
-import { ChainId } from '@pancakeswap/sdk'
-import { ReactNode, useMemo } from 'react'
 import { useImageColor } from '@pancakeswap/hooks'
+import { useTranslation } from '@pancakeswap/localization'
+import { ChainId } from '@pancakeswap/sdk'
+import { Box, Flex, Heading, Progress, ProgressBar } from '@pancakeswap/uikit'
+import { ReactNode, useMemo } from 'react'
+import { styled } from 'styled-components'
 
-import { PublicIfoData } from '../../types'
-import LiveTimer, { SoonTimer } from './Timer'
-import { IfoChainBoard } from '../IfoChainBoard'
 import { getBannerUrl } from '../../helpers'
+import { PublicIfoData } from '../../types'
+import { IfoChainBoard } from '../IfoChainBoard'
+import LiveTimer, { SoonTimer } from './Timer'
 
 const StyledProgress = styled(Progress)`
   background-color: #281a5b;
@@ -35,7 +35,7 @@ const BigCurve = styled(Box)<{ $status?: PublicIfoData['status']; $dark?: boolea
     switch ($status) {
       case 'coming_soon':
         return `
-          background: ${$dark ? '#353547' : '#EFF3F4'};
+          background: ${$dark ? '#1D222D' : '#EFF3F4'};
         `
       case 'live':
         return `

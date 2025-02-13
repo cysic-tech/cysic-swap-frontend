@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
       border: 1px solid;
       border-bottom: 2px solid;
       border-color: ${({ theme }) => (theme.isDark ? '#383241' : '#E7E3EB')};
-      background: ${({ theme }) => (theme.isDark ? '#27262C ' : '#FFFFFF')};
+      background: ${({ theme }) => (theme.isDark ? '#000000 ' : '#FFFFFF')};
       padding: 16px;
       gap: 16px;
       max-width: unset;
@@ -43,16 +43,16 @@ const GlobalStyle = createGlobalStyle`
         height: 40px;
       }
       &>svg path {
-        fill: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+        fill: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
         fill-opacity: 1;
       }
     }
     .bccb-widget-network-title, .bccb-widget-input-title, .bccb-widget-received-info-title, .bccb-widget-to-account-title {
       padding: 0 8px;
       align-items: center;
-      color: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+      color: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
       & > p {
-        color: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+        color: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
         text-overflow: ellipsis;
         display: block;
         font-size: 14px;
@@ -76,7 +76,7 @@ const GlobalStyle = createGlobalStyle`
         opacity: 0.65;
       }
       &>svg {
-        color: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+        color: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
       }
     }
     .bccb-widget-transfer-input-container {
@@ -102,12 +102,12 @@ const GlobalStyle = createGlobalStyle`
         padding: 4px 4px 4px 16px;
         &:not(.input-error).input-focused {
             &, &:hover {
-            box-shadow: 0px 0px 0px 1px #A881FC, 0px 0px 0px 4px rgba(168, 129, 252, 0.40);
+            box-shadow: 0px 0px 0px 1px #00F0FF, 0px 0px 0px 4px rgba(168, 129, 252, 0.40);
             border-color: ${({ theme }) => (theme.isDark ? '#55496E' : '#D7CAEC')};
           }
         }
         &:not(.input-error):hover {
-          box-shadow: 0px 0px 0px 1px #A881FC, 0px 0px 0px 4px rgba(168, 129, 252, 0.40);
+          box-shadow: 0px 0px 0px 1px #00F0FF, 0px 0px 0px 4px rgba(168, 129, 252, 0.40);
           outline: none;
         }
         input {
@@ -117,7 +117,7 @@ const GlobalStyle = createGlobalStyle`
           line-height: 30px;
           letter-spacing: -0.2px;
           &::placeholder {
-            color: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+            color: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
             font-size: 20px;
             font-style: normal;
             font-weight: 600;
@@ -130,7 +130,7 @@ const GlobalStyle = createGlobalStyle`
           border-radius: 16px;
           border: 1px solid rgba(0, 0, 0, 0.20);
           border-bottom: 2px solid rgba(0, 0, 0, 0.20);
-          background: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+          background: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
           font-size: 16px;
           font-style: normal;
           font-weight: 600;
@@ -184,7 +184,7 @@ const GlobalStyle = createGlobalStyle`
               }
             }
             .alert-icon {
-              color: #ED4B9E;
+              color: #FF401A;
             }
           }
         }
@@ -195,12 +195,12 @@ const GlobalStyle = createGlobalStyle`
         border-radius: 16px;
         &:not(.input-error).input-focused {
             &, &:hover {
-            box-shadow: 0px 0px 0px 1px #A881FC, 0px 0px 0px 4px rgba(168, 129, 252, 0.40);
+            box-shadow: 0px 0px 0px 1px #00F0FF, 0px 0px 0px 4px rgba(168, 129, 252, 0.40);
             border-color: ${({ theme }) => (theme.isDark ? '#55496E' : '#D7CAEC')};
           }
         }
         &:not(.input-error):hover {
-          box-shadow: 0px 0px 0px 1px #A881FC, 0px 0px 0px 4px rgba(168, 129, 252, 0.40);
+          box-shadow: 0px 0px 0px 1px #00F0FF, 0px 0px 0px 4px rgba(168, 129, 252, 0.40);
           outline: none;
         }
         input {
@@ -212,7 +212,7 @@ const GlobalStyle = createGlobalStyle`
           border: 1px solid;
           border-color: ${({ theme }) => (theme.isDark ? '#55496E' : '#D7CAEC')};
           &::placeholder {
-            color: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+            color: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
@@ -250,13 +250,13 @@ const GlobalStyle = createGlobalStyle`
         height: 48px;
         border-radius: 16px;
         border-bottom: 2px solid rgba(0, 0, 0, 0.20);
-        background: #1FC7D4;
+        background: #00F0FF;
         font-size: 16px;
         font-style: normal;
         font-weight: 600;
         line-height: 24px;
         &:not(.disabled):hover {
-          background: #1FC7D4;
+          background: #00F0FF;
           opacity: 0.65;
         }
       }
@@ -295,7 +295,7 @@ const GlobalStyle = createGlobalStyle`
         font-style: normal;
         font-weight: 400;
         line-height: 150%; /* 21px */
-        color: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+        color: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
       }
     }
     .bccb-widget-from-network-modal-content, .bccb-widget-to-network-modal-content {
@@ -334,7 +334,7 @@ const GlobalStyle = createGlobalStyle`
           line-height: 24px;
           color: ${({ theme }) => (theme.isDark ? '#F4EEFF' : '#280D5F')};
           img {
-            outline: 2px solid ${({ theme }) => (theme.isDark ? '#372F47' : '#EEEAF4')};
+            outline: 2px solid ${({ theme }) => (theme.isDark ? '#1D222D' : '#EEEAF4')};
           }
         }
       }
@@ -343,7 +343,7 @@ const GlobalStyle = createGlobalStyle`
     .bccb-widget-token-modal-content {
       width: 100vw;
       height: 100vh;
-      background: ${({ theme }) => (theme.isDark ? '#27262C' : '#FFFFFF')};
+      background: ${({ theme }) => (theme.isDark ? '#000000' : '#FFFFFF')};
       ${({ theme }) => theme.mediaQueries.sm} {
         max-height: 80vh;
         width: 360px;
@@ -431,7 +431,7 @@ const GlobalStyle = createGlobalStyle`
       border-bottom: none;
       padding: 0;
       svg {
-        color: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+        color: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
       }
     }
     .bccb-widget-token-modal-list-header {
@@ -458,19 +458,19 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 400;
         line-height: 150%; /* 24px */
         border-radius: 16px;
-        color: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
-        background: ${({ theme }) => (theme.isDark ? '#372F47' : '#EEEAF4')};
+        color: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
+        background: ${({ theme }) => (theme.isDark ? '#1D222D' : '#EEEAF4')};
         outline: none;
         border: none;
         border: 1px solid ${({ theme }) => (theme.isDark ? '#55496E' : '#D7CAEC')};
         box-shadow: 0px 2px 0px -1px rgba(0, 0, 0, 0.16) inset;
         &:focus, &:hover {
-          box-shadow: 0px 0px 0px 1px #A881FC, 0px 0px 0px 4px rgba(168, 129, 252, 0.40);
+          box-shadow: 0px 0px 0px 1px #00F0FF, 0px 0px 0px 4px rgba(168, 129, 252, 0.40);
           border-color: ${({ theme }) => (theme.isDark ? '#55496E' : '#D7CAEC')};
-          background: ${({ theme }) => (theme.isDark ? '#372F47' : '#EEEAF4')};
+          background: ${({ theme }) => (theme.isDark ? '#1D222D' : '#EEEAF4')};
         }
         &::placeholder {
-          color: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+          color: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
           font-size: 16px;
           font-style: normal;
           font-weight: 400;
@@ -492,7 +492,7 @@ const GlobalStyle = createGlobalStyle`
       svg {
         width: 24px;
         height: 24px;
-        color: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+        color: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
       }
     }
     .bccb-widget-route-fee-info {
@@ -503,7 +503,7 @@ const GlobalStyle = createGlobalStyle`
       font-weight: 400;
       line-height: 150%;
       overflow: hidden;
-      color: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+      color: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
     }
     .bccb-widget-route-error,
     .bccb-widget-allowed-send-amount {
@@ -525,7 +525,7 @@ const GlobalStyle = createGlobalStyle`
 
     /* Route */
     .bccb-widget-route-container {
-      background: ${({ theme }) => (theme.isDark ? '#27262C' : '#FFFFFF')};
+      background: ${({ theme }) => (theme.isDark ? '#000000' : '#FFFFFF')};
       max-width: 328px;
       padding: 0;
       box-shadow: none;
@@ -548,7 +548,7 @@ const GlobalStyle = createGlobalStyle`
       .bccb-widget-route-header {
         padding: 0 16px;
         font-size: 12px;
-        color: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+        color: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
         font-weight: 600;
         line-height: 150%; /* 18px */
         letter-spacing: 0.12px;
@@ -560,7 +560,7 @@ const GlobalStyle = createGlobalStyle`
       }
 
       .bccb-widget-route-wrapper-selected {
-        border: 2px solid #1FC7D4;
+        border: 2px solid #00F0FF;
       }
       .bccb-widget-route-wrapper {
         border-color: ${({ theme }) => (theme.isDark ? '#383241' : '#E7E3EB')};
@@ -571,7 +571,7 @@ const GlobalStyle = createGlobalStyle`
           }
         }
         &:not(.route-error):hover {
-          border-color: #1FC7D4;
+          border-color: #00F0FF;
         }
       }
       .bccb-widget-route-wrapper,
@@ -614,11 +614,11 @@ const GlobalStyle = createGlobalStyle`
     .bccb-widget-transaction-confirming-modal, .bccb-widget-transaction-approve-modal,
     .bccb-widget-transaction-failed-modal, .bccb-widget-transaction-submitted-modal
     {
-      background: ${({ theme }) => (theme.isDark ? '#27262C' : '#FFFFFF')};
+      background: ${({ theme }) => (theme.isDark ? '#000000' : '#FFFFFF')};
       box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.16), 0px 4px 8px 0px rgba(0, 0, 0, 0.32);
 
       .bccb-widget-modal-close-button {
-        color: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+        color: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
         &:hover {
           color: ${({ theme }) => (theme.isDark ? '#F4EEFF' : '#280D5F')};
         }
@@ -644,7 +644,7 @@ const GlobalStyle = createGlobalStyle`
             font-size: 16px;
             font-weight: 400;
             line-height: 150%; /* 24px */
-            color: ${({ theme }) => (theme.isDark ? '#B8ADD2' : '#7A6EAA')};
+            color: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7A6EAA')};
           & > p {
             font-size: 16px;
             font-weight: 600;
@@ -691,13 +691,13 @@ const GlobalStyle = createGlobalStyle`
     .bccb-widget-modal-main-button {
       border-radius: 16px;
       border-bottom: 2px solid rgba(0, 0, 0, 0.20);
-      background: #1FC7D4;
+      background: #00F0FF;
       font-size: 16px;
       font-weight: 600;
       line-height: 150%; /* 24px */
       color: #FFF;
       &:hover {
-        background: #1FC7D4;
+        background: #00F0FF;
         color: #FFF;
         opacity: 0.65;
       }
@@ -705,10 +705,10 @@ const GlobalStyle = createGlobalStyle`
 
     .bccb-widget-modal-second-button {
       border-radius: 16px;
-      border: 2px solid #1FC7D4;
+      border: 2px solid #00F0FF;
       color: #02919D;
       &:hover {
-        border: 2px solid #1FC7D4;
+        border: 2px solid #00F0FF;
         background: none;
         opacity: 0.65;
         color: #02919D;
@@ -722,18 +722,18 @@ const GlobalStyle = createGlobalStyle`
       font-style: normal;
       font-weight: 400;
       line-height: 150%; /* 21px */
-      background: #1FC7D4;
+      background: #00F0FF;
       padding: 2px 9px;
       height: 25px;
     }
     .bccb-widget-route-name-tag-bestTime {
-      background: ${({ theme }) => (theme.isDark ? '#A881FC' : '#7645D9')};
+      background: ${({ theme }) => (theme.isDark ? '#00F0FF' : '#7645D9')};
     }
 
     .bccb-widget-modal-route-content {
       width: 100vw;
       height: 100vh;
-      background: ${({ theme }) => (theme.isDark ? '#27262C' : '#FFFFFF')};
+      background: ${({ theme }) => (theme.isDark ? '#000000' : '#FFFFFF')};
       ${({ theme }) => theme.mediaQueries.sm} {
         height: auto;
         max-height: 80vh;
@@ -790,20 +790,20 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .bccb-widget-info-tooltip {
-      background: ${({ theme }) => (theme.isDark ? '#FFFFFF' : '#27262C')};
-      color: ${({ theme }) => (theme.isDark ? '#27262C' : '#FFFFFF')};
+      background: ${({ theme }) => (theme.isDark ? '#FFFFFF' : '#000000')};
+      color: ${({ theme }) => (theme.isDark ? '#000000' : '#FFFFFF')};
       border-radius: 16px;
       padding: 16px;
       font-size: 14px;
       line-height: 150%;
       max-width: 280px;
       .chakra-tooltip__arrow {
-        background: ${({ theme }) => (theme.isDark ? '#FFFFFF' : '#27262C')};
+        background: ${({ theme }) => (theme.isDark ? '#FFFFFF' : '#000000')};
       }
       .bccb-widget-route-info-tooltip-fee {
         line-height: 150%;
         font-size: 14px;
-        color: ${({ theme }) => (theme.isDark ? '#27262C' : '#FFFFFF')};
+        color: ${({ theme }) => (theme.isDark ? '#000000' : '#FFFFFF')};
       }
     }
 
@@ -811,8 +811,8 @@ const GlobalStyle = createGlobalStyle`
       z-index: 1;
 
       .bccb-widget-route-token-tooltip-content {
-        --popper-arrow-bg: ${({ theme }) => (theme.isDark ? '#FFFFFF' : '#27262C')};;
-        background: ${({ theme }) => (theme.isDark ? '#FFFFFF' : '#27262C')};
+        --popper-arrow-bg: ${({ theme }) => (theme.isDark ? '#FFFFFF' : '#000000')};;
+        background: ${({ theme }) => (theme.isDark ? '#FFFFFF' : '#000000')};
         border-radius: 16px;
         padding: 16px;
       }
@@ -820,12 +820,12 @@ const GlobalStyle = createGlobalStyle`
       .bccb-widget-route-token-tooltip-body {
         padding: 0;
         &>div {
-          color: ${({ theme }) => (theme.isDark ? '#27262C' : '#FFFFFF')};
+          color: ${({ theme }) => (theme.isDark ? '#000000' : '#FFFFFF')};
           font-size: 14px;
           line-height: 150%;
           font-weight: 400;
           &>a:hover {
-            color: ${({ theme }) => (theme.isDark ? '#27262C' : '#FFFFFF')};
+            color: ${({ theme }) => (theme.isDark ? '#000000' : '#FFFFFF')};
           }
         }
       }

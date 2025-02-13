@@ -323,7 +323,7 @@ const TokenPage: React.FC<{ address: string }> = ({ address }) => {
                   {view === ChartView.TVL ? (
                     <LineChart
                       data={formattedTvlData}
-                      color={isDark ? '#9A6AFF' : '#7A6EAA'}
+                      color={isDark ? '#00F0FF' : '#7A6EAA'}
                       minHeight={340}
                       value={latestValue}
                       label={valueLabel}
@@ -333,7 +333,7 @@ const TokenPage: React.FC<{ address: string }> = ({ address }) => {
                   ) : view === ChartView.VOL ? (
                     <BarChart
                       data={formattedVolumeData}
-                      color="#1FC7D4"
+                      color="#00F0FF"
                       minHeight={340}
                       value={latestValue}
                       label={valueLabel}

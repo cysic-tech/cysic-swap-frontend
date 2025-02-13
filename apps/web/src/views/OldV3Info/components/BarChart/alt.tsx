@@ -1,6 +1,6 @@
+import { RowBetween } from '@pancakeswap/uikit'
 import Card from 'components/Card'
 import dayjs from 'dayjs'
-import { RowBetween } from '@pancakeswap/uikit'
 import useTheme from 'hooks/useTheme'
 import React, { Dispatch, ReactNode, SetStateAction } from 'react'
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis } from 'recharts'
@@ -60,7 +60,7 @@ const CustomBar = ({
 
 const Chart = ({
   data,
-  color = '#1FC7D4',
+  color = '#00F0FF',
   setValue,
   setLabel,
   value,

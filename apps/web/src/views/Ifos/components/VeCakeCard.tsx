@@ -1,4 +1,4 @@
-import { ChainId } from '@pancakeswap/chains'
+import { basicChainId } from '@pancakeswap/chains'
 import { useTranslation } from '@pancakeswap/localization'
 import { CAKE } from '@pancakeswap/tokens'
 import { Button } from '@pancakeswap/uikit'
@@ -57,7 +57,7 @@ export function VeCakeCard({ ifoAddress }: Props) {
       Number(
         formatBigInt(
           isUserDelegated ? nativeCakeLockedAmount : nativeCakeLockedAmount + proxyCakeLockedAmount,
-          CAKE[chainId || ChainId.CYSIC].decimals,
+          CAKE[chainId || basicChainId].decimals,
         ),
       ),
     [nativeCakeLockedAmount, proxyCakeLockedAmount, chainId, isUserDelegated],

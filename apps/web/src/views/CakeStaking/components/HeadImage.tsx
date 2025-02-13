@@ -20,7 +20,7 @@ const SpeechBubble: React.FC<SvgProps> = (props) => {
         <Path
           id="Vector 772"
           d="M0.000488281 16V0C0.000488281 0 3.00049 1 6.00049 1C9.00049 1 16.0005 -2 16.0005 3.5C16.0005 10.5 7.50049 16 0.000488281 16Z"
-          fill={theme.isDark ? '#B8ADD2' : '#7A6EAA'}
+          fill={theme.isDark ? '#00F0FF' : '#7A6EAA'}
         />
       </g>
     </Svg>

@@ -11,7 +11,7 @@ const MevIntroSectionWrapper = styled.div`
   background: ${({ theme }) =>
     theme.isDark
       ? `linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%),
-      linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)`
+      linear-gradient(139.73deg, #000 0%, #000 100%)`
       : `linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%),
     linear-gradient(139.73deg, #e5fdff 0%, #f3efff 100%)`};
 

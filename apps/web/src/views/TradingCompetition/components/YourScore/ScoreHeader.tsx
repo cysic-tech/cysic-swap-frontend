@@ -1,6 +1,6 @@
-import { styled } from 'styled-components'
-import { NoProfileAvatarIcon, LaurelLeftIcon, LaurelRightIcon, Skeleton } from '@pancakeswap/uikit'
+import { LaurelLeftIcon, LaurelRightIcon, NoProfileAvatarIcon, Skeleton } from '@pancakeswap/uikit'
 import ProfileAvatarWithTeam from 'components/ProfileAvatarWithTeam'
+import { styled } from 'styled-components'
 import { YourScoreProps } from '../../types'
 import Sticker from '../Sticker'
 
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 const LaurelWrapper = styled.div<{ dir?: 'left' | 'right' }>`
   transform: ${({ dir }) => (dir === 'left' ? 'rotate(30deg)' : 'rotate(-30deg)')};
   svg {
-    fill: #27262c;
+    fill: #000000;
     opacity: 0.5;
     height: 32px;
     width: auto;

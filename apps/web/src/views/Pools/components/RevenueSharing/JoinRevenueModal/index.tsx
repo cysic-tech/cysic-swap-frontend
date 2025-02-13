@@ -1,16 +1,16 @@
+import { Box, Card, Flex, LinkExternal, Modal, Text, useMatchBreakpoints } from '@pancakeswap/uikit'
+import { Pool } from '@pancakeswap/widgets-internal'
 import { useMemo } from 'react'
 import { styled } from 'styled-components'
-import { Modal, Text, Card, Flex, Box, LinkExternal, useMatchBreakpoints } from '@pancakeswap/uikit'
-import { Pool } from '@pancakeswap/widgets-internal'
 
-import Image from 'next/image'
-import useTheme from 'hooks/useTheme'
-import { Token } from '@pancakeswap/sdk'
 import { useTranslation } from '@pancakeswap/localization'
-import JoinButton from 'views/Pools/components/RevenueSharing/JoinRevenueModal/JoinButton'
-import { useVaultPoolByKey, usePoolsWithVault } from 'state/pools/hooks'
-import { VaultKey, DeserializedLockedCakeVault } from 'state/types'
+import { Token } from '@pancakeswap/sdk'
+import useTheme from 'hooks/useTheme'
+import Image from 'next/image'
+import { usePoolsWithVault, useVaultPoolByKey } from 'state/pools/hooks'
+import { DeserializedLockedCakeVault, VaultKey } from 'state/types'
 import LockedStaking from 'views/Pools/components/LockedPool/LockedStaking'
+import JoinButton from 'views/Pools/components/RevenueSharing/JoinRevenueModal/JoinButton'
 
 interface JoinRevenueModalProps {
   refresh?: () => void
@@ -24,7 +24,7 @@ const TooltipContainer = styled(Box)`
   margin: 0 0 10px 10px;
   height: fit-content;
   border-radius: 16px;
-  background-color: ${({ theme }) => (theme.isDark ? '#FFFFFF' : '#27262c')};
+  background-color: ${({ theme }) => (theme.isDark ? '#FFFFFF' : '#000000')};
 
   ${Text} {
     color: ${({ theme }) => (theme.isDark ? '#280D5F' : '#F4EEFF')};
@@ -39,7 +39,7 @@ const TooltipContainer = styled(Box)`
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-left: ${({ theme }) => (theme.isDark ? '10px solid #FFFFFF' : '10px solid #27262c')};
+    border-left: ${({ theme }) => (theme.isDark ? '10px solid #FFFFFF' : '10px solid #000000')};
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {

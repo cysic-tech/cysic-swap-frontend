@@ -1,4 +1,4 @@
-import { ChainId } from '@pancakeswap/chains'
+import { ChainId, basicChainId } from '@pancakeswap/chains'
 import { Currency } from '@pancakeswap/sdk'
 import { TokenAddressMap } from '@pancakeswap/token-lists'
 import memoize from 'lodash/memoize'
@@ -35,7 +35,7 @@ export function getBlockExploreLink(
   type: 'transaction' | 'token' | 'address' | 'block' | 'countdown',
   chainIdOverride?: number,
 ): string {
-  const chainId = chainIdOverride || ChainId.CYSIC
+  const chainId = chainIdOverride || basicChainId
   const chain = chains.find((c) => c.id === chainId)
   if (!chain || !data) return bsc.blockExplorers.default.url
   switch (type) {
@@ -58,7 +58,7 @@ export function getBlockExploreLink(
 }
 
 export function getBlockExploreName(chainIdOverride?: number) {
-  const chainId = chainIdOverride || ChainId.CYSIC
+  const chainId = chainIdOverride || basicChainId
   const chain = chains.find((c) => c.id === chainId)
 
   return multiChainScanName[chain?.id || -1] || chain?.blockExplorers?.default.name || bsc.blockExplorers.default.name

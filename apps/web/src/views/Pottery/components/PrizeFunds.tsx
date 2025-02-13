@@ -1,8 +1,8 @@
-import { styled } from 'styled-components'
-import { Box, Flex, Text, Heading } from '@pancakeswap/uikit'
 import { useTranslation } from '@pancakeswap/localization'
+import { Box, Flex, Heading, Text } from '@pancakeswap/uikit'
 import Divider from 'components/Divider'
 import Image from 'next/image'
+import { styled } from 'styled-components'
 
 const PrizeFundsContainer = styled(Flex)`
   width: 100%;
@@ -87,7 +87,7 @@ const PoolAllocations = () => {
           <Text textAlign="right" bold mb="12px">
             73.6%
           </Text>
-          <AllocationMatch color="#A881FC" text={t('Rewards')} />
+          <AllocationMatch color="#00F0FF" text={t('Rewards')} />
           <Text textAlign="right" bold mb="12px">
             20%
           </Text>

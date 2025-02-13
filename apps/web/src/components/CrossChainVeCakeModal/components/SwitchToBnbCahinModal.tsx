@@ -18,7 +18,7 @@ const BCakeInfoWrapper = styled.div`
   position: relative;
   display: flex;
   max-width: 191px;
-  background: ${({ theme }) => (theme.isDark ? 'white' : '#27262c')};
+  background: ${({ theme }) => (theme.isDark ? 'white' : '#000000')};
   flex-direction: column;
   margin-top: 16px;
   margin-bottom: 16px;

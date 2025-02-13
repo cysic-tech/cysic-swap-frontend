@@ -1,7 +1,7 @@
-import { styled } from 'styled-components'
-import { Box, Flex, Text, Heading, Link, Image, useMatchBreakpoints } from '@pancakeswap/uikit'
 import { useTranslation } from '@pancakeswap/localization'
+import { Box, Flex, Heading, Image, Link, Text, useMatchBreakpoints } from '@pancakeswap/uikit'
 import useTheme from 'hooks/useTheme'
+import { styled } from 'styled-components'
 import { BallWithNumber, MatchExampleA, MatchExampleB, PoolAllocationChart } from '../svgs'
 
 const Divider = styled.div`
@@ -196,7 +196,7 @@ const PoolAllocations = () => {
           <Text textAlign="right" bold>
             10%
           </Text>
-          <AllocationMatch color="#A881FC" text={t('Matches first %digits%', { digits: 5 })} />
+          <AllocationMatch color="#00F0FF" text={t('Matches first %digits%', { digits: 5 })} />
           <Text textAlign="right" bold>
             20%
           </Text>

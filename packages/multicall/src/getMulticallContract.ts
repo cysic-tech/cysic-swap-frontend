@@ -1,4 +1,4 @@
-import { ChainId } from '@pancakeswap/chains'
+import { ChainId, basicChainId } from '@pancakeswap/chains'
 import { Address, PublicClient, getContract } from 'viem'
 
 import { iMulticallABI } from './abis/IMulticall'
@@ -19,5 +19,5 @@ export function getMulticallContract({ chainId, client }: Params) {
 }
 
 export function getMulticall3ContractAddress(chainId?: ChainId): Address {
-  return MULTICALL3_ADDRESSES[chainId || ChainId.CYSIC] || MULTICALL3_ADDRESS
+  return MULTICALL3_ADDRESSES[chainId || basicChainId] || MULTICALL3_ADDRESS
 }

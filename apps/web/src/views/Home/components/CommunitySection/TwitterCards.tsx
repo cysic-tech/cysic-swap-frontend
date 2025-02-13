@@ -49,7 +49,7 @@ const LogoBox = styled.div`
   height: 48px;
   border-radius: 8px;
   justify-content: center;
-  background: linear-gradient(180deg, #53dee9 0%, #1fc7d4 100%);
+  background: linear-gradient(180deg, #53dee9 0%, #00f0ff 100%);
 `
 
 const TweetWrapper = styled.div`

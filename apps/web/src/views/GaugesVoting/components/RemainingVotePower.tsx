@@ -11,7 +11,7 @@ import { useEpochVotePower } from '../hooks/useEpochVotePower'
 
 const StyledBox = styled(Box)`
   border-radius: 16px;
-  background: linear-gradient(229deg, #1fc7d4 -13.69%, #7645d9 91.33%);
+  background: linear-gradient(229deg, #00f0ff -13.69%, #7645d9 91.33%);
   padding: 18px;
   display: inline-flex;
   align-items: center;

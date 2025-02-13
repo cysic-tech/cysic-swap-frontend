@@ -1,4 +1,4 @@
-import { ChainId } from '@pancakeswap/chains'
+import { basicChainId } from '@pancakeswap/chains'
 import { useTranslation } from '@pancakeswap/localization'
 import { ArrowForwardIcon, Button, FlexGap, Grid, Message, MessageText, Modal, Text } from '@pancakeswap/uikit'
 import { ChainLogo } from 'components/Logo/ChainLogo'
@@ -27,7 +27,7 @@ export function WrongNetworkModal({ currentChain, onDismiss }: { currentChain: C
   const { logout } = useAuth()
   const { isConnected, chain, chainId: walletChainId } = useAccount()
   const [, setQueryChainId] = useAtom(queryChainIdAtom)
-  const chainId = currentChain.id || ChainId.CYSIC
+  const chainId = currentChain.id || basicChainId
   const { t } = useTranslation()
   const router = useRouter()
 

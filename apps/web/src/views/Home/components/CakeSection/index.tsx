@@ -2,10 +2,10 @@ import { useTranslation } from '@pancakeswap/localization'
 import { Button, Flex, LinkExternal, StyledLink, Text, useMatchBreakpoints } from '@pancakeswap/uikit'
 import { ASSET_CDN } from 'config/constants/endpoints'
 import useTheme from 'hooks/useTheme'
+import NextLink from 'next/link'
 import React, { memo, useCallback, useLayoutEffect, useRef } from 'react'
 import { css, keyframes, styled } from 'styled-components'
 import { useFourYearTotalVeCakeApr } from 'views/CakeStaking/hooks/useAPR'
-import NextLink from 'next/link'
 import { useDrawCanvas } from '../../hooks/useDrawCanvas'
 import { useDrawSequenceImages } from '../../hooks/useDrawSequence'
 import { checkIsIOS } from '../../hooks/useIsIOS'
@@ -457,7 +457,7 @@ const CakeSection: React.FC = () => {
           fontWeight={600}
           display="inline"
           marginLeft={10}
-          color={theme.isDark ? '#A881FC' : theme.colors.secondary}
+          color={theme.isDark ? '#00F0FF' : theme.colors.secondary}
           fontSize={['32px', null, null, '40px']}
           lineHeight="110%"
         >
@@ -468,7 +468,7 @@ const CakeSection: React.FC = () => {
         <Text
           fontSize={['16px', null, null, '20px']}
           fontWeight={600}
-          color={theme.isDark ? '#B8ADD2' : '#7A6EAA'}
+          color={theme.isDark ? '#00F0FF' : '#7A6EAA'}
           textAlign="center"
           lineHeight="110%"
           padding="0px 16px"

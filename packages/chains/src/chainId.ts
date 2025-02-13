@@ -38,3 +38,5 @@ export const testnetChainIds = [
   ChainId.ARBITRUM_SEPOLIA,
   ChainId.BASE_SEPOLIA,
 ]
+
+export const basicChainId = ChainId.CYSIC_TESTNET as any

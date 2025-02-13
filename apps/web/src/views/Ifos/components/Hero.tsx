@@ -14,7 +14,7 @@ const StyledHero = styled(Box)`
   overflow: hidden;
   background: ${({ theme }) =>
     theme.isDark
-      ? 'linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)'
+      ? 'linear-gradient(139.73deg, #000 0%, #000 100%)'
       : 'linear-gradient(139.73deg, #E6FDFF 0%, #F3EFFF 100%)'};
 `
 

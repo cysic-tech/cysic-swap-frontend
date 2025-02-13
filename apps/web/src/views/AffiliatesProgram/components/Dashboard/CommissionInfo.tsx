@@ -1,10 +1,10 @@
-import React, { ReactNode, useMemo } from 'react'
-import { useTranslation, Trans } from '@pancakeswap/localization'
-import { styled } from 'styled-components'
+import { Trans, useTranslation } from '@pancakeswap/localization'
 import { Box, Card, Flex, Text } from '@pancakeswap/uikit'
+import { formatNumber } from '@pancakeswap/utils/formatBalance'
 import BigNumber from 'bignumber.js'
 import { useCakePrice } from 'hooks/useCakePrice'
-import { formatNumber } from '@pancakeswap/utils/formatBalance'
+import React, { ReactNode, useMemo } from 'react'
+import { styled } from 'styled-components'
 import { InfoDetail } from 'views/AffiliatesProgram/hooks/useAuthAffiliate'
 import PieChartContainer from './PieChartContainer'
 
@@ -51,7 +51,7 @@ const chartConfig: ChartInfo[] = [
   {
     id: 'totalPerpSwapEarnFeeUSD',
     name: <Trans>V1 Perp Swap Earn Fee</Trans>,
-    chartColor: '#ED4B9E',
+    chartColor: '#FF401A',
     usdValue: '0',
     cakeValue: '0',
     cakeValueAsNumber: 0,

@@ -2,7 +2,7 @@ import { rgba } from 'polished'
 
 export const dark = {
   input: {
-    background: '#372F47',
+    background: '#1D222D',
     title: '#8C8F9B',
     border: {
       default: '#55496E',
@@ -19,10 +19,10 @@ export const dark = {
     disabled: rgba('#F7F7F8', 0.45),
     brand: '#FFE900',
     warning: '#FFEADB',
-    danger: '#ED4B9E',
+    danger: '#FF401A',
     route: { title: '#8C8F9B' },
     network: {
-      title: '#B8ADD2',
+      title: '#00F0FF',
     },
     on: {
       color: {
@@ -64,7 +64,7 @@ export const dark = {
       active: '#53EAA1',
     },
     danger: {
-      default: '#ED4B9E',
+      default: '#FF401A',
       subtle: rgba('#541C20', 0.45),
       hover: '#EF2A37',
       active: '#FF7A84',

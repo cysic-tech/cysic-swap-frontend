@@ -85,7 +85,7 @@ const HeroWrapper = styled(Box)`
   padding: 80px 24px;
   background: ${({ theme }) =>
     theme.isDark
-      ? `linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)`
+      ? `linear-gradient(139.73deg, #000 0%, #000 100%)`
       : `linear-gradient(139.73deg, #e5fdff 0%, #f3efff 100%)`};
   min-height: 100vh;
   ${({ theme }) => theme.mediaQueries.xxl} {

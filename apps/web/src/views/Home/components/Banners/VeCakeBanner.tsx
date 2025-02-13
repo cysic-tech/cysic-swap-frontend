@@ -78,7 +78,7 @@ export const VeCakeBanner = () => {
   )
 
   return (
-    <BannerContainer background="radial-gradient(100.66% 178.94% at 26.19% 58.89%, #53DEE9 0%, #1FC7D4 69.43%, #0098A1 100%)">
+    <BannerContainer background="radial-gradient(100.66% 178.94% at 26.19% 58.89%, #53DEE9 0%, #00F0FF 69.43%, #0098A1 100%)">
       <BannerMain
         badges={
           <Flex>

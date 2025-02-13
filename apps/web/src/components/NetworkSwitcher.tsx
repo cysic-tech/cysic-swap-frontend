@@ -1,5 +1,5 @@
 import { cysicMetadata } from '@pancakeswap/ca-config'
-import { ChainId } from '@pancakeswap/chains'
+import { ChainId, basicChainId } from '@pancakeswap/chains'
 import { useTranslation } from '@pancakeswap/localization'
 import { NATIVE } from '@pancakeswap/sdk'
 import {
@@ -86,7 +86,7 @@ const WrongNetworkSelect = ({ switchNetwork, chainId }) => {
     },
   )
   const { chain } = useAccount()
-  const localChainId = useLocalNetworkChain() || ChainId.CYSIC
+  const localChainId = useLocalNetworkChain() || basicChainId
 
   const localChainName = chains.find((c) => c.id === localChainId)?.name ?? 'BSC'
 

@@ -182,7 +182,7 @@ export const ChartV3Liquidity: React.FC<ChartLiquidityProps> = ({ address, poolI
           <XAxis reversed tick={false} />
           <Bar dataKey="activeLiquidity" fill="#2172E5" isAnimationActive={false} shape={CustomBar}>
             {zoomedData?.map((entry) => {
-              return <Cell key={`cell-${entry.index}`} fill={entry.isCurrent ? '#ED4B9E' : '#31D0AA'} />
+              return <Cell key={`cell-${entry.index}`} fill={entry.isCurrent ? '#FF401A' : '#11D473'} />
             })}
             <LabelList
               dataKey="activeLiquidity"

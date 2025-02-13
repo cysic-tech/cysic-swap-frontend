@@ -44,7 +44,7 @@ export type LineChartProps = {
 
 const CandleChart = ({
   data,
-  color = '#1FC7D4',
+  color = '#00F0FF',
   setValue,
   setLabel,
   topLeft,

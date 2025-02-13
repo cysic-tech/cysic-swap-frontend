@@ -1,19 +1,19 @@
 import { useTranslation } from "@pancakeswap/localization";
-import { useMemo, memo } from "react";
+import { memo, useMemo } from "react";
 import { styled } from "styled-components";
 import { SpaceProps } from "styled-system";
 
 import {
-  Flex,
-  ButtonMenuItem,
-  PairPriceChart,
-  PairDataTimeWindowEnum,
   Box,
-  Text,
   BunnyKnownPlaceholder,
+  ButtonMenuItem,
+  Flex,
+  PairDataTimeWindowEnum,
+  PairPriceChart,
+  Text,
 } from "@pancakeswap/uikit";
-import { PriceData } from "./types";
 import { FullWidthButtonMenu } from "./FullWidthButtonMenu";
+import { PriceData } from "./types";
 
 const PriceDisplayContainer = styled(Flex)`
   padding: 0.25em 0.5em;
@@ -49,13 +49,13 @@ export const PriceChart = memo(function PriceChart({
     () =>
       [
         priceUpper !== undefined
-          ? { title: "upper", color: "#31D0AA", price: parseFloat(String(priceUpper)) }
+          ? { title: "upper", color: "#11D473", price: parseFloat(String(priceUpper)) }
           : undefined,
         priceCurrent !== undefined
           ? { title: "current", color: "#BDC2C4", price: parseFloat(String(priceCurrent)) }
           : undefined,
         priceLower !== undefined
-          ? { title: "lower", color: "#ED4B9E", price: parseFloat(String(priceLower)) }
+          ? { title: "lower", color: "#FF401A", price: parseFloat(String(priceLower)) }
           : undefined,
       ].filter((limit) => !!limit) as { title: string; color: string; price: number }[],
     [priceCurrent, priceUpper, priceLower]

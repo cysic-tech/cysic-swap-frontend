@@ -116,9 +116,10 @@ const useTopTokenAddresses = (): string[] => {
 }
 
 export const fetchTokenAddresses = async (chainName: MultiChainNameExtend) => {
-  const [timestamp24hAgo] = getDeltaTimestamps()
+  // TODO 主网更改top token的查询规则
+  const [timestamp24hAgo, t48h, t7d, t14d] = getDeltaTimestamps()
 
-  const addresses = await fetchTopTokens(chainName, timestamp24hAgo)
+  const addresses = await fetchTopTokens(chainName, t14d)
 
   return addresses
 }

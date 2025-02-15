@@ -1,12 +1,11 @@
 import { useTranslation } from '@pancakeswap/localization'
-import { Button, Card, Tab, TabMenu, Text } from '@pancakeswap/uikit'
+import { Button, Tab, TabMenu, Text } from '@pancakeswap/uikit'
 import { NextLinkFromReactRouter } from '@pancakeswap/widgets-internal'
 import Page from 'components/Layout/Page'
 import { useRouter } from 'next/router'
 import { PropsWithChildren, useMemo } from 'react'
 import styled from 'styled-components'
 import { PoolsBanner } from './components'
-import { PoolsPage } from './PoolsPage'
 import { PositionPage } from './PositionPage'
 
 const StyledTab = styled(Tab)`
@@ -29,11 +28,13 @@ const usePageInfo = () => {
     () => ({
       [PAGES_LINK.POOLS]: {
         tabIdx: 0,
-        oldLink: '/farms',
-        oldLinkText: t('Legacy Farm Page'),
+        // oldLink: '/farms',
+        // oldLinkText: t('Legacy Farm Page'),
+        oldLink: '/liquidity',
+        oldLinkText: t('Legacy Liquidity Page'),
       },
       [PAGES_LINK.POSITIONS]: {
-        tabIdx: 1,
+        tabIdx: 0,
         oldLink: '/liquidity',
         oldLinkText: t('Legacy Liquidity Page'),
       },
@@ -67,15 +68,15 @@ export const UniversalFarms: React.FC<PropsWithChildren> = () => {
 
   const tabsConfig = useMemo(() => {
     return {
+      // 0: {
+      //   menu: () => (
+      //     <StyledTab key="pools">
+      //       <NextLinkFromReactRouter to={PAGES_LINK.POOLS}>{t('All Pools')}</NextLinkFromReactRouter>
+      //     </StyledTab>
+      //   ),
+      //   page: () => <PoolsPage />,
+      // },
       0: {
-        menu: () => (
-          <StyledTab key="pools">
-            <NextLinkFromReactRouter to={PAGES_LINK.POOLS}>{t('All Pools')}</NextLinkFromReactRouter>
-          </StyledTab>
-        ),
-        page: () => <PoolsPage />,
-      },
-      1: {
         menu: () => (
           <StyledTab key="positions">
             <NextLinkFromReactRouter to={PAGES_LINK.POSITIONS}>{t('My Positions')}</NextLinkFromReactRouter>
@@ -83,14 +84,14 @@ export const UniversalFarms: React.FC<PropsWithChildren> = () => {
         ),
         page: () => <PositionPage />,
       },
-      2: {
-        menu: () => (
-          <StyledTab key="history">
-            <NextLinkFromReactRouter to={PAGES_LINK.HISTORY}>{t('History')}</NextLinkFromReactRouter>
-          </StyledTab>
-        ),
-        page: () => <Card>History</Card>,
-      },
+      // 2: {
+      //   menu: () => (
+      //     <StyledTab key="history">
+      //       <NextLinkFromReactRouter to={PAGES_LINK.HISTORY}>{t('History')}</NextLinkFromReactRouter>
+      //     </StyledTab>
+      //   ),
+      //   page: () => <Card>History</Card>,
+      // },
     }
   }, [t])
 

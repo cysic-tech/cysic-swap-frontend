@@ -1,12 +1,12 @@
-import { Dispatch, SetStateAction, useEffect, useMemo, useRef, useState } from 'react'
-import useTheme from 'hooks/useTheme'
-import { LineChartLoader } from 'components/ChartLoaders'
-import { createChart, IChartApi } from 'lightweight-charts'
-import dayjs from 'dayjs'
-import { darken } from 'polished'
 import { useTranslation } from '@pancakeswap/localization'
+import { darkColors, lightColors } from '@pancakeswap/uikit'
+import { LineChartLoader } from 'components/ChartLoaders'
+import dayjs from 'dayjs'
+import useTheme from 'hooks/useTheme'
+import { createChart, IChartApi } from 'lightweight-charts'
+import { darken } from 'polished'
+import { Dispatch, SetStateAction, useEffect, useMemo, useRef, useState } from 'react'
 import { formatAmount } from 'utils/formatInfoNumbers'
-import { lightColors, darkColors } from '@pancakeswap/uikit'
 
 export type LineChartProps = {
   data: any[]
@@ -95,9 +95,9 @@ const LineChart = ({ data, setHoverValue, setHoverDate }: LineChartProps) => {
 
     const newSeries = chart.addAreaSeries({
       lineWidth: 2,
-      lineColor: isDark ? darkColors.secondary : lightColors.secondary,
-      topColor: darken(0.01, isDark ? darkColors.secondary : lightColors.secondary),
-      bottomColor: isDark ? darkColors.backgroundDisabled : lightColors.backgroundDisabled,
+      lineColor: isDark ? darkColors.primary : lightColors.secondary,
+      topColor: darken(0.01, isDark ? darkColors.primary : lightColors.secondary),
+      bottomColor: isDark ? darkColors.secondary0 : lightColors.backgroundDisabled,
       priceFormat: {
         type: 'price',
         precision: 4,

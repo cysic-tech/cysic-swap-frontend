@@ -88,6 +88,8 @@ export const chartPeriodRange = ['1H', '1D', '1W', '1M', '1Y'] as const
 export type ChartPeriod = (typeof chartPeriodRange)[number]
 
 export const chainIdToExplorerInfoChainName = {
+  [ChainId.CYSIC]: 'cysic',
+  [ChainId.CYSIC_TESTNET]: 'cysicTestnet',
   [ChainId.BSC]: 'bsc',
   [ChainId.ETHEREUM]: 'ethereum',
   [ChainId.POLYGON_ZKEVM]: 'polygon-zkevm',

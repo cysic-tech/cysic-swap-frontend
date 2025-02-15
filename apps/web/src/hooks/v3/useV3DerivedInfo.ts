@@ -73,6 +73,10 @@ export default function useV3DerivedInfo(
   const { independentField, typedValue, leftRangeTypedValue, rightRangeTypedValue, startPriceTypedValue } =
     formState || {}
 
+  console.log({
+    formState,
+  })
+
   const dependentField = independentField === Field.CURRENCY_A ? Field.CURRENCY_B : Field.CURRENCY_A
 
   // currencies

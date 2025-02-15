@@ -1,4 +1,4 @@
-import { AVERAGE_CHAIN_BLOCK_TIMES, ChainId, chainNames, getChainName } from '@pancakeswap/chains'
+import { AVERAGE_CHAIN_BLOCK_TIMES, basicChainId, ChainId, chainNames, getChainName } from '@pancakeswap/chains'
 import { TranslateFunction, useTranslation } from '@pancakeswap/localization'
 import { Box, Card, Flex, InfoIcon, Text, useTooltip } from '@pancakeswap/uikit'
 import useSubgraphHealth, { SubgraphStatus } from 'hooks/useSubgraphHealth'
@@ -116,8 +116,8 @@ export const SubgraphHealthIndicator: React.FC<SubgraphHealthIndicatorProps> = (
   const chainName = useMemo(
     () =>
       chainId
-        ? getChainName(chainId!)?.toUpperCase() ?? chainNames[ChainId.BSC].toUpperCase()
-        : chainNames[ChainId.BSC].toUpperCase(),
+        ? getChainName(chainId!)?.toUpperCase() ?? chainNames[basicChainId].toUpperCase()
+        : chainNames[basicChainId].toUpperCase(),
     [chainId],
   )
   const indicatorProps = indicator(t, chainName, customDescriptions)

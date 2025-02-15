@@ -53,7 +53,7 @@ const config: (
     },
     {
       label: t('Earn'),
-      href: '/liquidity/pools',
+      href: '/liquidity/positions',
       icon: EarnIcon,
       fillIcon: EarnFillIcon,
       image: '/images/decorations/pe2.png',
@@ -61,7 +61,7 @@ const config: (
       overrideSubNavItems: [
         {
           label: t('Farm / Liquidity'),
-          href: '/liquidity/pools',
+          href: '/liquidity/positions',
           supportChainIds: SUPPORT_FARMS,
         },
         {
@@ -73,7 +73,7 @@ const config: (
       items: [
         {
           label: t('Farm / Liquidity'),
-          href: '/liquidity/pools',
+          href: '/liquidity/positions',
           matchHrefs: ['/liquidity/positions', '/farms'],
           supportChainIds: SUPPORT_FARMS,
         },

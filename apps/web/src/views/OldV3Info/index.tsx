@@ -84,6 +84,8 @@ export default function Home() {
     return []
   }, [chartData])
 
+  console.log('formattedVolumeData', formattedVolumeData)
+
   const weeklyVolumeData = useTransformedVolumeData(chartData, 'week')
   const monthlyVolumeData = useTransformedVolumeData(chartData, 'month')
   const [volumeWindow, setVolumeWindow] = useState(VolumeWindow.daily)

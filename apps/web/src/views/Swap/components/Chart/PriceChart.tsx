@@ -1,11 +1,8 @@
+import { useTranslation } from '@pancakeswap/localization'
 import {
-  ButtonMenu,
-  ButtonMenuItem,
   ExpandIcon,
   Flex,
   IconButton,
-  LineGraphIcon,
-  CandleGraphIcon,
   PairPriceChartType,
   ShrinkIcon,
   SyncAltIcon,
@@ -13,9 +10,8 @@ import {
   useMatchBreakpoints,
 } from '@pancakeswap/uikit'
 import { CurrencyLogo, DoubleCurrencyLogo } from 'components/Logo'
-import { useTranslation } from '@pancakeswap/localization'
 import { useCallback, useState } from 'react'
-import SwapChart from './SwapChart'
+import SwapChart from './BasicChartOld'
 import { StyledPriceChart } from './styles'
 
 const PriceChart = ({
@@ -62,10 +58,10 @@ const PriceChart = ({
           <IconButton variant="text" onClick={onSwitchTokens}>
             <SyncAltIcon ml="6px" color="primary" />
           </IconButton>
-          <ButtonMenu scale="sm" activeIndex={chartType} onItemClick={setChartType} variant="primary">
+          {/* <ButtonMenu scale="sm" activeIndex={chartType} onItemClick={setChartType} variant="primary">
             <ButtonMenuItem>{isDesktop ? t('Basic') : <LineGraphIcon color="text" />}</ButtonMenuItem>
             <ButtonMenuItem>{isDesktop ? t('Candlestick') : <CandleGraphIcon color="text" />}</ButtonMenuItem>
-          </ButtonMenu>
+          </ButtonMenu> */}
         </Flex>
         {!isMobile && (
           <Flex>
@@ -76,7 +72,6 @@ const PriceChart = ({
         )}
       </Flex>
       <SwapChart
-        type={chartType}
         token0Address={token0Address}
         token1Address={token1Address}
         isChartExpanded={isChartExpanded}

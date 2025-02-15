@@ -209,6 +209,7 @@ export const fetchAllTokenDataByAddresses = async (
 
 export const fetchAllTokenData = async (chainName: MultiChainNameExtend, blocks: Block[]) => {
   const tokenAddresses = await fetchTokenAddresses(chainName)
+  console.log({ chainName, tokenAddresses })
   const data = await fetchAllTokenDataByAddresses(chainName, blocks, tokenAddresses)
   return data
 }

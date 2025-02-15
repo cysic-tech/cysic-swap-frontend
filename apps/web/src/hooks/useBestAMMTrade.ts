@@ -210,12 +210,6 @@ export function useBestAMMTrade({ type = 'quoter', ...params }: useBestAMMTradeO
     enabled: offchainQuoterEnabled,
   })
 
-  console.log(
-    'bestVerifiedTradeFromOffchainQuoter',
-    bestTradeFromOffchainQuoter,
-    offchainQuoterEnabled,
-    bestVerifiedTradeFromOffchainQuoter,
-  )
   const bestOffchainWithQuickOnChainQuote = useBetterQuote(
     bestVerifiedTradeFromOffchainQuoter,
     bestTradeFromQuickOnChainQuote,

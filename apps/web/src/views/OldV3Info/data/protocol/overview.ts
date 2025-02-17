@@ -44,9 +44,9 @@ export async function fetchProtocolData(
     // fetch all data
     const data = await dataClient.request<GlobalResponse>(GLOBAL_DATA())
 
-    const data24 = await dataClient.request<GlobalResponse>(GLOBAL_DATA(block24?.number ?? 0))
+    const data24 = await dataClient.request<GlobalResponse>(GLOBAL_DATA(block24?.number ?? 726648))
 
-    const data48 = await dataClient.request<GlobalResponse>(GLOBAL_DATA(block48?.number ?? 0))
+    const data48 = await dataClient.request<GlobalResponse>(GLOBAL_DATA(block48?.number ?? 726648))
 
     const parsed = data?.factories?.[0]
     const parsed24 = data24?.factories?.[0]

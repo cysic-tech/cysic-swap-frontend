@@ -15,7 +15,7 @@ export const ContentTwoActions = (props: AdPlayerProps) => {
 
   return (
     <AdCard imageUrl={getImageUrl('ad_quests.png')} {...props}>
-      <BodyText mb="0">{t('PancakeSwap Quest Beta Now Live!')}</BodyText>
+      <BodyText mb="0">{t('CysicSwap Quest Beta Now Live!')}</BodyText>
 
       <AdButton variant="text" href={learnMoreLink} isExternalLink>
         {t('Learn More')}

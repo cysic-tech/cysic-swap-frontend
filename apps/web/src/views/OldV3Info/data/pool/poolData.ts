@@ -169,6 +169,7 @@ export async function fetchPoolDatas(
           ? [parseFloat(current.volumeUSD), 0]
           : [0, 0]
 
+      console.log(current, week)
       const volumeUSDWeek =
         current && week
           ? parseFloat(current.volumeUSD) - parseFloat(week.volumeUSD)

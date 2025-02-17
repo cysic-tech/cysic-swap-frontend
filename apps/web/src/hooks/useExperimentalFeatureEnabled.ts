@@ -1,4 +1,4 @@
-import { atom, useAtom, useSetAtom, useAtomValue } from 'jotai'
+import { atom, useAtom, useAtomValue, useSetAtom } from 'jotai'
 import Cookies from 'js-cookie'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
@@ -38,8 +38,9 @@ const hasFeatureFlagsInCookies = (feature: EXPERIMENTAL_FEATURES) =>
   Cookies.get(getCookieKey(feature))?.toString() === 'true'
 
 export function useExperimentalFeatureEnabled(feature: EXPERIMENTAL_FEATURES) {
-  const { enabled } = useExperimentalFeature(feature)
-  return enabled
+  return false
+  // const { enabled } = useExperimentalFeature(feature)
+  // return enabled
 }
 
 export function useLoadExperimentalFeatures() {

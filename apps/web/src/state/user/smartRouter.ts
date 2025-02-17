@@ -51,7 +51,7 @@ const derivedRoutingSettingChangedAtom = atom(
     ].some((x) => x === false)
   },
   (_, set) => {
-    set(userUseStableSwapAtom, true)
+    set(userUseStableSwapAtom, false)
     set(userUseV2SwapAtom, true)
     set(userUseV3SwapAtom, true)
     set(userUserSplitRouteAtom, true)

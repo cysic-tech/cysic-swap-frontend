@@ -88,7 +88,7 @@ function MyApp(props: AppProps<{ initialReduxState: any; dehydratedState: any }>
         />
         <meta
           name="description"
-          content="Cheaper and faster than Uniswap? Discover PancakeSwap, the leading DEX on BNB Smart Chain (BSC) with the best farms in DeFi and a lottery for CAKE."
+          content="Cysic is a real-time ZK Proof Generation Layer with State-of-the-Art hardware and prover network."
         />
         <meta name="theme-color" content="#00F0FF" />
         {(Component as NextPageWithLayout).mp && (

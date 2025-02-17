@@ -1,8 +1,8 @@
 {
-  "short_name": "PancakeSwap",
-  "name": "PancakeSwap",
-  "description": "Farm CAKE with Pancake LP Tokens",
-  "homepage_url": "https://pancakeswap.finance",
+  "short_name": "CysicSwap",
+  "name": "CysicSwap",
+  "description": "Cysic is a real-time ZK Proof Generation Layer with State-of-the-Art hardware and prover network.",
+  "homepage_url": "https://cysic.xyz/",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#00F0FF",
@@ -20,5 +20,5 @@
       "sizes": "256x256"
     }
   ],
-  "iconPath": "/images/cake.svg"
+  "iconPath": "/images/cys.svg"
 }

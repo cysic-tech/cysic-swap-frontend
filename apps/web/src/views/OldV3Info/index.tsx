@@ -84,8 +84,6 @@ export default function Home() {
     return []
   }, [chartData])
 
-  console.log('formattedVolumeData', formattedVolumeData)
-
   const weeklyVolumeData = useTransformedVolumeData(chartData, 'week')
   const monthlyVolumeData = useTransformedVolumeData(chartData, 'month')
   const [volumeWindow, setVolumeWindow] = useState(VolumeWindow.daily)
@@ -114,7 +112,7 @@ export default function Home() {
   return (
     <Page>
       <Heading scale="lg" mb="16px">
-        {t('PancakeSwap Info & Analytics')}
+        {t('CysicSwap Info & Analytics')}
       </Heading>
       <ChartCardsContainer>
         <Card>

@@ -1,4 +1,4 @@
-import { styled, css, keyframes } from 'styled-components'
+import { css, keyframes, styled } from 'styled-components'
 
 const rotate = keyframes`
   from {
@@ -78,7 +78,8 @@ export const LocalLoader = ({ fill }: { fill: boolean }) => {
   return (
     <Wrapper fill={fill ? 1 : 0}>
       <AnimatedImg>
-        <img src="https://assets.pancakeswap.finance/web/pancake-3d-spinner-v2.gif" alt="loading-icon" />
+        {/* <img src="https://assets.pancakeswap.finance/web/pancake-3d-spinner-v2.gif" alt="loading-icon" /> */}
+        <img style={{ width: '128px' }} src="https://cysic.xyz/assets/logo-animated.svg" alt="loading-icon" />
       </AnimatedImg>
     </Wrapper>
   )

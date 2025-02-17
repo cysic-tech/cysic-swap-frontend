@@ -73,7 +73,7 @@ export const CustomizeRoutingTab = memo(() => {
         <AtomBox>
           <Flex justifyContent="space-between" alignItems="center" mb="24px">
             <Flex alignItems="center">
-              <Text>PancakeSwap V3</Text>
+              <Text>CysicSwap V3</Text>
               <QuestionHelper
                 text={
                   <Flex>
@@ -97,7 +97,7 @@ export const CustomizeRoutingTab = memo(() => {
           </Flex>
           <Flex justifyContent="space-between" alignItems="center" mb="24px">
             <Flex alignItems="center">
-              <Text>PancakeSwap V2</Text>
+              <Text>CysicSwap V2</Text>
               <QuestionHelper
                 text={
                   <Flex flexDirection="column">
@@ -120,9 +120,9 @@ export const CustomizeRoutingTab = memo(() => {
               onChange={() => setV2Enable((s) => !s)}
             />
           </Flex>
-          <Flex justifyContent="space-between" alignItems="center" mb="24px">
+          {/* <Flex justifyContent="space-between" alignItems="center" mb="24px">
             <Flex alignItems="center">
-              <Text>PancakeSwap {t('StableSwap')}</Text>
+              <Text>CysicSwap {t('StableSwap')}</Text>
               <QuestionHelper
                 text={
                   <Flex flexDirection="column">
@@ -146,7 +146,7 @@ export const CustomizeRoutingTab = memo(() => {
                 setIsStableSwapByDefault((s) => !s)
               }}
             />
-          </Flex>
+          </Flex> */}
           {onlyOneAMMSourceEnabled && (
             <Message variant="warning">
               <MessageText>
@@ -157,13 +157,13 @@ export const CustomizeRoutingTab = memo(() => {
         </AtomBox>
         <AtomBox>
           <PreTitle mb="24px">{t('Routing preference')}</PreTitle>
-          <Flex justifyContent="space-between" alignItems="center" mb="24px">
+          {/* <Flex justifyContent="space-between" alignItems="center" mb="24px">
             <Flex alignItems="center">
               <Text>{t('Fast routing (BETA)')}</Text>
               <QuestionHelper text={t('Increase the speed of finding best swapping routes')} placement="top" ml="4px" />
             </Flex>
             <Toggle id="toggle-speed-quote" checked={speedQuote} onChange={() => setSpeedQuote((s) => !s)} scale="md" />
-          </Flex>
+          </Flex> */}
           <Flex justifyContent="space-between" alignItems="center" mb="24px">
             <Flex>
               <Text>{t('Allow Multihops')}</Text>

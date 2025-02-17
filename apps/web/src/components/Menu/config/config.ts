@@ -65,8 +65,8 @@ const config: (
           supportChainIds: SUPPORT_FARMS,
         },
         {
-          label: t('Position Manager'),
-          href: '/position-managers',
+          label: t('Liquidity Manager'),
+          href: '/add',
           supportChainIds: POSITION_MANAGERS_SUPPORTED_CHAINS,
         },
       ].map((item) => addMenuItemSupported(item, chainId)),
@@ -78,8 +78,8 @@ const config: (
           supportChainIds: SUPPORT_FARMS,
         },
         {
-          label: t('Position Manager'),
-          href: '/position-managers',
+          label: t('Liquidity Manager'),
+          href: '/add',
           supportChainIds: POSITION_MANAGERS_SUPPORTED_CHAINS,
         },
       ].map((item) => addMenuItemSupported(item, chainId)),

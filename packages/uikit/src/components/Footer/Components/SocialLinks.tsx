@@ -1,10 +1,10 @@
 import React from "react";
+import useMatchBreakpoints from "../../../contexts/MatchBreakpoints/useMatchBreakpoints";
 import { FlexProps } from "../../Box";
 import Flex from "../../Box/Flex";
 import Dropdown from "../../Dropdown/Dropdown";
 import Link from "../../Link/Link";
 import { socials } from "../config";
-import useMatchBreakpoints from "../../../contexts/MatchBreakpoints/useMatchBreakpoints";
 
 const SocialLinks: React.FC<React.PropsWithChildren<FlexProps>> = ({ ...props }) => {
   const { isMobile } = useMatchBreakpoints();

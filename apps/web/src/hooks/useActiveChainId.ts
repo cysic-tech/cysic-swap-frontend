@@ -1,4 +1,4 @@
-import { ChainId } from '@pancakeswap/chains'
+import { basicChainId } from '@pancakeswap/chains'
 import { getChainId } from 'config/chains'
 import { atom, useAtom, useAtomValue } from 'jotai'
 import { useRouter } from 'next/router'
@@ -50,7 +50,7 @@ export const useActiveChainId = () => {
   const queryChainId = useAtomValue(queryChainIdAtom)
 
   const { chainId: wagmiChainId } = useAccount()
-  const chainId = localChainId ?? wagmiChainId ?? (queryChainId >= 0 ? ChainId.CYSIC : undefined)
+  const chainId = localChainId ?? wagmiChainId ?? (queryChainId >= 0 ? basicChainId : undefined)
 
   const isNotMatched = useDeferredValue(wagmiChainId && localChainId && wagmiChainId !== localChainId)
   const isWrongNetwork = useMemo(
@@ -59,7 +59,7 @@ export const useActiveChainId = () => {
   )
 
   return {
-    chainId: chainId && isChainSupported(chainId) ? chainId : ChainId.CYSIC,
+    chainId: chainId && isChainSupported(chainId) ? chainId : basicChainId,
     isWrongNetwork,
     isNotMatched,
   }

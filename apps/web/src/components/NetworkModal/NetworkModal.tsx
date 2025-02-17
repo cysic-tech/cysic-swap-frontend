@@ -1,4 +1,4 @@
-import { ChainId } from '@pancakeswap/chains'
+import { basicChainId } from '@pancakeswap/chains'
 import { ModalV2 } from '@pancakeswap/uikit'
 import { SUPPORT_ONLY_BSC } from 'config/constants/supportChains'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
@@ -27,7 +27,7 @@ export const NetworkModal = ({ pageSupportedChains = SUPPORT_ONLY_BSC }: { pageS
   const [dismissWrongNetwork, setDismissWrongNetwork] = useAtom(hideWrongNetworkModalAtom)
 
   const isBNBOnlyPage = useMemo(() => {
-    return pageSupportedChains?.length === 1 && pageSupportedChains[0] === ChainId.BSC
+    return pageSupportedChains?.length === 1 && pageSupportedChains[0] === basicChainId
   }, [pageSupportedChains])
 
   const isPageNotSupported = useMemo(
@@ -50,6 +50,7 @@ export const NetworkModal = ({ pageSupportedChains = SUPPORT_ONLY_BSC }: { pageS
     const currentChain = Object.values(viemClients)
       .map((client) => client.chain)
       .find((c) => c?.id === chainId)
+
     if (!currentChain) return null
     return (
       <ModalV2 isOpen={isWrongNetwork} closeOnOverlayClick={false} onDismiss={handleDismiss}>

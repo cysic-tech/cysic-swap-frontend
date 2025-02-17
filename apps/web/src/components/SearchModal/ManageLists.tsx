@@ -14,7 +14,6 @@ import {
   CogIcon,
   Column,
   Input,
-  LinkExternal,
   Text,
   Toggle,
   useConfirm,
@@ -101,9 +100,9 @@ const ListRow = memo(function ListRow({ listUrl }: { listUrl: string }) {
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     <div>
       <Text>{list && listVersionLabel(list.version)}</Text>
-      <LinkExternal external href={`https://tokenlists.org/token-list?url=${listUrl}`}>
+      {/* <LinkExternal external href={`https://tokenlists.org/token-list?url=${listUrl}`}>
         {t('See')}
-      </LinkExternal>
+      </LinkExternal> */}
       <Button variant="danger" scale="xs" onClick={handleRemoveList} disabled={Object.keys(listsByUrl).length === 1}>
         {t('Remove')}
       </Button>
@@ -228,7 +227,7 @@ function ManageLists({
 
         if (l1 && l2) {
           // Always make PancakeSwap list in top.
-          const keyword = 'pancakeswap'
+          const keyword = 'cysicswap'
           if (!l1.name.toLowerCase().includes(keyword) && l2.name.toLowerCase().includes(keyword)) {
             return 1
           }
@@ -251,10 +250,15 @@ function ManageLists({
 
   useEffect(() => {
     // if valid url, fetch details for card
+    // https://raw.githubusercontent.com/cysic-tech/token-list/refs/heads/master/default/cysic-testnet.json
     if (validUrl) {
       fetchList(listUrlInput, false)
-        .then((list) => setTempList(list))
-        .catch(() => setAddError('Error importing list'))
+        .then((list) => {
+          setTempList(list)
+        })
+        .catch((e) => {
+          setAddError('Error importing list')
+        })
     } else {
       setTempList(undefined)
       if (listUrlInput !== '') {

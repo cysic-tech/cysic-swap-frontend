@@ -31,7 +31,6 @@ export default function useAllV3TicksQuery(poolAddress: string | undefined, inte
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
   })
-
   return useMemo(
     () => ({
       error,

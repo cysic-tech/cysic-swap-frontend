@@ -4,9 +4,9 @@ import { ASSET_CDN } from './endpoints'
 import { PageMeta } from './types'
 
 export const DEFAULT_META: PageMeta = {
-  title: 'PancakeSwap',
-  description: 'Trade, earn, and own crypto on the all-in-one multichain DEX',
-  image: `${ASSET_CDN}/web/og/hero.jpg`,
+  title: 'CysicSwap',
+  description: 'Cysic is a real-time ZK Proof Generation Layer with State-of-the-Art hardware and prover network.',
+  // image: `${ASSET_CDN}/web/og/hero.jpg`,
 }
 
 interface PathList {
@@ -82,7 +82,7 @@ const getPathList = memoize((t: ContextApi['t']): PathList => {
       '/buy-crypto': { basePath: true, title: t('Buy Crypto') },
       '/gauges-voting': { basePath: true, title: t('Gauges Voting') },
     },
-    defaultTitleSuffix: t('PancakeSwap'),
+    defaultTitleSuffix: t('CysicSwap'),
   }
 })
 

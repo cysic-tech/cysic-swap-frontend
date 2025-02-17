@@ -65,7 +65,7 @@ const cysicTestnetMetadata: chainMetadata = {
     pairs: 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/pairs',
     'user-position-v3': 'https://dev-swap.prover.xyz/subgraphs/name/cysicswap/user-position-v3',
   },
-  network: 'cysic-dev',
+  network: 'cysicTestnet',
   // v3
   MasterChefV3: '0xa83189171653573d1862eef403929617C11183E9',
   SmartRouter: '0x395eCBa6E575bAaC6C3c9082d3a47F76C640E365',

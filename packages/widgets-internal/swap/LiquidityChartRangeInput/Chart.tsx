@@ -1,7 +1,7 @@
 import { useTheme } from "@pancakeswap/hooks";
 import { max, scaleLinear, ZoomTransform } from "d3";
-import { useEffect, useMemo, useRef, useState } from "react";
 import partition from "lodash/partition";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { Area } from "./Area";
 import { AxisBottom } from "./AxisBottom";

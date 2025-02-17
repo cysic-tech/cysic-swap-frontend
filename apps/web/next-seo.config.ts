@@ -1,17 +1,17 @@
 import { DefaultSeoProps } from 'next-seo'
 
 export const SEO: DefaultSeoProps = {
-  titleTemplate: '%s | PancakeSwap',
-  defaultTitle: 'PancakeSwap',
-  description: 'Trade, earn, and own crypto on the all-in-one multichain DEX',
+  titleTemplate: '%s | CysicSwap',
+  defaultTitle: 'CysicSwap',
+  description: 'Cysic is a real-time ZK Proof Generation Layer with State-of-the-Art hardware and prover network',
   twitter: {
     cardType: 'summary_large_image',
-    handle: '@PancakeSwap',
-    site: '@PancakeSwap',
+    handle: '@CysicSwap',
+    site: '@CysicSwap',
   },
   openGraph: {
-    title: "🥞 PancakeSwap - Everyone's Favorite DEX",
-    description: 'Trade, earn, and own crypto on the all-in-one multichain DEX',
-    images: [{ url: 'https://assets.pancakeswap.finance/web/og/v2/hero.jpg' }],
+    title: 'CysicSwap',
+    description: 'Cysic is a real-time ZK Proof Generation Layer with State-of-the-Art hardware and prover network',
+    images: [{ url: 'https://cysic.xyz/assets/logo.svg' }],
   },
 }

@@ -49,8 +49,8 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
         <Flex
           order={[2, null, 1]}
           flexDirection={["column", "column", "column", "column", "row", "row"]}
-          justifyContent="space-between"
-          alignItems="flex-start"
+          justifyContent="center"
+          alignItems="center"
           mb={["42px", null, "36px"]}
           width="100%"
         >
@@ -77,7 +77,9 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
               ))}
             </StyledList>
           ))}
-          <Box display={["none", null, "block"]}>{isXl ? <LogoIcon /> : <LogoWithTextIcon width="160px" />}</Box>
+          <Box display={["none", null, "block"]}>
+            {isXl ? <LogoIcon /> : <LogoWithTextIcon style={{ width: "160px" }} width="160px" />}
+          </Box>
         </Flex>
         <StyledSocialLinks
           justifyContent="center"

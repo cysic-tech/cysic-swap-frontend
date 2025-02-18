@@ -1,0 +1,24 @@
+{
+  "short_name": "CysicSwap",
+  "name": "CysicSwap",
+  "description": "Cysic is a real-time ZK Proof Generation Layer with State-of-the-Art hardware and prover network.",
+  "homepage_url": "https://cysic.xyz/",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#00F0FF",
+  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "16x16"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }
+  ],
+  "iconPath": "/images/cys.svg"
+}

@@ -1,0 +1,42 @@
+# Stage 1: Build the application
+FROM node:18 as builder
+
+# 设置工作目录
+WORKDIR /app
+
+# 复制 package.json 和 pnpm-lock.yaml 文件
+#COPY package.json pnpm-lock.yaml pnpm-workspace.yaml  ./
+# 复制所有项目文件到容器
+COPY . .
+
+# 安装 pnpm
+RUN npm install -g pnpm
+
+# 安装依赖
+RUN pnpm install --force
+
+# 构建项目
+RUN pnpm build || true
+
+# Stage 2: Serve the application with nginx
+FROM nginx:alpine
+
+# 安装 Node.js、npm 和 pnpm
+RUN apk add --no-cache nodejs npm && npm install -g pnpm
+
+# 复制整个构建后的 /app 目录到 /app
+COPY --from=builder /app /app
+
+# 复制自定义 nginx 配置文件
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# 复制入口脚本
+COPY entrypoint.sh /entrypoint.sh
+
+RUN chmod +x /entrypoint.sh
+
+# 暴露端口
+EXPOSE 8080
+
+# 启动 nginx
+CMD ["/entrypoint.sh"]

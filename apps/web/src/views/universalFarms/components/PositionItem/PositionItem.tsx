@@ -1,12 +1,12 @@
-import { CHAIN_QUERY_NAME } from 'config/chains'
-import { PERSIST_CHAIN_KEY } from 'config/constants'
-import { useRouter } from 'next/router'
 import { Protocol } from '@pancakeswap/farms'
 import { Currency, CurrencyAmount, Token } from '@pancakeswap/swap-sdk-core'
 import { Column, Flex, useMatchBreakpoints } from '@pancakeswap/uikit'
 import { TokenPairLogo } from 'components/TokenImage'
-import { PositionDetail, StableLPDetail, V2LPDetail } from 'state/farmsV4/state/accountPositions/type'
+import { CHAIN_QUERY_NAME } from 'config/chains'
+import { PERSIST_CHAIN_KEY } from 'config/constants'
+import { useRouter } from 'next/router'
 import React, { PropsWithChildren, useCallback, useMemo } from 'react'
+import { PositionDetail, StableLPDetail, V2LPDetail } from 'state/farmsV4/state/accountPositions/type'
 import { PoolInfo } from 'state/farmsV4/state/type'
 import styled from 'styled-components'
 import { addQueryToPath } from 'utils/addQueryToPath'
@@ -59,6 +59,8 @@ export const PositionItem: React.FC<PropsWithChildren<PositionItemProps>> = (pro
   if (!(currency0 && currency1)) {
     return <PositionItemSkeleton />
   }
+
+  console.log('--', currency0, currency1)
 
   const content = (
     <Container>

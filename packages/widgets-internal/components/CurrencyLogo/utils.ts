@@ -7,7 +7,7 @@ import { CurrencyInfo } from "./types";
 
 const mapping: { [key: number]: string } = {
   [ChainId.CYSIC]: "cysic",
-  [ChainId.CYSIC_TESTNET]: "cysicTestnet",
+  [ChainId.CYSIC_TESTNET]: "cysic-testnet",
   [ChainId.BSC]: "smartchain",
   [ChainId.ETHEREUM]: "ethereum",
   [ChainId.POLYGON_ZKEVM]: "polygonzkevm",
@@ -22,9 +22,9 @@ const mapping: { [key: number]: string } = {
 export const getTokenLogoURL = memoize(
   (token?: Token) => {
     if (token && mapping[token.chainId]) {
-      return `https://assets-cdn.trustwallet.com/blockchains/${mapping[token.chainId]}/assets/${getAddress(
-        token.address
-      )}/logo.png`;
+      return `https://raw.githubusercontent.com/cysic-tech/token-list/master/assets/${
+        mapping[token.chainId]
+      }/${getAddress(token.address).toLowerCase()}.svg`;
     }
     return null;
   },
@@ -34,9 +34,9 @@ export const getTokenLogoURL = memoize(
 export const getTokenLogoURLByAddress = memoize(
   (address?: string, chainId?: number) => {
     if (address && chainId && mapping[chainId]) {
-      return `https://assets-cdn.trustwallet.com/blockchains/${mapping[chainId]}/assets/${getAddress(
+      return `https://raw.githubusercontent.com/cysic-tech/token-list/master/assets/${mapping[chainId]}/${getAddress(
         address
-      )}/logo.png`;
+      ).toLowerCase()}.svg`;
     }
     return null;
   },
@@ -52,20 +52,24 @@ export const chainName: { [key: number]: string } = {
   [ChainId.LINEA]: "linea",
   [ChainId.BASE]: "base",
   [ChainId.OPBNB]: "opbnb",
+  [ChainId.CYSIC]: "cysic",
+  [ChainId.CYSIC_TESTNET]: "cysic-testnet",
 };
 
 // TODO: move to utils or token-list
 export const getTokenListBaseURL = (chainId: number) =>
-  `https://tokens.pancakeswap.finance/images/${chainName[chainId]}`;
+  `https://raw.githubusercontent.com/cysic-tech/token-list/master/chain/${chainName[chainId]}`;
 
 export const getTokenListTokenUrl = (token: Pick<Token, "chainId" | "address">) =>
   Object.keys(chainName).includes(String(token.chainId))
-    ? `https://tokens.pancakeswap.finance/images/${
-        token.chainId === ChainId.BSC ? "" : `${chainName[token.chainId]}/`
-      }${token.address}.png`
+    ? `https://raw.githubusercontent.com/cysic-tech/token-list/master/assets/${
+        chainName[token.chainId]
+      }/${token.address?.toLowerCase()}.svg`
     : null;
 
 const commonCurrencySymbols = [
+  NATIVE[ChainId.CYSIC],
+  NATIVE[ChainId.CYSIC_TESTNET],
   ethereumTokens.usdt,
   ethereumTokens.usdc,
   bscTokens.cake,
@@ -85,7 +89,7 @@ export const getCommonCurrencyUrl = memoize(
 export const getCommonCurrencyUrlBySymbol = memoize(
   (symbol?: string): string | undefined =>
     symbol && commonCurrencySymbols.includes(symbol)
-      ? `https://tokens.pancakeswap.finance/images/symbol/${symbol.toLocaleLowerCase()}.png`
+      ? `https://raw.githubusercontent.com/cysic-tech/token-list/master/assets/${symbol.toLocaleLowerCase()}.svg`
       : undefined,
   (symbol?: string) => `logoUrls#symbol#${symbol}`
 );

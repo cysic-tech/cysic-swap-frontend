@@ -30,6 +30,18 @@ export const safeGetAddress = memoize((value: any): Address | undefined => {
   }
 })
 
+export const safeGetAddressToLowercase = memoize((value: any): Address | undefined => {
+  try {
+    let value_ = value
+    if (typeof value === 'string' && !value.startsWith('0x')) {
+      value_ = `0x${value}`
+    }
+    return checksumAddress(value_)?.toLowerCase() as `0x${string}`
+  } catch {
+    return undefined
+  }
+})
+
 export function getBlockExploreLink(
   data: string | number | undefined | null,
   type: 'transaction' | 'token' | 'address' | 'block' | 'countdown',

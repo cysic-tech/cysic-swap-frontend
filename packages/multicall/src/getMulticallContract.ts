@@ -17,7 +17,7 @@ export function getMulticallContract({ chainId, client }: Params) {
 
   return getContract({ abi: iMulticallABI, address, client: client as PublicClient })
 }
-
 export function getMulticall3ContractAddress(chainId?: ChainId): Address {
-  return MULTICALL3_ADDRESSES[chainId || basicChainId] || MULTICALL3_ADDRESS
+  const id = chainId || basicChainId
+  return MULTICALL3_ADDRESSES[id as keyof typeof MULTICALL3_ADDRESSES] || MULTICALL3_ADDRESS
 }

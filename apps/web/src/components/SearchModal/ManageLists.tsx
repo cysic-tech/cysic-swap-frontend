@@ -250,7 +250,7 @@ function ManageLists({
 
   useEffect(() => {
     // if valid url, fetch details for card
-    // https://raw.githubusercontent.com/cysic-tech/token-list/refs/heads/master/default/cysic-testnet.json
+    // https://raw.githubusercontent.com/cysic-tech/token-list/refs/heads/master/chain/cysic-testnet.json
     if (validUrl) {
       fetchList(listUrlInput, false)
         .then((list) => {

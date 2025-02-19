@@ -10,9 +10,9 @@ export const PANCAKE_ARB_DEFAULT = 'https://tokens.pancakeswap.finance/pancakesw
 export const PANCAKE_LINEA_DEFAULT = 'https://tokens.pancakeswap.finance/pancakeswap-linea-default.json'
 export const PANCAKE_BASE_DEFAULT = 'https://tokens.pancakeswap.finance/pancakeswap-base-default.json'
 export const PANCAKE_OPBNB_DEFAULT = 'https://tokens.pancakeswap.finance/pancakeswap-opbnb-default.json'
-export const PANCAKE_CYSIC_DEFAULT = 'https://raw.githubusercontent.com/cysic-tech/token-list/master/default/cysic.json'
+export const PANCAKE_CYSIC_DEFAULT = 'https://raw.githubusercontent.com/cysic-tech/token-list/master/chain/cysic.json'
 export const PANCAKE_CYSIC_TESTNET_DEFAULT =
-  'https://raw.githubusercontent.com/cysic-tech/token-list/master/default/cysic-testnet.json'
+  'https://raw.githubusercontent.com/cysic-tech/token-list/master/chain/cysic-testnet.json'
 
 export const PANCAKE_ETH_MM = 'https://tokens.pancakeswap.finance/pancakeswap-eth-mm.json'
 export const PANCAKE_BSC_MM = 'https://tokens.pancakeswap.finance/pancakeswap-bnb-mm.json'

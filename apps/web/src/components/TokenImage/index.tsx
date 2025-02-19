@@ -9,7 +9,6 @@ import {
   TokenPairLogo as UIKitTokenPairLogo,
 } from '@pancakeswap/uikit'
 import uriToHttp from '@pancakeswap/utils/uriToHttp'
-import { ASSET_CDN } from 'config/constants/endpoints'
 import { useMemo } from 'react'
 
 interface TokenPairImageProps extends Omit<UIKitTokenPairImageProps, 'primarySrc' | 'secondarySrc'> {
@@ -19,6 +18,8 @@ interface TokenPairImageProps extends Omit<UIKitTokenPairImageProps, 'primarySrc
 }
 
 export const tokenImageChainNameMapping = {
+  [ChainId.CYSIC]: 'cysic',
+  [ChainId.CYSIC_TESTNET]: 'cysic-testnet',
   [ChainId.BSC]: '',
   [ChainId.ETHEREUM]: 'eth/',
   [ChainId.POLYGON_ZKEVM]: 'polygon-zkevm/',
@@ -33,9 +34,9 @@ export const getImageUrlFromToken = (token: Currency) => {
   const address = token?.isNative ? token.wrapped.address : token?.address
 
   return token
-    ? token.isNative && token.chainId !== ChainId.BSC
-      ? `${ASSET_CDN}/web/native/${token.chainId}.png`
-      : `https://tokens.pancakeswap.finance/images/${tokenImageChainNameMapping[token.chainId]}${address}.png`
+    ? `https://raw.githubusercontent.com/cysic-tech/token-list/master/assets/${
+        tokenImageChainNameMapping[token.chainId]
+      }/${address?.toLowerCase()}.svg`
     : ''
 }
 

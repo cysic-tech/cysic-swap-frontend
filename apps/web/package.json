@@ -144,7 +144,7 @@
     "uuid": "^8.0.0",
     "viem": "catalog:",
     "wagmi": "catalog:",
-    "zod": "^3.22.3"
+    "zod": "^4.6.6"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "14.2.3",
